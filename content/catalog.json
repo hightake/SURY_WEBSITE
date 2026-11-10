@@ -1,0 +1,187 @@
+{
+  "categories": [
+    {
+      "slug": "hats",
+      "name": "כובעי SURY",
+      "order": 1,
+      "cover": null,
+      "intro": "",
+      "subcategories": [
+        {
+          "slug": "classic-decorated",
+          "name": "כובעים קלאסיים עם קישוט",
+          "order": 1,
+          "products": []
+        },
+        {
+          "slug": "modo",
+          "name": "MODO – כובע מודולרי",
+          "order": 2,
+          "products": []
+        },
+        {
+          "slug": "modo-classic",
+          "name": "MODO קלאסי",
+          "order": 3,
+          "products": []
+        },
+        {
+          "slug": "modo-tops-bows",
+          "name": "עליוניות וקשתות למודולרי",
+          "order": 4,
+          "products": []
+        },
+        {
+          "slug": "tie-patent",
+          "name": "פטנט קשירה",
+          "order": 5,
+          "products": []
+        },
+        {
+          "slug": "longi-tie",
+          "name": "קשירת לונגי",
+          "order": 6,
+          "products": []
+        },
+        {
+          "slug": "modo-bandana",
+          "name": "בנדנת MODO",
+          "order": 7,
+          "products": []
+        },
+        {
+          "slug": "hat-bases",
+          "name": "בסיסים לכובעים",
+          "order": 8,
+          "products": []
+        },
+        {
+          "slug": "accessories",
+          "name": "קישוטים ואקססוריז",
+          "order": 9,
+          "products": []
+        }
+      ]
+    },
+    {
+      "slug": "bandanas",
+      "name": "בנדנות",
+      "order": 2,
+      "cover": null,
+      "intro": "",
+      "subcategories": [
+        {
+          "slug": "silk",
+          "name": "בנדנות משי",
+          "order": 1,
+          "products": []
+        },
+        {
+          "slug": "bandana-air",
+          "name": "Bandana Air",
+          "order": 2,
+          "products": []
+        },
+        {
+          "slug": "designed",
+          "name": "בנדנות מעוצבות",
+          "order": 3,
+          "products": []
+        }
+      ]
+    },
+    {
+      "slug": "cloa",
+      "name": "CLOA – אופנת בית",
+      "order": 3,
+      "cover": null,
+      "intro": "",
+      "subcategories": [
+        {
+          "slug": "nightgowns",
+          "name": "כותנות לילה",
+          "order": 1,
+          "products": []
+        },
+        {
+          "slug": "bandana-sets",
+          "name": "סטים עם בנדנה תואמת",
+          "order": 2,
+          "products": []
+        },
+        {
+          "slug": "robes",
+          "name": "חלוקים",
+          "order": 3,
+          "products": []
+        },
+        {
+          "slug": "home-tops",
+          "name": "חולצות בית",
+          "order": 4,
+          "products": []
+        }
+      ]
+    },
+    {
+      "slug": "scarves",
+      "name": "מטפחות וצעיפים",
+      "order": 4,
+      "cover": null,
+      "intro": "",
+      "subcategories": [
+        {
+          "slug": "soie-la",
+          "name": "Soie La – מטפחות משי",
+          "order": 1,
+          "products": []
+        },
+        {
+          "slug": "faux-silk-tichels",
+          "name": "מטפחות דמוי משי",
+          "order": 2,
+          "products": []
+        },
+        {
+          "slug": "faux-silk-scarves",
+          "name": "צעיפים דמוי משי",
+          "order": 3,
+          "products": []
+        },
+        {
+          "slug": "cashmere",
+          "name": "צעיפים ומטפחות קשמיר",
+          "order": 4,
+          "products": []
+        }
+      ]
+    },
+    {
+      "slug": "blanche",
+      "name": "BLANCHE – חגיגיות לבנה",
+      "order": 5,
+      "cover": null,
+      "intro": "",
+      "subcategories": [
+        {
+          "slug": "white-tichels",
+          "name": "מטפחות לבנות",
+          "order": 1,
+          "products": []
+        },
+        {
+          "slug": "white-aprons",
+          "name": "סינרים לבנים",
+          "order": 2,
+          "products": []
+        },
+        {
+          "slug": "matching-sets",
+          "name": "סטים תואמים",
+          "order": 3,
+          "products": []
+        }
+      ]
+    }
+  ]
+}
