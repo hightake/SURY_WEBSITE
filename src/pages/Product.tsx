@@ -76,7 +76,7 @@ export function Product() {
             href={whatsappLink(`שלום SURY, אשמח לפרטים על: ${product.name}`)}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn btn-primary mt-10 w-full sm:w-auto sm:px-12"
+            className="btn btn-wide btn-primary mt-10 w-full sm:w-auto sm:px-12"
           >
             <IconWhatsapp />
             לפרטים בוואטסאפ
