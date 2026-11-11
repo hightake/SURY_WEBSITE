@@ -1,0 +1,341 @@
+@import "tailwindcss";
+
+/* Brand tokens – from docs/מיתוג/מיתוג.md */
+@theme {
+  --color-bg: #f4ebe0;
+  --color-surface: #eadbc8;
+  --color-shade: #d9c3a8;
+  --color-primary: #6e1218;
+  --color-primary-dark: #4e0c10;
+  --color-ink: #1a1614;
+  --color-muted: #6b5d52;
+  --color-accent: #c9a04a;
+  --color-hero: #f9f2ec;
+
+  --font-sans: "Heebo", system-ui, sans-serif;
+  --font-serif: "Bodoni Moda", "Didot", Georgia, serif;
+
+  --ease-soft: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    background: var(--color-bg);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection {
+    background: var(--color-primary);
+    color: var(--color-bg);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 3px;
+  }
+  img {
+    display: block;
+    max-width: 100%;
+  }
+}
+
+@layer components {
+  .container-x {
+    width: 100%;
+    max-width: 1320px;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+  @media (min-width: 768px) {
+    .container-x {
+      padding-inline: 2.5rem;
+    }
+  }
+
+  .eyebrow {
+    font-family: var(--font-serif);
+    font-size: 0.8rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+  }
+
+  .latin {
+    font-family: var(--font-serif);
+    letter-spacing: 0.04em;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    min-height: 3rem;
+    padding: 0.75rem 1.75rem;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  }
+  .btn-primary {
+    background: var(--color-primary);
+    color: var(--color-bg);
+  }
+  .btn-primary:hover {
+    background: var(--color-primary-dark);
+  }
+  .btn-outline {
+    border: 1px solid var(--color-ink);
+    color: var(--color-ink);
+  }
+  .btn-outline:hover {
+    background: var(--color-ink);
+    color: var(--color-bg);
+  }
+
+  .link-underline {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-position: 100% 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.4s var(--ease-soft);
+  }
+  .link-underline:hover {
+    background-size: 100% 1px;
+  }
+
+  /* Arch frame – the plaster-niche motif */
+  .arch {
+    border-radius: 999px 999px 0 0;
+    overflow: hidden;
+  }
+
+  .field {
+    width: 100%;
+    min-height: 3rem;
+    padding: 0.75rem 1rem;
+    background: transparent;
+    border: 1px solid var(--color-shade);
+    color: var(--color-ink);
+    transition: border-color 0.2s;
+  }
+  .field:focus {
+    border-color: var(--color-primary);
+    outline: none;
+  }
+}
+
+/* ---------- Reveal on scroll ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 1s var(--ease-soft),
+    transform 1s var(--ease-soft);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---------- Plaster niches (brand worlds) ---------- */
+.niches-wall {
+  background:
+    radial-gradient(120% 70% at 50% 0%, #f7efe6 0%, transparent 60%),
+    linear-gradient(180deg, #efe3d5 0%, #e6d6c3 100%);
+}
+.niche {
+  position: relative;
+  display: block;
+  aspect-ratio: 9 / 16;
+  border-radius: 999px 999px 6px 6px;
+  background: linear-gradient(180deg, #e2d0bb 0%, #ead9c5 45%, #e3d0b9 100%);
+  box-shadow:
+    inset 0 18px 40px rgba(110, 80, 50, 0.28),
+    inset 0 -10px 30px rgba(110, 80, 50, 0.12),
+    0 1px 0 rgba(255, 255, 255, 0.6);
+  overflow: hidden;
+  isolation: isolate;
+}
+/* LED strip around the arch */
+.niche::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1px rgba(255, 236, 200, 0);
+  transition: box-shadow 1.2s var(--ease-soft);
+  z-index: 3;
+  pointer-events: none;
+}
+.niche-spot {
+  position: absolute;
+  top: 9%;
+  left: 50%;
+  width: 14%;
+  aspect-ratio: 1.6;
+  transform: translateX(-50%);
+  border-radius: 3px 3px 40% 40%;
+  background: linear-gradient(180deg, #b48a3c, #7d5b22);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.25);
+  z-index: 2;
+}
+.niche-spot::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 15%;
+  right: 15%;
+  height: 3px;
+  border-radius: 50%;
+  background: #fff3d6;
+  opacity: 0.2;
+  transition: opacity 0.6s;
+}
+.niche-beam {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(55% 40% at 50% 14%, rgba(255, 238, 205, 0.95) 0%, rgba(255, 228, 185, 0.35) 45%, transparent 75%),
+    radial-gradient(70% 22% at 50% 82%, rgba(255, 233, 196, 0.6) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 1.4s var(--ease-soft);
+  z-index: 1;
+  pointer-events: none;
+}
+.niche-dim {
+  position: absolute;
+  inset: 0;
+  background: rgba(70, 50, 32, 0.32);
+  transition: opacity 1.4s var(--ease-soft);
+  z-index: 2;
+  pointer-events: none;
+}
+.niche-item {
+  position: absolute;
+  left: 50%;
+  bottom: 15.5%;
+  width: 72%;
+  height: 58%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 1;
+  transition: transform 0.8s var(--ease-soft);
+}
+.niche-item img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 14px 14px rgba(60, 40, 20, 0.28));
+}
+.niche-item.is-tall {
+  height: 76%;
+  bottom: 14%;
+}
+.niche-pedestal {
+  position: absolute;
+  left: 50%;
+  bottom: 9%;
+  width: 70%;
+  height: 11%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: linear-gradient(180deg, #f6ede2 0%, #e8d8c4 55%, #d6c1a6 100%);
+  box-shadow:
+    0 10px 18px rgba(80, 55, 30, 0.25),
+    inset 0 2px 0 rgba(255, 255, 255, 0.7);
+  z-index: 0;
+}
+.niche.is-lit .niche-beam {
+  opacity: 1;
+}
+.niche.is-lit .niche-dim {
+  opacity: 0;
+}
+.niche.is-lit .niche-spot::after {
+  opacity: 1;
+  box-shadow: 0 0 14px 6px rgba(255, 236, 200, 0.85);
+}
+.niche.is-lit::before {
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 236, 200, 0.9),
+    inset 0 0 18px 2px rgba(255, 228, 180, 0.55);
+}
+@media (hover: hover) {
+  a:hover .niche-item,
+  a:focus-visible .niche-item {
+    transform: translateX(-50%) translateY(-6px) scale(1.03);
+  }
+}
+
+/* Horizontal scrollers */
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .niche .niche-beam {
+    opacity: 1;
+    transition: none;
+  }
+  .niche .niche-dim {
+    opacity: 0;
+    transition: none;
+  }
+  .niche::before,
+  .niche-item {
+    transition: none;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.niche::before,
+.niche-spot::after,
+.niche-beam,
+.niche-dim {
+  transition-delay: var(--d, 0ms);
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}

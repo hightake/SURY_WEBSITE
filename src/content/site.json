@@ -1,0 +1,1753 @@
+{
+  "settings": {
+    "phone": "02-5408888",
+    "whatsapp": "972503970444",
+    "whatsappDisplay": "050-3970444",
+    "email": "sury025408888@gmail.com",
+    "social": []
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "Headwear & accessories",
+      "titleBold": "מותג אחד",
+      "titleLight": "אינסוף אפשרויות",
+      "text": "כובעים, בנדנות, מטפחות ואופנת בית – בהתאמה מדויקת ובעבודת יד.",
+      "cta": "לגלות את העולמות",
+      "image": {
+        "src": "images/site/hero.webp",
+        "w": 1023,
+        "h": 1537,
+        "alt": "כובע SURY בקשירת לונגי בשזירת כסף וזהב, מבט מאחור"
+      }
+    },
+    "worlds": {
+      "title": "עולמות המותג",
+      "text": "חמישה עולמות, בית אחד."
+    },
+    "newCollection": {
+      "title": "הקולקציה החדשה",
+      "text": "פריטים נבחרים מהעונה."
+    },
+    "uniqueness": {
+      "title": "הייחוד של SURY",
+      "items": [
+        {
+          "title": "התאמה מדויקת",
+          "text": "כל כובע מותאם לראש, כך שהוא יושב נכון ונשאר במקום."
+        },
+        {
+          "title": "עבודת יד",
+          "text": "פרחים, אפליקציות וקשתות שנעשים ביד, פריט אחר פריט."
+        },
+        {
+          "title": "נוחות",
+          "text": "בסיסים וחומרים שנבחרו ליום שלם של נוחות."
+        },
+        {
+          "title": "איכות",
+          "text": "משי, בדים וגימורים ברמה של בוטיק."
+        },
+        {
+          "title": "מהדורות קטנות",
+          "text": "סדרות מוגבלות, כדי שכל פריט יישאר מיוחד."
+        }
+      ]
+    },
+    "storyTeaser": {
+      "title": "הסיפור שלנו",
+      "text": "SURY נולדה מתוך אמונה שכיסוי ראש יכול להיות גם נוח, גם מדויק וגם יפה במיוחד. היום היא בית לחמישה עולמות – מכובעים בעבודת יד ועד אופנת בית וחגיגיות לבנה.",
+      "cta": "לסיפור המלא",
+      "image": {
+        "src": "images/site/story.webp",
+        "w": 1122,
+        "h": 1402,
+        "alt": "תיק SURY עם מונוגרמת S וקווי זהב"
+      }
+    },
+    "stores": {
+      "title": "החנויות שלנו",
+      "text": "מחכות לך בשלוש חנויות."
+    },
+    "contact": {
+      "title": "נשמח לעזור",
+      "text": "שאלה על מוצר, התאמה או הזמנה – אנחנו כאן."
+    }
+  },
+  "pages": {
+    "story": {
+      "title": "הסיפור שלנו",
+      "lead": "מותג אחד, אינסוף אפשרויות.",
+      "image": {
+        "src": "images/site/story.webp",
+        "w": 1122,
+        "h": 1402,
+        "alt": "תיק SURY עם מונוגרמת S וקווי זהב"
+      },
+      "paragraphs": [
+        "SURY נולדה מתוך אמונה פשוטה: כיסוי ראש יכול להיות נוח, מדויק ויפה במיוחד – בלי לוותר על אף אחד מהם.",
+        "מכאן התחיל FIT SURY – כובעים שנבנים בהתאמה מדויקת לראש ובעבודת יד, עם פרחים, אפליקציות וקשתות שנוצרים פריט אחר פריט.",
+        "עם השנים SURY גדלה לחמישה עולמות תחת קורת גג אחת: כובעי SURY ו-MODO המודולרי, בנדנות משי ו-Bandana Air, אופנת הבית CLOA, מטפחות Soie La וצעיפי קשמיר, וקו BLANCHE לחגיגיות לבנה.",
+        "כל קו מקבל שם משלו ואופי משלו, וכולם חולקים את אותם ערכים: התאמה מדויקת, עבודת יד, נוחות, איכות ומהדורות קטנות.",
+        "מחכות לך בחנויות שלנו בירושלים, בבני ברק ובבית שמש – לבוא, למדוד ולמצוא את מה שמתאים בדיוק לך."
+      ]
+    },
+    "privacy": {
+      "title": "מדיניות פרטיות"
+    },
+    "accessibility": {
+      "title": "הצהרת נגישות"
+    }
+  },
+  "stores": [
+    {
+      "city": "ירושלים",
+      "address": "מלאכי 5, ירושלים",
+      "phone": "02-5408888",
+      "hours": [
+        [
+          "א׳–ה׳",
+          "11:00–21:00"
+        ],
+        [
+          "ו׳",
+          "10:00–12:30"
+        ]
+      ],
+      "navQuery": "מלאכי 5 ירושלים"
+    },
+    {
+      "city": "בני ברק",
+      "address": "רבי עקיבא 69, בני ברק",
+      "phone": "02-5408888",
+      "hours": [
+        [
+          "א׳–ה׳",
+          "10:30–21:30"
+        ],
+        [
+          "ו׳",
+          "10:00–12:00"
+        ]
+      ],
+      "navQuery": "רבי עקיבא 69 בני ברק"
+    },
+    {
+      "city": "בית שמש",
+      "address": "קניון השדרה, בית שמש",
+      "phone": "02-5408888",
+      "hours": [
+        [
+          "א׳–ה׳",
+          "10:00–22:00"
+        ],
+        [
+          "ו׳",
+          "10:00–12:30"
+        ]
+      ],
+      "navQuery": "קניון השדרה בית שמש"
+    }
+  ],
+  "categories": [
+    {
+      "slug": "hats",
+      "name": "כובעי SURY",
+      "order": 1,
+      "cover": {
+        "src": "images/site/cover-hats.webp",
+        "w": 1023,
+        "h": 1537,
+        "alt": "כובע SURY בגווני ארגמן"
+      },
+      "intro": "FIT SURY – התאמה מדויקת ועבודת יד, מהקלאסי ועד המודולרי.",
+      "subcategories": [
+        {
+          "slug": "classic-decorated",
+          "name": "כובעים קלאסיים עם קישוט",
+          "order": 1,
+          "products": [
+            {
+              "slug": "classic-fabric-flower",
+              "name": "כובע קלאסי עם פרח בד",
+              "images": [
+                {
+                  "src": "images/products/hats/classic-decorated/classic-fabric-flower-1.webp",
+                  "w": 600,
+                  "h": 800,
+                  "alt": "כובע קלאסי כהה עם פרח בד גדול בעבודת יד"
+                }
+              ],
+              "description": "כובע בעבודת יד בהתאמה מדויקת לראש, בגימור יוקרתי.",
+              "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
+              "order": 1,
+              "visible": true,
+              "featured": true,
+              "price": null
+            }
+          ]
+        },
+        {
+          "slug": "modo",
+          "name": "MODO – כובע מודולרי",
+          "order": 2,
+          "products": [
+            {
+              "slug": "modo-01",
+              "name": "MODO עיטורי לורקס שחור זהב",
+              "images": [
+                {
+                  "src": "images/products/hats/modo/modo-01-1.webp",
+                  "w": 1500,
+                  "h": 1449,
+                  "alt": "כובע MODO מודולרי – עיטורי לורקס שחור זהב"
+                }
+              ],
+              "description": "כובע מודולרי שמתחלף ומשתלב – בסיס אחד, אינסוף מראות.",
+              "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
+              "order": 1,
+              "visible": true,
+              "featured": true,
+              "price": null
+            },
+            {
+              "slug": "modo-02",
+              "name": "MODO עיטורי לורקס חום",
+              "images": [
+                {
+                  "src": "images/products/hats/modo/modo-02-1.webp",
+                  "w": 1500,
+                  "h": 1449,
+                  "alt": "כובע MODO מודולרי – עיטורי לורקס חום"
+                }
+              ],
+              "description": "כובע מודולרי שמתחלף ומשתלב – בסיס אחד, אינסוף מראות.",
+              "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
+              "order": 2,
+              "visible": true,
+              "featured": false,
+              "price": null
+            },
+            {
+              "slug": "modo-03",
+              "name": "MODO עיטורי לורקס שחור",
+              "images": [
+                {
+                  "src": "images/products/hats/modo/modo-03-1.webp",
+                  "w": 1500,
+                  "h": 1449,
+                  "alt": "כובע MODO מודולרי – עיטורי לורקס שחור"
+                }
+              ],
+              "description": "כובע מודולרי שמתחלף ומשתלב – בסיס אחד, אינסוף מראות.",
+              "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
+              "order": 3,
+              "visible": true,
+              "featured": false,
+              "price": null
+            },
+            {
+              "slug": "modo-04",
+              "name": "MODO עיטורי קטיפה אבנים בורדו",
+              "images": [
+                {
+                  "src": "images/products/hats/modo/modo-04-1.webp",
+                  "w": 1500,
+                  "h": 1449,
+                  "alt": "כובע MODO מודולרי – עיטורי קטיפה אבנים בורדו"
+                }
+              ],
+              "description": "כובע מודולרי שמתחלף ומשתלב – בסיס אחד, אינסוף מראות.",
+              "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
+              "order": 4,
+              "visible": true,
+              "featured": false,
+              "price": null
+            },
+            {
+              "slug": "modo-05",
+              "name": "MODO עיטורי קטיפה אבנים ירוק",
+              "images": [
+                {
+                  "src": "images/products/hats/modo/modo-05-1.webp",
+                  "w": 1500,
+                  "h": 1449,
+                  "alt": "כובע MODO מודולרי – עיטורי קטיפה אבנים ירוק"
+                }
+              ],
+              "description": "כובע מודולרי שמתחלף ומשתלב – בסיס אחד, אינסוף מראות.",
+              "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
+              "order": 5,
+              "visible": true,
+              "featured": false,
+              "price": null
+            },
+            {
+              "slug": "modo-06",
+              "name": "MODO עיטורי קטיפה אבנים כסף שחור",
+              "images": [
+                {
+                  "src": "images/products/hats/modo/modo-06-1.webp",
+                  "w": 1500,
+                  "h": 1449,
+                  "alt": "כובע MODO מודולרי – עיטורי קטיפה אבנים כסף שחור"
+                }
+              ],
+              "description": "כובע מודולרי שמתחלף ומשתלב – בסיס אחד, אינסוף מראות.",
+              "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
+              "order": 6,
+              "visible": true,
+              "featured": false,
+              "price": null
+            },
+            {
+              "slug": "modo-07",
+              "name": "MODO עיטורי קטיפה אבנים שחור",
+              "images": [
+                {
+                  "src": "images/products/hats/modo/modo-07-1.webp",
+                  "w": 1500,
+                  "h": 1449,
+                  "alt": "כובע MODO מודולרי – עיטורי קטיפה אבנים שחור"
+                }
+              ],
+              "description": "כובע מודולרי שמתחלף ומשתלב – בסיס אחד, אינסוף מראות.",
+              "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
+              "order": 7,
+              "visible": true,
+              "featured": false,
+              "price": null
+            }
+          ]
+        },
+        {
+          "slug": "modo-classic",
+          "name": "MODO קלאסי",
+          "order": 3,
+          "products": [
+            {
+              "slug": "modo-classic-08",
+              "name": "MODO רשת אבנים ירוק",
+              "images": [
+                {
+                  "src": "images/products/hats/modo-classic/modo-classic-08-1.webp",
+                  "w": 1500,
+                  "h": 1449,
+                  "alt": "כובע MODO קלאסי – רשת אבנים ירוק"
+                }
+              ],
+              "description": "קו ה-MODO בגזרה הקלאסית.",
+              "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
+              "order": 1,
+              "visible": true,
+              "featured": false,
+              "price": null
+            },
+            {
+              "slug": "modo-classic-09",
+              "name": "MODO רשת אבנים בורדו",
+              "images": [
+                {
+                  "src": "images/products/hats/modo-classic/modo-classic-09-1.webp",
+                  "w": 1500,
+                  "h": 1449,
+                  "alt": "כובע MODO קלאסי – רשת אבנים בורדו"
+                }
+              ],
+              "description": "קו ה-MODO בגזרה הקלאסית.",
+              "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
+              "order": 2,
+              "visible": true,
+              "featured": false,
+              "price": null
+            },
+            {
+              "slug": "modo-classic-11",
+              "name": "MODO רשת אבנים פודרה",
+              "images": [
+                {
+                  "src": "images/products/hats/modo-classic/modo-classic-11-1.webp",
+                  "w": 1500,
+                  "h": 1449,
+                  "alt": "כובע MODO קלאסי – רשת אבנים פודרה"
+                }
+              ],
+              "description": "קו ה-MODO בגזרה הקלאסית.",
+              "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
+              "order": 3,
+              "visible": true,
+              "featured": false,
+              "price": null
+            },
+            {
+              "slug": "modo-classic-14",
+              "name": "MODO רשת אבנים שחור",
+              "images": [
+                {
+                  "src": "images/products/hats/modo-classic/modo-classic-14-1.webp",
+                  "w": 1500,
+                  "h": 1449,
+                  "alt": "כובע MODO קלאסי – רשת אבנים שחור"
+                }
+              ],
+              "description": "קו ה-MODO בגזרה הקלאסית.",
+              "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
+              "order": 4,
+              "visible": true,
+              "featured": false,
+              "price": null
+            },
+            {
+              "slug": "modo-classic-15",
+              "name": "MODO רשת אבנים כחול",
+              "images": [
+                {
+                  "src": "images/products/hats/modo-classic/modo-classic-15-1.webp",
+                  "w": 1500,
+                  "h": 1449,
+                  "alt": "כובע MODO קלאסי – רשת אבנים כחול"
+                }
+              ],
+              "description": "קו ה-MODO בגזרה הקלאסית.",
+              "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
+              "order": 5,
+              "visible": true,
+              "featured": false,
+              "price": null
+            },
+            {
+              "slug": "modo-classic-16",
+              "name": "MODO סריגה כחול מלאנג‘",
+              "images": [
+                {
+                  "src": "images/products/hats/modo-classic/modo-classic-16-1.webp",
+                  "w": 1500,
+                  "h": 1449,
+                  "alt": "כובע MODO קלאסי – סריגה כחול מלאנג‘"
+                }
+              ],
+              "description": "קו ה-MODO בגזרה הקלאסית.",
+              "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
+              "order": 6,
+              "visible": true,
+              "featured": false,
+              "price": null
+            },
+            {
+              "slug": "modo-classic-18",
+              "name": "MODO רקמה פרחים בז‘",
+              "images": [
+                {
+                  "src": "images/products/hats/modo-classic/modo-classic-18-1.webp",
+                  "w": 1500,
+                  "h": 1449,
+                  "alt": "כובע MODO קלאסי – רקמה פרחים בז‘"
+                }
+              ],
+              "description": "קו ה-MODO בגזרה הקלאסית.",
+              "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
+              "order": 7,
+              "visible": true,
+              "featured": true,
+              "price": null
+            },
+            {
+              "slug": "modo-classic-20",
+              "name": "MODO רשת כיווץ יוקרתי שחור",
+              "images": [
+                {
+                  "src": "images/products/hats/modo-classic/modo-classic-20-1.webp",
+                  "w": 1500,
+                  "h": 1449,
+                  "alt": "כובע MODO קלאסי – רשת כיוו‘ץ יוקרתי שחור"
+                }
+              ],
+              "description": "קו ה-MODO בגזרה הקלאסית.",
+              "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
+              "order": 8,
+              "visible": true,
+              "featured": false,
+              "price": null
+            }
+          ]
+        },
+        {
+          "slug": "modo-tops-bows",
+          "name": "עליוניות וקשתות למודולרי",
+          "order": 4,
+          "products": [
+            {
+              "slug": "bow-01",
+              "name": "קשת פרחים בעבודת יד 01",
+              "images": [
+                {
+                  "src": "images/products/hats/modo-tops-bows/bow-01-1.webp",
+                  "w": 1061,
+                  "h": 1500,
+                  "alt": "קשת פרחים בעבודת יד לכובע המודולרי"
+                }
+              ],
+              "description": "קשת פרחים בעבודת יד למודולרי, בטפט משי. קיימת גם בצעיף.",
+              "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
+              "order": 1,
+              "visible": true,
+              "featured": true,
+              "price": null
+            },
+            {
+              "slug": "bow-02",
+              "name": "קשת פרחים בעבודת יד 02",
+              "images": [
+                {
+                  "src": "images/products/hats/modo-tops-bows/bow-02-1.webp",
+                  "w": 1061,
+                  "h": 1500,
+                  "alt": "קשת פרחים בעבודת יד לכובע המודולרי"
+                }
+              ],
+              "description": "קשת פרחים בעבודת יד למודולרי, בטפט משי. קיימת גם בצעיף.",
+              "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
+              "order": 2,
+              "visible": true,
+              "featured": false,
+              "price": null
+            },
+            {
+              "slug": "bow-03",
+              "name": "קשת פרחים בעבודת יד 03",
+              "images": [
+                {
+                  "src": "images/products/hats/modo-tops-bows/bow-03-1.webp",
+                  "w": 1061,
+                  "h": 1500,
+                  "alt": "קשת פרחים בעבודת יד לכובע המודולרי"
+                }
+              ],
+              "description": "קשת פרחים בעבודת יד למודולרי, בטפט משי. קיימת גם בצעיף.",
+              "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
+              "order": 3,
+              "visible": true,
+              "featured": false,
+              "price": null
+            },
+            {
+              "slug": "bow-04",
+              "name": "קשת פרחים בעבודת יד 04",
+              "images": [
+                {
+                  "src": "images/products/hats/modo-tops-bows/bow-04-1.webp",
+                  "w": 1061,
+                  "h": 1500,
+                  "alt": "קשת פרחים בעבודת יד לכובע המודולרי"
+                }
+              ],
+              "description": "קשת פרחים בעבודת יד למודולרי, בטפט משי. קיימת גם בצעיף.",
+              "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
+              "order": 4,
+              "visible": true,
+              "featured": false,
+              "price": null
+            },
+            {
+              "slug": "bow-05",
+              "name": "קשת פרחים בעבודת יד 05",
+              "images": [
+                {
+                  "src": "images/products/hats/modo-tops-bows/bow-05-1.webp",
+                  "w": 1061,
+                  "h": 1500,
+                  "alt": "קשת פרחים בעבודת יד לכובע המודולרי"
+                }
+              ],
+              "description": "קשת פרחים בעבודת יד למודולרי, בטפט משי. קיימת גם בצעיף.",
+              "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
+              "order": 5,
+              "visible": true,
+              "featured": false,
+              "price": null
+            }
+          ]
+        },
+        {
+          "slug": "tie-patent",
+          "name": "פטנט קשירה",
+          "order": 5,
+          "products": [
+            {
+              "slug": "modular-tie",
+              "name": "פטנט קשירה מודולרי",
+              "images": [
+                {
+                  "src": "images/products/hats/tie-patent/modular-tie-1.webp",
+                  "w": 795,
+                  "h": 1192,
+                  "alt": "פטנט קשירה מודולרי – תמונה 1"
+                },
+                {
+                  "src": "images/products/hats/tie-patent/modular-tie-2.webp",
+                  "w": 795,
+                  "h": 1192,
+                  "alt": "פטנט קשירה מודולרי – תמונה 2"
+                }
+              ],
+              "description": "פטנט קשירה שמאפשר מראה קשירה מלא בתנועה אחת.",
+              "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
+              "order": 1,
+              "visible": true,
+              "featured": false,
+              "price": null
+            }
+          ]
+        },
+        {
+          "slug": "longi-tie",
+          "name": "קשירת לונגי",
+          "order": 6,
+          "products": [
+            {
+              "slug": "longi-01",
+              "name": "LONGI שזירת כסף זהב",
+              "images": [
+                {
+                  "src": "images/products/hats/longi-tie/longi-01-1.webp",
+                  "w": 1023,
+                  "h": 1537,
+                  "alt": "כובע בקשירת לונגי – שזירת כסף זהב"
+                }
+              ],
+              "description": "קשירת לונגי – מראה מטפחת קשורה, בנוחות של כובע.",
+              "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
+              "order": 1,
+              "visible": true,
+              "featured": true,
+              "price": null
+            },
+            {
+              "slug": "longi-02",
+              "name": "LONGI גווני ארגמן",
+              "images": [
+                {
+                  "src": "images/products/hats/longi-tie/longi-02-1.webp",
+                  "w": 1023,
+                  "h": 1537,
+                  "alt": "כובע בקשירת לונגי – גווני ארגמן"
+                }
+              ],
+              "description": "קשירת לונגי – מראה מטפחת קשורה, בנוחות של כובע.",
+              "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
+              "order": 2,
+              "visible": true,
+              "featured": false,
+              "price": null
+            },
+            {
+              "slug": "longi-04",
+              "name": "LONGI עלי ארגמן",
+              "images": [
+                {
+                  "src": "images/products/hats/longi-tie/longi-04-1.webp",
+                  "w": 1023,
+                  "h": 1537,
+                  "alt": "כובע בקשירת לונגי – עלי ארגמן"
+                }
+              ],
+              "description": "קשירת לונגי – מראה מטפחת קשורה, בנוחות של כובע.",
+              "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
+              "order": 3,
+              "visible": true,
+              "featured": false,
+              "price": null
+            },
+            {
+              "slug": "longi-05",
+              "name": "LONGI גלקסיה קסומה",
+              "images": [
+                {
+                  "src": "images/products/hats/longi-tie/longi-05-1.webp",
+                  "w": 1023,
+                  "h": 1537,
+                  "alt": "כובע בקשירת לונגי – גלקסיה קסומה"
+                }
+              ],
+              "description": "קשירת לונגי – מראה מטפחת קשורה, בנוחות של כובע.",
+              "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
+              "order": 4,
+              "visible": true,
+              "featured": false,
+              "price": null
+            },
+            {
+              "slug": "longi-06",
+              "name": "LONGI תנועה טבעית",
+              "images": [
+                {
+                  "src": "images/products/hats/longi-tie/longi-06-1.webp",
+                  "w": 1023,
+                  "h": 1537,
+                  "alt": "כובע בקשירת לונגי – תנועה טבעית"
+                }
+              ],
+              "description": "קשירת לונגי – מראה מטפחת קשורה, בנוחות של כובע.",
+              "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
+              "order": 5,
+              "visible": true,
+              "featured": false,
+              "price": null
+            },
+            {
+              "slug": "longi-08",
+              "name": "LONGI קוי זרימה",
+              "images": [
+                {
+                  "src": "images/products/hats/longi-tie/longi-08-1.webp",
+                  "w": 1023,
+                  "h": 1537,
+                  "alt": "כובע בקשירת לונגי – קוי זרימה"
+                }
+              ],
+              "description": "קשירת לונגי – מראה מטפחת קשורה, בנוחות של כובע.",
+              "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
+              "order": 6,
+              "visible": true,
+              "featured": false,
+              "price": null
+            },
+            {
+              "slug": "longi-09",
+              "name": "LONGI פריחה כחולה",
+              "images": [
+                {
+                  "src": "images/products/hats/longi-tie/longi-09-1.webp",
+                  "w": 1023,
+                  "h": 1537,
+                  "alt": "כובע בקשירת לונגי – פריחה כחולה"
+                }
+              ],
+              "description": "קשירת לונגי – מראה מטפחת קשורה, בנוחות של כובע.",
+              "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
+              "order": 7,
+              "visible": true,
+              "featured": false,
+              "price": null
+            },
+            {
+              "slug": "longi-11",
+              "name": "LONGI מארג מסולסל שחור",
+              "images": [
+                {
+                  "src": "images/products/hats/longi-tie/longi-11-1.webp",
+                  "w": 1024,
+                  "h": 1536,
+                  "alt": "כובע בקשירת לונגי – מארג מסולסל שחור"
+                }
+              ],
+              "description": "קשירת לונגי – מראה מטפחת קשורה, בנוחות של כובע.",
+              "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
+              "order": 8,
+              "visible": true,
+              "featured": false,
+              "price": null
+            },
+            {
+              "slug": "longi-12",
+              "name": "LONGI רקמה יוקרתית שחור",
+              "images": [
+                {
+                  "src": "images/products/hats/longi-tie/longi-12-1.webp",
+                  "w": 1023,
+                  "h": 1537,
+                  "alt": "כובע בקשירת לונגי – רקמה יוקרתית שחור"
+                }
+              ],
+              "description": "קשירת לונגי – מראה מטפחת קשורה, בנוחות של כובע.",
+              "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
+              "order": 9,
+              "visible": true,
+              "featured": false,
+              "price": null
+            },
+            {
+              "slug": "longi-13",
+              "name": "LONGI רשת ריבועים שחור",
+              "images": [
+                {
+                  "src": "images/products/hats/longi-tie/longi-13-1.webp",
+                  "w": 1023,
+                  "h": 1537,
+                  "alt": "כובע בקשירת לונגי – רשת ריבועים שחור"
+                }
+              ],
+              "description": "קשירת לונגי – מראה מטפחת קשורה, בנוחות של כובע.",
+              "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
+              "order": 10,
+              "visible": true,
+              "featured": false,
+              "price": null
+            },
+            {
+              "slug": "longi-15",
+              "name": "LONGI עיטורי קטיפה חום",
+              "images": [
+                {
+                  "src": "images/products/hats/longi-tie/longi-15-1.webp",
+                  "w": 1023,
+                  "h": 1537,
+                  "alt": "כובע בקשירת לונגי – עיטורי קטיפה חום"
+                }
+              ],
+              "description": "קשירת לונגי – מראה מטפחת קשורה, בנוחות של כובע.",
+              "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
+              "order": 11,
+              "visible": true,
+              "featured": false,
+              "price": null
+            },
+            {
+              "slug": "longi-16",
+              "name": "LONGI מלאנג‘ פרחוני אפור",
+              "images": [
+                {
+                  "src": "images/products/hats/longi-tie/longi-16-1.webp",
+                  "w": 1023,
+                  "h": 1537,
+                  "alt": "כובע בקשירת לונגי – מלאנג‘ פרחוני אפור"
+                }
+              ],
+              "description": "קשירת לונגי – מראה מטפחת קשורה, בנוחות של כובע.",
+              "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
+              "order": 12,
+              "visible": true,
+              "featured": false,
+              "price": null
+            }
+          ]
+        },
+        {
+          "slug": "modo-bandana",
+          "name": "בנדנת MODO",
+          "order": 7,
+          "products": []
+        },
+        {
+          "slug": "hat-bases",
+          "name": "בסיסים לכובעים",
+          "order": 8,
+          "products": [
+            {
+              "slug": "base-classic",
+              "name": "בסיס לכובע – קלאסי",
+              "images": [
+                {
+                  "src": "images/products/hats/hat-bases/base-classic-1.webp",
+                  "w": 196,
+                  "h": 260,
+                  "alt": "בסיס שחור לכובע על מעמד"
+                }
+              ],
+              "description": "בסיס נוח שמחזיק את הכובע במקום לאורך כל היום.",
+              "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
+              "order": 1,
+              "visible": true,
+              "featured": false,
+              "price": null
+            },
+            {
+              "slug": "base-volume",
+              "name": "בסיס לכובע – עם נפח",
+              "images": [
+                {
+                  "src": "images/products/hats/hat-bases/base-volume-1.webp",
+                  "w": 196,
+                  "h": 260,
+                  "alt": "בסיס שחור לכובע עם נפח על מעמד"
+                }
+              ],
+              "description": "בסיס עם נפח מובנה למראה מלא.",
+              "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
+              "order": 2,
+              "visible": true,
+              "featured": false,
+              "price": null
+            }
+          ]
+        },
+        {
+          "slug": "accessories",
+          "name": "קישוטים ואקססוריז",
+          "order": 9,
+          "products": [
+            {
+              "slug": "feather-band",
+              "name": "קשת נוצות בעבודת יד",
+              "images": [
+                {
+                  "src": "images/products/hats/accessories/feather-band-1.webp",
+                  "w": 1600,
+                  "h": 1200,
+                  "alt": "קשת עם נוצות בגווני חום בעבודת יד"
+                }
+              ],
+              "description": "קישוט בעבודת יד להשלמת המראה.",
+              "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
+              "order": 1,
+              "visible": true,
+              "featured": false,
+              "price": null
+            }
+          ]
+        }
+      ],
+      "shortName": "כובעי SURY",
+      "tagline": "FIT SURY",
+      "niche": {
+        "src": "images/niches/hats.webp",
+        "w": 599,
+        "h": 900,
+        "alt": "כובע SURY"
+      }
+    },
+    {
+      "slug": "bandanas",
+      "name": "בנדנות",
+      "order": 2,
+      "cover": {
+        "src": "images/site/cover-bandanas.webp",
+        "w": 1000,
+        "h": 1500,
+        "alt": "שער קטלוג Air Bandana"
+      },
+      "intro": "מבנדנות משי ועד Bandana Air הקלה – בנדנה לכל רגע.",
+      "subcategories": [
+        {
+          "slug": "silk",
+          "name": "בנדנות משי",
+          "order": 1,
+          "products": [
+            {
+              "slug": "silk-01",
+              "name": "שיש מלכותי אפרסק",
+              "images": [
+                {
+                  "src": "images/products/bandanas/silk/silk-01-1.webp",
+                  "w": 773,
+                  "h": 792,
+                  "alt": "בנדנת משי מרובעת בהדפס שיש מלכותי אפרסק"
+                }
+              ],
+              "description": "בנדנת משי מרובעת בהדפס בלעדי.",
+              "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
+              "order": 1,
+              "visible": true,
+              "featured": false,
+              "price": null
+            },
+            {
+              "slug": "silk-02",
+              "name": "שיש מלכותי מנטה",
+              "images": [
+                {
+                  "src": "images/products/bandanas/silk/silk-02-1.webp",
+                  "w": 771,
+                  "h": 794,
+                  "alt": "בנדנת משי מרובעת בהדפס שיש מלכותי מנטה"
+                }
+              ],
+              "description": "בנדנת משי מרובעת בהדפס בלעדי.",
+              "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
+              "order": 2,
+              "visible": true,
+              "featured": false,
+              "price": null
+            },
+            {
+              "slug": "silk-03",
+              "name": "שיש מלכותי סגול",
+              "images": [
+                {
+                  "src": "images/products/bandanas/silk/silk-03-1.webp",
+                  "w": 777,
+                  "h": 799,
+                  "alt": "בנדנת משי מרובעת בהדפס שיש מלכותי סגול"
+                }
+              ],
+              "description": "בנדנת משי מרובעת בהדפס בלעדי.",
+              "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
+              "order": 3,
+              "visible": true,
+              "featured": false,
+              "price": null
+            },
+            {
+              "slug": "silk-04",
+              "name": "פריחה עדינה",
+              "images": [
+                {
+                  "src": "images/products/bandanas/silk/silk-04-1.webp",
+                  "w": 773,
+                  "h": 792,
+                  "alt": "בנדנת משי מרובעת בהדפס פריחה עדינה"
+                }
+              ],
+              "description": "בנדנת משי מרובעת בהדפס בלעדי.",
+              "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
+              "order": 4,
+              "visible": true,
+              "featured": false,
+              "price": null
+            },
+            {
+              "slug": "silk-05",
+              "name": "מארג אורבני",
+              "images": [
+                {
+                  "src": "images/products/bandanas/silk/silk-05-1.webp",
+                  "w": 772,
+                  "h": 793,
+                  "alt": "בנדנת משי מרובעת בהדפס מארג אורבני"
+                }
+              ],
+              "description": "בנדנת משי מרובעת בהדפס בלעדי.",
+              "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
+              "order": 5,
+              "visible": true,
+              "featured": false,
+              "price": null
+            },
+            {
+              "slug": "silk-06",
+              "name": "עלים טרופיים",
+              "images": [
+                {
+                  "src": "images/products/bandanas/silk/silk-06-1.webp",
+                  "w": 749,
+                  "h": 796,
+                  "alt": "בנדנת משי מרובעת בהדפס עלים טרופיים"
+                }
+              ],
+              "description": "בנדנת משי מרובעת בהדפס בלעדי.",
+              "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
+              "order": 6,
+              "visible": true,
+              "featured": true,
+              "price": null
+            },
+            {
+              "slug": "silk-07",
+              "name": "עלי כותרת משי",
+              "images": [
+                {
+                  "src": "images/products/bandanas/silk/silk-07-1.webp",
+                  "w": 774,
+                  "h": 800,
+                  "alt": "בנדנת משי מרובעת בהדפס עלי כותרת משי"
+                }
+              ],
+              "description": "בנדנת משי מרובעת בהדפס בלעדי.",
+              "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
+              "order": 7,
+              "visible": true,
+              "featured": false,
+              "price": null
+            },
+            {
+              "slug": "silk-08",
+              "name": "גווני פודרה זהב",
+              "images": [
+                {
+                  "src": "images/products/bandanas/silk/silk-08-1.webp",
+                  "w": 751,
+                  "h": 794,
+                  "alt": "בנדנת משי מרובעת בהדפס גווני פודרה זהב"
+                }
+              ],
+              "description": "בנדנת משי מרובעת בהדפס בלעדי.",
+              "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
+              "order": 8,
+              "visible": true,
+              "featured": false,
+              "price": null
+            },
+            {
+              "slug": "silk-09",
+              "name": "תנועה זוהרת",
+              "images": [
+                {
+                  "src": "images/products/bandanas/silk/silk-09-1.webp",
+                  "w": 792,
+                  "h": 792,
+                  "alt": "בנדנת משי מרובעת בהדפס תנועה זוהרת"
+                }
+              ],
+              "description": "בנדנת משי מרובעת בהדפס בלעדי.",
+              "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
+              "order": 9,
+              "visible": true,
+              "featured": false,
+              "price": null
+            },
+            {
+              "slug": "silk-10",
+              "name": "שיש מלכותי חום כחול",
+              "images": [
+                {
+                  "src": "images/products/bandanas/silk/silk-10-1.webp",
+                  "w": 792,
+                  "h": 792,
+                  "alt": "בנדנת משי מרובעת בהדפס שיש מלכותי חום כחול"
+                }
+              ],
+              "description": "בנדנת משי מרובעת בהדפס בלעדי.",
+              "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
+              "order": 10,
+              "visible": true,
+              "featured": false,
+              "price": null
+            }
+          ]
+        },
+        {
+          "slug": "bandana-air",
+          "name": "Bandana Air",
+          "order": 2,
+          "products": [
+            {
+              "slug": "air-01",
+              "name": "Air Bandana · דגם 01",
+              "images": [
+                {
+                  "src": "images/products/bandanas/bandana-air/air-01-1.webp",
+                  "w": 1060,
+                  "h": 1500,
+                  "alt": "Air Bandana דגם 01 – מבט מלפנים ומאחור"
+                }
+              ],
+              "description": "הבנדנה הקלה והנושמת של SURY.",
+              "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
+              "order": 1,
+              "visible": true,
+              "featured": true,
+              "price": null
+            },
+            {
+              "slug": "air-02",
+              "name": "Air Bandana · דגם 02",
+              "images": [
+                {
+                  "src": "images/products/bandanas/bandana-air/air-02-1.webp",
+                  "w": 1125,
+                  "h": 1500,
+                  "alt": "Air Bandana דגם 02 – מבט מלפנים ומאחור"
+                }
+              ],
+              "description": "הבנדנה הקלה והנושמת של SURY.",
+              "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
+              "order": 2,
+              "visible": true,
+              "featured": false,
+              "price": null
+            },
+            {
+              "slug": "air-03",
+              "name": "Air Bandana · דגם 03",
+              "images": [
+                {
+                  "src": "images/products/bandanas/bandana-air/air-03-1.webp",
+                  "w": 1125,
+                  "h": 1500,
+                  "alt": "Air Bandana דגם 03 – מבט מלפנים ומאחור"
+                }
+              ],
+              "description": "הבנדנה הקלה והנושמת של SURY.",
+              "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
+              "order": 3,
+              "visible": true,
+              "featured": false,
+              "price": null
+            },
+            {
+              "slug": "air-04",
+              "name": "Air Bandana · דגם 04",
+              "images": [
+                {
+                  "src": "images/products/bandanas/bandana-air/air-04-1.webp",
+                  "w": 1125,
+                  "h": 1500,
+                  "alt": "Air Bandana דגם 04 – מבט מלפנים ומאחור"
+                }
+              ],
+              "description": "הבנדנה הקלה והנושמת של SURY.",
+              "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
+              "order": 4,
+              "visible": true,
+              "featured": false,
+              "price": null
+            },
+            {
+              "slug": "air-05",
+              "name": "Air Bandana · דגם 05",
+              "images": [
+                {
+                  "src": "images/products/bandanas/bandana-air/air-05-1.webp",
+                  "w": 1125,
+                  "h": 1500,
+                  "alt": "Air Bandana דגם 05 – מבט מלפנים ומאחור"
+                }
+              ],
+              "description": "הבנדנה הקלה והנושמת של SURY.",
+              "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
+              "order": 5,
+              "visible": true,
+              "featured": false,
+              "price": null
+            },
+            {
+              "slug": "air-06",
+              "name": "Air Bandana · דגם 06",
+              "images": [
+                {
+                  "src": "images/products/bandanas/bandana-air/air-06-1.webp",
+                  "w": 1125,
+                  "h": 1500,
+                  "alt": "Air Bandana דגם 06 – מבט מלפנים ומאחור"
+                }
+              ],
+              "description": "הבנדנה הקלה והנושמת של SURY.",
+              "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
+              "order": 6,
+              "visible": true,
+              "featured": false,
+              "price": null
+            },
+            {
+              "slug": "air-07",
+              "name": "Air Bandana · דגם 07",
+              "images": [
+                {
+                  "src": "images/products/bandanas/bandana-air/air-07-1.webp",
+                  "w": 1125,
+                  "h": 1500,
+                  "alt": "Air Bandana דגם 07 – מבט מלפנים ומאחור"
+                }
+              ],
+              "description": "הבנדנה הקלה והנושמת של SURY.",
+              "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
+              "order": 7,
+              "visible": true,
+              "featured": false,
+              "price": null
+            },
+            {
+              "slug": "air-08",
+              "name": "Air Bandana · דגם 08",
+              "images": [
+                {
+                  "src": "images/products/bandanas/bandana-air/air-08-1.webp",
+                  "w": 1125,
+                  "h": 1500,
+                  "alt": "Air Bandana דגם 08 – מבט מלפנים ומאחור"
+                }
+              ],
+              "description": "הבנדנה הקלה והנושמת של SURY.",
+              "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
+              "order": 8,
+              "visible": true,
+              "featured": false,
+              "price": null
+            },
+            {
+              "slug": "air-09",
+              "name": "Air Bandana · דגם 09",
+              "images": [
+                {
+                  "src": "images/products/bandanas/bandana-air/air-09-1.webp",
+                  "w": 1125,
+                  "h": 1500,
+                  "alt": "Air Bandana דגם 09 – מבט מלפנים ומאחור"
+                }
+              ],
+              "description": "הבנדנה הקלה והנושמת של SURY.",
+              "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
+              "order": 9,
+              "visible": true,
+              "featured": false,
+              "price": null
+            },
+            {
+              "slug": "air-10",
+              "name": "Air Bandana · דגם 10",
+              "images": [
+                {
+                  "src": "images/products/bandanas/bandana-air/air-10-1.webp",
+                  "w": 1060,
+                  "h": 1500,
+                  "alt": "Air Bandana דגם 10 – מבט מלפנים ומאחור"
+                }
+              ],
+              "description": "הבנדנה הקלה והנושמת של SURY.",
+              "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
+              "order": 10,
+              "visible": true,
+              "featured": false,
+              "price": null
+            }
+          ]
+        },
+        {
+          "slug": "designed",
+          "name": "בנדנות מעוצבות",
+          "order": 3,
+          "products": [
+            {
+              "slug": "designed-black-floral",
+              "name": "בנדנה מעוצבת – שחור פרחוני",
+              "images": [
+                {
+                  "src": "images/products/bandanas/designed/designed-black-floral-1.webp",
+                  "w": 1067,
+                  "h": 1600,
+                  "alt": "בנדנה שחורה עם רקמת פרחים ושוליים בהירים"
+                }
+              ],
+              "description": "בנדנה מעוצבת עם רקמה עדינה.",
+              "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
+              "order": 1,
+              "visible": true,
+              "featured": true,
+              "price": null
+            },
+            {
+              "slug": "designed-blue",
+              "name": "בנדנה מעוצבת – כחול",
+              "images": [
+                {
+                  "src": "images/products/bandanas/designed/designed-blue-1.webp",
+                  "w": 1067,
+                  "h": 1600,
+                  "alt": "בנדנה כחולה מעוצבת – תמונה 1"
+                },
+                {
+                  "src": "images/products/bandanas/designed/designed-blue-2.webp",
+                  "w": 1067,
+                  "h": 1600,
+                  "alt": "בנדנה כחולה מעוצבת – תמונה 2"
+                },
+                {
+                  "src": "images/products/bandanas/designed/designed-blue-3.webp",
+                  "w": 1067,
+                  "h": 1600,
+                  "alt": "בנדנה כחולה מעוצבת – תמונה 3"
+                }
+              ],
+              "description": "בנדנה מעוצבת בגוון כחול עמוק.",
+              "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
+              "order": 2,
+              "visible": true,
+              "featured": false,
+              "price": null
+            },
+            {
+              "slug": "designed-burgundy",
+              "name": "בנדנה מעוצבת – בורדו",
+              "images": [
+                {
+                  "src": "images/products/bandanas/designed/designed-burgundy-1.webp",
+                  "w": 1067,
+                  "h": 1600,
+                  "alt": "בנדנה בורדו עם שוליים לבנים ורקמה – תמונה 1"
+                },
+                {
+                  "src": "images/products/bandanas/designed/designed-burgundy-2.webp",
+                  "w": 1067,
+                  "h": 1600,
+                  "alt": "בנדנה בורדו עם שוליים לבנים ורקמה – תמונה 2"
+                },
+                {
+                  "src": "images/products/bandanas/designed/designed-burgundy-3.webp",
+                  "w": 1067,
+                  "h": 1600,
+                  "alt": "בנדנה בורדו עם שוליים לבנים ורקמה – תמונה 3"
+                }
+              ],
+              "description": "בנדנה מעוצבת בבורדו עם עיטור שוליים.",
+              "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
+              "order": 3,
+              "visible": true,
+              "featured": false,
+              "price": null
+            }
+          ]
+        }
+      ],
+      "shortName": "בנדנות",
+      "tagline": "משי · Air · מעוצבות",
+      "niche": {
+        "src": "images/niches/bandanas.webp",
+        "w": 749,
+        "h": 796,
+        "alt": "בנדנת משי"
+      }
+    },
+    {
+      "slug": "cloa",
+      "name": "CLOA – אופנת בית",
+      "order": 3,
+      "cover": {
+        "src": "images/site/cover-cloa.webp",
+        "w": 848,
+        "h": 1264,
+        "alt": "חלוק CLOA ארוך בין קשתות"
+      },
+      "intro": "אופנת בית עם נוכחות – לבית, לערב ולשבת.",
+      "subcategories": [
+        {
+          "slug": "nightgowns",
+          "name": "כותנות לילה",
+          "order": 1,
+          "products": [
+            {
+              "slug": "nightgown-colorblock",
+              "name": "כותונת לילה – צבעונית",
+              "images": [
+                {
+                  "src": "images/products/cloa/nightgowns/nightgown-colorblock-1.webp",
+                  "w": 1536,
+                  "h": 1024,
+                  "alt": "כותונת לילה ארוכה בשילוב צבעים"
+                }
+              ],
+              "description": "כותונת לילה נוחה בגזרה ארוכה.",
+              "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
+              "order": 1,
+              "visible": true,
+              "featured": false,
+              "price": null
+            }
+          ]
+        },
+        {
+          "slug": "bandana-sets",
+          "name": "סטים עם בנדנה תואמת",
+          "order": 2,
+          "products": [
+            {
+              "slug": "set-night-stripes",
+              "name": "סט פסים עם בנדנה תואמת",
+              "images": [
+                {
+                  "src": "images/products/cloa/bandana-sets/set-night-stripes-1.webp",
+                  "w": 1536,
+                  "h": 1024,
+                  "alt": "סט אופנת בית שחור עם פסים צבעוניים ובנדנה תואמת"
+                }
+              ],
+              "description": "סט בית עם בנדנה תואמת באותו הדפס.",
+              "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
+              "order": 1,
+              "visible": true,
+              "featured": true,
+              "price": null
+            }
+          ]
+        },
+        {
+          "slug": "robes",
+          "name": "חלוקים",
+          "order": 3,
+          "products": [
+            {
+              "slug": "robe-01",
+              "name": "חלוק קווין",
+              "images": [
+                {
+                  "src": "images/products/cloa/robes/robe-01-1.webp",
+                  "w": 848,
+                  "h": 1264,
+                  "alt": "חלוק ארוך קווין"
+                }
+              ],
+              "description": "חלוק עם נוכחות, לבית ולשבת.",
+              "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
+              "order": 1,
+              "visible": true,
+              "featured": false,
+              "price": null
+            },
+            {
+              "slug": "robe-02",
+              "name": "חלוק שובל פרחים",
+              "images": [
+                {
+                  "src": "images/products/cloa/robes/robe-02-1.webp",
+                  "w": 848,
+                  "h": 1264,
+                  "alt": "חלוק ארוך שובל פרחים – תמונה 1"
+                },
+                {
+                  "src": "images/products/cloa/robes/robe-02-2.webp",
+                  "w": 1055,
+                  "h": 1255,
+                  "alt": "חלוק ארוך שובל פרחים – תמונה 2"
+                }
+              ],
+              "description": "חלוק עם נוכחות, לבית ולשבת.",
+              "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
+              "order": 2,
+              "visible": true,
+              "featured": false,
+              "price": null
+            },
+            {
+              "slug": "robe-03",
+              "name": "חלוק צווארון מלכותי",
+              "images": [
+                {
+                  "src": "images/products/cloa/robes/robe-03-1.webp",
+                  "w": 848,
+                  "h": 1264,
+                  "alt": "חלוק ארוך צווארון מלכותי"
+                }
+              ],
+              "description": "חלוק עם נוכחות, לבית ולשבת.",
+              "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
+              "order": 3,
+              "visible": true,
+              "featured": true,
+              "price": null
+            },
+            {
+              "slug": "robe-04",
+              "name": "חלוק פרח מריחות",
+              "images": [
+                {
+                  "src": "images/products/cloa/robes/robe-04-1.webp",
+                  "w": 848,
+                  "h": 1264,
+                  "alt": "חלוק ארוך פרח מריחות"
+                }
+              ],
+              "description": "חלוק עם נוכחות, לבית ולשבת.",
+              "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
+              "order": 4,
+              "visible": true,
+              "featured": false,
+              "price": null
+            }
+          ]
+        },
+        {
+          "slug": "home-tops",
+          "name": "חולצות בית",
+          "order": 4,
+          "products": [
+            {
+              "slug": "home-top-colorblock",
+              "name": "חולצת בית בשילוב צבעים",
+              "images": [
+                {
+                  "src": "images/products/cloa/home-tops/home-top-colorblock-1.webp",
+                  "w": 1536,
+                  "h": 1024,
+                  "alt": "חולצת בית בגווני חום וורוד"
+                }
+              ],
+              "description": "חולצת בית רכה ונוחה.",
+              "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
+              "order": 1,
+              "visible": true,
+              "featured": false,
+              "price": null
+            }
+          ]
+        }
+      ],
+      "shortName": "CLOA",
+      "tagline": "אופנת בית",
+      "niche": {
+        "src": "images/niches/cloa.webp",
+        "w": 514,
+        "h": 900,
+        "alt": "חלוק CLOA"
+      }
+    },
+    {
+      "slug": "scarves",
+      "name": "מטפחות וצעיפים",
+      "order": 4,
+      "cover": {
+        "src": "images/site/cover-scarves.webp",
+        "w": 2000,
+        "h": 1333,
+        "alt": "מטפחות בהדפס פייזלי"
+      },
+      "intro": "משי, דמוי משי וקשמיר – מטפחות וצעיפים שמשלימים כל מראה.",
+      "subcategories": [
+        {
+          "slug": "soie-la",
+          "name": "Soie La – מטפחות משי",
+          "order": 1,
+          "products": [
+            {
+              "slug": "soie-bouquet",
+              "name": "Soie La – מארז מטפחות משי",
+              "images": [
+                {
+                  "src": "images/products/scarves/soie-la/soie-bouquet-1.webp",
+                  "w": 1536,
+                  "h": 1536,
+                  "alt": "מניפת מטפחות משי בהדפסים שונים"
+                }
+              ],
+              "description": "מטפחות משי של Soie La.",
+              "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
+              "order": 1,
+              "visible": true,
+              "featured": true,
+              "price": null
+            }
+          ]
+        },
+        {
+          "slug": "faux-silk-tichels",
+          "name": "מטפחות דמוי משי",
+          "order": 2,
+          "products": []
+        },
+        {
+          "slug": "faux-silk-scarves",
+          "name": "צעיפים דמוי משי",
+          "order": 3,
+          "products": []
+        },
+        {
+          "slug": "cashmere",
+          "name": "צעיפים ומטפחות קשמיר",
+          "order": 4,
+          "products": [
+            {
+              "slug": "cashmere-paisley",
+              "name": "מטפחות קשמיר – פייזלי",
+              "images": [
+                {
+                  "src": "images/products/scarves/cashmere/cashmere-paisley-1.webp",
+                  "w": 1600,
+                  "h": 1067,
+                  "alt": "מטפחות בהדפס פייזלי בגווני ורוד ואדום"
+                }
+              ],
+              "description": "צעיפים ומטפחות קשמיר רכים.",
+              "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
+              "order": 1,
+              "visible": true,
+              "featured": false,
+              "price": null
+            }
+          ]
+        }
+      ],
+      "shortName": "מטפחות וצעיפים",
+      "tagline": "Soie La · קשמיר",
+      "niche": {
+        "src": "images/niches/scarves.webp",
+        "w": 877,
+        "h": 900,
+        "alt": "מטפחות Soie La"
+      }
+    },
+    {
+      "slug": "blanche",
+      "name": "BLANCHE – חגיגיות לבנה",
+      "order": 5,
+      "cover": {
+        "src": "images/site/cover-blanche.webp",
+        "w": 1024,
+        "h": 1024,
+        "alt": "מארז BLANCHE עם מטפחת לבנה ופמוטים"
+      },
+      "intro": "מטפחות, סינרים וסטים לבנים – לשבת ולחג.",
+      "subcategories": [
+        {
+          "slug": "white-tichels",
+          "name": "מטפחות לבנות",
+          "order": 1,
+          "products": [
+            {
+              "slug": "white-tichel-box",
+              "name": "מטפחת לבנה במארז",
+              "images": [
+                {
+                  "src": "images/products/blanche/white-tichels/white-tichel-box-1.webp",
+                  "w": 1024,
+                  "h": 1024,
+                  "alt": "מטפחת לבנה במארז BLANCHE ליד פמוטים"
+                }
+              ],
+              "description": "מטפחת לבנה חגיגית במארז מהודר.",
+              "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
+              "order": 1,
+              "visible": true,
+              "featured": true,
+              "price": null
+            }
+          ]
+        },
+        {
+          "slug": "white-aprons",
+          "name": "סינרים לבנים",
+          "order": 2,
+          "products": [
+            {
+              "slug": "white-apron-lace",
+              "name": "סינר לבן עם תחרה",
+              "images": [
+                {
+                  "src": "images/products/blanche/white-aprons/white-apron-lace-1.webp",
+                  "w": 720,
+                  "h": 1280,
+                  "alt": "סינר לבן עם שוליים מחוררים"
+                }
+              ],
+              "description": "סינר לבן חגיגי עם עיטור תחרה.",
+              "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
+              "order": 1,
+              "visible": true,
+              "featured": false,
+              "price": null
+            }
+          ]
+        },
+        {
+          "slug": "matching-sets",
+          "name": "סטים תואמים",
+          "order": 3,
+          "products": [
+            {
+              "slug": "blanche-set",
+              "name": "סט BLANCHE תואם",
+              "images": [
+                {
+                  "src": "images/products/blanche/matching-sets/blanche-set-1.webp",
+                  "w": 1024,
+                  "h": 1024,
+                  "alt": "סט לבן תואם במארז BLANCHE"
+                }
+              ],
+              "description": "סט לבן תואם לשבת ולחג.",
+              "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
+              "order": 1,
+              "visible": true,
+              "featured": false,
+              "price": null
+            }
+          ]
+        }
+      ],
+      "shortName": "BLANCHE",
+      "tagline": "חגיגיות לבנה",
+      "niche": {
+        "src": "images/niches/blanche.webp",
+        "w": 720,
+        "h": 879,
+        "alt": "סינר BLANCHE"
+      }
+    }
+  ]
+}
