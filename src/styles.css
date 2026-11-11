@@ -421,8 +421,7 @@
 /* ---------- "SURY, something special" – burgundy arch ---------- */
 .unique-arch {
   position: relative;
-  margin-inline: auto;
-  width: min(100% - 1.5rem, 1400px);
+  width: 100%;
   border-radius: 50% 50% 0 0 / 110px 110px 0 0;
   background:
     radial-gradient(70% 55% at 50% 0%, rgba(140, 30, 38, 0.55) 0%, transparent 70%),
@@ -442,7 +441,6 @@
 }
 @media (min-width: 768px) {
   .unique-arch {
-    width: min(100% - 5rem, 1400px);
     border-radius: 50% 50% 0 0 / 220px 220px 0 0;
   }
   .unique-arch::before {
