@@ -417,3 +417,40 @@
     transform: none;
   }
 }
+
+/* ---------- "SURY, something special" – burgundy arch ---------- */
+.unique-arch {
+  position: relative;
+  margin-inline: auto;
+  width: min(100% - 1.5rem, 1400px);
+  border-radius: 50% 50% 0 0 / 110px 110px 0 0;
+  background:
+    radial-gradient(70% 55% at 50% 0%, rgba(140, 30, 38, 0.55) 0%, transparent 70%),
+    linear-gradient(180deg, #520c11 0%, #44090d 100%);
+  box-shadow: 0 -20px 60px -30px rgba(78, 12, 16, 0.6);
+  overflow: hidden;
+}
+/* thin gold arch line inside the shape */
+.unique-arch::before {
+  content: "";
+  position: absolute;
+  inset: 14px 14px 0;
+  border: 1px solid rgba(201, 160, 74, 0.45);
+  border-bottom: 0;
+  border-radius: inherit;
+  pointer-events: none;
+}
+@media (min-width: 768px) {
+  .unique-arch {
+    width: min(100% - 5rem, 1400px);
+    border-radius: 50% 50% 0 0 / 220px 220px 0 0;
+  }
+  .unique-arch::before {
+    inset: 22px 22px 0;
+  }
+}
+/* readable text selection on the dark background */
+.unique-arch ::selection {
+  background: var(--color-bg);
+  color: var(--color-primary-dark);
+}
