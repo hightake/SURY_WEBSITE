@@ -899,10 +899,10 @@
       "shortName": "כובעי SURY",
       "tagline": "FIT SURY",
       "niche": {
-        "src": "images/niches/hats-5.webp",
-        "w": 420,
-        "h": 1112,
-        "alt": "כובע MODO עם פרחים בגומחה מוארת"
+        "src": "images/niches/hats-2.webp",
+        "w": 619,
+        "h": 726,
+        "alt": "כובע SURY"
       }
     },
     {
@@ -1380,10 +1380,10 @@
       "shortName": "בנדנות",
       "tagline": "משי · Air · מעוצבות",
       "niche": {
-        "src": "images/niches/bandanas-5.webp",
-        "w": 420,
-        "h": 1112,
-        "alt": "Air Bandana על מעמד זהב בגומחה מוארת"
+        "src": "images/niches/bandanas-2.webp",
+        "w": 582,
+        "h": 708,
+        "alt": "בנדנת משי"
       }
     },
     {
@@ -1562,10 +1562,10 @@
       "shortName": "CLOA",
       "tagline": "אופנת בית",
       "niche": {
-        "src": "images/niches/cloa-5.webp",
-        "w": 420,
-        "h": 1112,
-        "alt": "בנדנת CLOA שחורה עם רקמה אדומה על מעמד זהב"
+        "src": "images/niches/cloa-3.webp",
+        "w": 292,
+        "h": 568,
+        "alt": "בנדנת CLOA"
       }
     },
     {
@@ -1646,10 +1646,10 @@
       "shortName": "מטפחות וצעיפים",
       "tagline": "Soie La · קשמיר",
       "niche": {
-        "src": "images/niches/scarves-5.webp",
-        "w": 420,
-        "h": 1112,
-        "alt": "מטפחת משי La Soie על מעמד זהב"
+        "src": "images/niches/scarves-2.webp",
+        "w": 800,
+        "h": 783,
+        "alt": "מטפחות Soie La"
       }
     },
     {
@@ -1743,10 +1743,10 @@
       "shortName": "BLANCHE",
       "tagline": "חגיגיות לבנה",
       "niche": {
-        "src": "images/niches/blanche-5.webp",
-        "w": 420,
-        "h": 1112,
-        "alt": "מטפחת BLANCHE לבנה על מעמד זהב"
+        "src": "images/niches/blanche-2.webp",
+        "w": 720,
+        "h": 641,
+        "alt": "סינר BLANCHE"
       }
     }
   ]

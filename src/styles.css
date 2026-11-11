@@ -142,74 +142,220 @@
   transform: none;
 }
 
-/* ---------- Plaster niches (brand worlds) ---------- */
+/* ---------- Plaster niches (brand worlds) – modelled on the SURY ad ---------- */
 .niches-wall {
   background:
-    radial-gradient(90% 60% at 50% 0%, #f8f0e6 0%, transparent 65%),
-    linear-gradient(180deg, #f1e6d9 0%, #eadccb 100%);
+    radial-gradient(90% 60% at 50% 0%, #f8eee2 0%, transparent 65%),
+    linear-gradient(180deg, #f1e3d3 0%, #e8d5bf 100%);
 }
-/* One plaster wall: photo tiles edge to edge, an LED strip around the frame */
+/* The plaster wall that holds the niches; an LED strip runs around it */
 .niches-panel {
   position: relative;
-  overflow: hidden;
-  border-radius: 10px;
-  background: #efe3d4;
+  border-radius: 14px;
+  background:
+    radial-gradient(80% 50% at 50% 0%, #fbeee0 0%, transparent 70%),
+    linear-gradient(180deg, #f1ddc8 0%, #ebd3ba 60%, #e4c9ac 100%);
   box-shadow:
-    0 0 0 1px rgba(201, 160, 74, 0.25),
+    inset 0 0 0 1px rgba(255, 240, 220, 0.4),
+    inset 0 20px 50px -20px rgba(150, 105, 60, 0.25),
     0 40px 70px -45px rgba(90, 60, 30, 0.45);
   transition: box-shadow 1.6s var(--ease-soft);
 }
+@media (min-width: 768px) {
+  .niches-panel {
+    border-radius: 999px 999px 10px 10px / 120px 120px 10px 10px;
+  }
+}
 .niches-panel.is-lit {
   box-shadow:
-    0 0 0 1.5px rgba(255, 244, 224, 1),
-    0 0 26px 3px rgba(255, 220, 165, 0.55),
+    inset 0 0 0 2px rgba(255, 248, 236, 1),
+    inset 0 0 26px 4px rgba(255, 224, 178, 0.7),
+    0 0 30px 4px rgba(255, 216, 160, 0.5),
     0 40px 70px -45px rgba(90, 60, 30, 0.45);
 }
-.niche-photo {
+/* marble ledge the pedestals stand on */
+.niches-ledge {
+  height: 14px;
+  margin-top: -2px;
+  background: linear-gradient(180deg, #fbf4ea 0%, #ecdcc8 55%, #d8bfa2 100%);
+  box-shadow: 0 6px 12px -6px rgba(110, 75, 40, 0.45);
   position: relative;
-  aspect-ratio: 420 / 1112;
-  overflow: hidden;
-  background: #e9dccb;
+  z-index: 5;
 }
-.niche-photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  /* lights off */
-  filter: brightness(0.58) saturate(0.75) contrast(0.95);
-  transition:
-    filter 1.4s var(--ease-soft),
-    transform 1.2s var(--ease-soft);
-  transition-delay: var(--d, 0ms), 0ms;
+
+.niche {
+  position: relative;
+  display: block;
+  aspect-ratio: 9 / 17;
+  border-radius: 999px 999px 0 0;
+  background:
+    radial-gradient(75% 55% at 50% 22%, #f9e7d2 0%, rgba(249, 231, 210, 0) 70%),
+    linear-gradient(90deg, #c9a07a 0%, #e2c2a0 14%, #f0d8bf 34%, #f3dec7 50%, #f0d8bf 66%, #e2c2a0 86%, #c9a07a 100%);
+  box-shadow:
+    inset 0 22px 30px -12px rgba(120, 78, 38, 0.45),
+    inset 0 -40px 50px -30px rgba(120, 78, 38, 0.35);
+  isolation: isolate;
 }
-/* warm bloom under each spot as it switches on */
-.niche-photo::after {
+/* LED strip following the arch */
+.niche::before {
   content: "";
   position: absolute;
-  inset: 0;
-  background: radial-gradient(40% 22% at 50% 10%, rgba(255, 236, 200, 0.55), transparent 70%);
-  mix-blend-mode: screen;
-  opacity: 0;
-  transition: opacity 1.4s var(--ease-soft);
-  transition-delay: var(--d, 0ms);
+  inset: -3px -3px 0;
+  border-radius: 999px 999px 0 0;
+  box-shadow: 0 0 0 1px rgba(255, 244, 226, 0);
+  transition: box-shadow 1.4s var(--ease-soft);
   pointer-events: none;
 }
-.is-lit .niche-photo img {
-  filter: none;
+.niche-spot {
+  position: absolute;
+  top: 3%;
+  left: 50%;
+  width: 13%;
+  aspect-ratio: 1 / 1.25;
+  transform: translateX(-50%);
+  border-radius: 2px 2px 3px 3px;
+  background: linear-gradient(90deg, #5e3b12 0%, #a8742f 18%, #e3b56c 40%, #fbe3b0 50%, #d6a259 64%, #8a5f24 84%, #5e3b12 100%);
+  box-shadow:
+    0 3px 4px rgba(60, 35, 10, 0.35),
+    inset 0 2px 0 rgba(255, 235, 190, 0.6);
+  z-index: 4;
 }
-.is-lit .niche-photo::after {
+.niche-spot::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 10%;
+  right: 10%;
+  height: 6px;
+  border-radius: 50%;
+  background: #fffaf0;
+  opacity: 0.2;
+  transition:
+    opacity 0.6s,
+    box-shadow 0.6s;
+}
+.niche-beam,
+.niche-dim {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+}
+/* hot spot right under the lamp + light washing down the back wall */
+.niche-beam {
+  background:
+    radial-gradient(34% 15% at 50% 12.5%, rgba(255, 254, 250, 1) 0%, rgba(255, 248, 232, 0.95) 40%, transparent 100%),
+    radial-gradient(58% 48% at 50% 22%, rgba(255, 242, 218, 1) 0%, rgba(255, 230, 192, 0.55) 50%, transparent 88%),
+    radial-gradient(60% 14% at 50% 90%, rgba(255, 236, 205, 0.7) 0%, transparent 75%);
+  opacity: 0;
+  transition: opacity 1.4s var(--ease-soft);
+  z-index: 1;
+}
+.niche-dim {
+  background: rgba(52, 34, 18, 0.42);
+  transition: opacity 1.4s var(--ease-soft);
+  z-index: 8;
+}
+
+/* Cylindrical marble pedestal */
+.niche-pedestal {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 80%;
+  height: 11%;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, #d8c2a6 0%, #f3e6d6 22%, #fffaf3 48%, #f6ecdf 70%, #d3b999 100%);
+  z-index: 2;
+}
+.niche-pedestal::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 36%;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  background: radial-gradient(70% 90% at 50% 45%, #fffefb 0%, #f9f1e6 65%, #e9d9c4 100%);
+  box-shadow: inset 0 -2px 3px rgba(150, 115, 75, 0.25);
+}
+
+/* Brass display stand: round base + pole */
+.niche-stand-base {
+  position: absolute;
+  left: 50%;
+  bottom: 10.4%;
+  width: 46%;
+  height: 3.2%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(60% 70% at 50% 35%, #fff0c8 0%, #e6b866 35%, #b07d34 75%, #7a531f 100%);
+  box-shadow:
+    0 3px 0 #8a6128,
+    0 6px 8px rgba(70, 45, 15, 0.35);
+  z-index: 3;
+}
+.niche-stand-pole {
+  position: absolute;
+  left: 50%;
+  bottom: 12%;
+  width: max(4px, 2.2%);
+  height: var(--pole, 26%);
+  transform: translateX(-50%);
+  border-radius: 2px;
+  background: linear-gradient(90deg, #6e4a1a 0%, #c9934a 30%, #fde6b2 50%, #c48c3f 72%, #6e4a1a 100%);
+  box-shadow: 0 0 6px rgba(255, 220, 160, 0.4);
+  z-index: 3;
+}
+
+.niche-item {
+  position: absolute;
+  left: 50%;
+  bottom: var(--ib, 34%);
+  width: var(--iw, 72%);
+  height: var(--ih, 34%);
+  transform: translateX(-50%);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 4;
+  transition: transform 0.8s var(--ease-soft);
+}
+.niche-item img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  /* warm spot-lit look + soft shadow on the back wall */
+  filter: sepia(0.08) saturate(1.06) drop-shadow(0 14px 12px rgba(90, 55, 20, 0.35));
+}
+
+/* Lights on */
+.is-lit .niche::before {
+  box-shadow:
+    0 0 0 2px rgba(255, 248, 234, 1),
+    0 0 16px 4px rgba(255, 222, 172, 0.75);
+}
+.is-lit .niche-beam {
   opacity: 1;
 }
-.niche-label {
-  padding: 1.25rem 0.75rem 1.75rem;
-  text-align: center;
-  background: linear-gradient(180deg, #f3e9dd, #efe3d4);
-  border-top: 1px solid rgba(201, 160, 74, 0.35);
+.is-lit .niche-dim {
+  opacity: 0;
+}
+.is-lit .niche-spot::after {
+  opacity: 1;
+  box-shadow: 0 0 18px 9px rgba(255, 240, 210, 0.95);
+}
+.niche::before,
+.niche-spot::after,
+.niche-beam,
+.niche-dim {
+  transition-delay: var(--d, 0ms);
 }
 @media (hover: hover) {
-  a:hover .niche-photo img,
-  a:focus-visible .niche-photo img {
-    transform: scale(1.03);
+  a:hover .niche-item,
+  a:focus-visible .niche-item {
+    transform: translateX(-50%) translateY(-4px);
   }
 }
 
@@ -231,12 +377,16 @@
     transform: none;
     transition: none;
   }
-  .niche-photo img {
-    filter: none;
+  .niche .niche-beam {
+    opacity: 1;
     transition: none;
   }
-  .niche-photo::after {
-    opacity: 1;
+  .niche .niche-dim {
+    opacity: 0;
+    transition: none;
+  }
+  .niche::before,
+  .niche-item {
     transition: none;
   }
   *,
