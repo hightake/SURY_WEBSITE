@@ -142,199 +142,74 @@
   transform: none;
 }
 
-/* ---------- Plaster niches (brand worlds) – modelled on the SURY ad ---------- */
+/* ---------- Plaster niches (brand worlds) ---------- */
 .niches-wall {
   background:
     radial-gradient(90% 60% at 50% 0%, #f8f0e6 0%, transparent 65%),
     linear-gradient(180deg, #f1e6d9 0%, #eadccb 100%);
 }
-/* The plaster wall that holds the niches, with an LED strip around it */
+/* One plaster wall: photo tiles edge to edge, an LED strip around the frame */
 .niches-panel {
   position: relative;
-  border-radius: 6px;
-  background: linear-gradient(180deg, #f3e9dd 0%, #efe3d4 100%);
+  overflow: hidden;
+  border-radius: 10px;
+  background: #efe3d4;
   box-shadow:
-    inset 0 0 0 1px rgba(255, 245, 230, 0.35),
-    0 30px 60px -40px rgba(90, 60, 30, 0.35);
+    0 0 0 1px rgba(201, 160, 74, 0.25),
+    0 40px 70px -45px rgba(90, 60, 30, 0.45);
   transition: box-shadow 1.6s var(--ease-soft);
 }
 .niches-panel.is-lit {
   box-shadow:
-    inset 0 0 0 1.5px rgba(255, 246, 232, 0.95),
-    inset 0 0 30px 2px rgba(255, 226, 182, 0.45),
-    0 0 28px 2px rgba(255, 222, 170, 0.45),
-    0 30px 60px -40px rgba(90, 60, 30, 0.35);
+    0 0 0 1.5px rgba(255, 244, 224, 1),
+    0 0 26px 3px rgba(255, 220, 165, 0.55),
+    0 40px 70px -45px rgba(90, 60, 30, 0.45);
 }
-
-.niche {
+.niche-photo {
   position: relative;
-  display: block;
-  aspect-ratio: 9 / 16;
-  border-radius: 999px 999px 0 0;
-  background: linear-gradient(90deg, #d3bda3 0%, #e6d6c2 18%, #eee2d3 50%, #e6d6c2 82%, #d3bda3 100%);
-  box-shadow:
-    inset 0 16px 26px -10px rgba(110, 75, 40, 0.4),
-    inset 14px 0 22px -14px rgba(110, 75, 40, 0.38),
-    inset -14px 0 22px -14px rgba(110, 75, 40, 0.38);
-  isolation: isolate;
+  aspect-ratio: 420 / 1112;
+  overflow: hidden;
+  background: #e9dccb;
 }
-/* LED strip following the arch */
-.niche::before {
-  content: "";
-  position: absolute;
-  inset: -2px;
-  border-radius: inherit;
-  border-bottom: 0;
-  box-shadow: 0 0 0 1px rgba(255, 244, 226, 0);
-  transition: box-shadow 1.4s var(--ease-soft);
-  z-index: 0;
-  pointer-events: none;
-}
-.niche-spot {
-  position: absolute;
-  top: 3.5%;
-  left: 50%;
-  width: 12%;
-  aspect-ratio: 1 / 1.2;
-  transform: translateX(-50%);
-  border-radius: 2px;
-  background: linear-gradient(90deg, #6b4519 0%, #b8833d 22%, #e9c27f 45%, #f6d9a1 52%, #c9954d 72%, #6b4519 100%);
-  box-shadow: 0 2px 3px rgba(60, 35, 10, 0.35);
-  z-index: 3;
-}
-.niche-spot::after {
-  content: "";
-  position: absolute;
-  bottom: -2px;
-  left: 12%;
-  right: 12%;
-  height: 4px;
-  border-radius: 50%;
-  background: #fff6e2;
-  opacity: 0.15;
+.niche-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* lights off */
+  filter: brightness(0.58) saturate(0.75) contrast(0.95);
   transition:
-    opacity 0.6s,
-    box-shadow 0.6s;
+    filter 1.4s var(--ease-soft),
+    transform 1.2s var(--ease-soft);
+  transition-delay: var(--d, 0ms), 0ms;
 }
-.niche-beam,
-.niche-dim {
+/* warm bloom under each spot as it switches on */
+.niche-photo::after {
+  content: "";
   position: absolute;
   inset: 0;
-  border-radius: inherit;
+  background: radial-gradient(40% 22% at 50% 10%, rgba(255, 236, 200, 0.55), transparent 70%);
+  mix-blend-mode: screen;
+  opacity: 0;
+  transition: opacity 1.4s var(--ease-soft);
+  transition-delay: var(--d, 0ms);
   pointer-events: none;
 }
-.niche-beam {
-  background:
-    radial-gradient(46% 58% at 50% 8%, rgba(255, 252, 244, 1) 0%, rgba(255, 242, 218, 0.92) 28%, rgba(255, 232, 198, 0.35) 58%, transparent 85%),
-    radial-gradient(60% 18% at 50% 86%, rgba(255, 238, 210, 0.75) 0%, transparent 75%);
-  opacity: 0;
-  transition: opacity 1.4s var(--ease-soft);
-  z-index: 1;
+.is-lit .niche-photo img {
+  filter: none;
 }
-.niche-dim {
-  background: rgba(58, 40, 22, 0.34);
-  transition: opacity 1.4s var(--ease-soft);
-  z-index: 6;
-}
-
-/* Cylindrical plaster pedestal */
-.niche-pedestal {
-  position: absolute;
-  left: 50%;
-  bottom: 0;
-  width: 78%;
-  height: 12%;
-  transform: translateX(-50%);
-  background: linear-gradient(90deg, #d9c7b1 0%, #f4ebdf 30%, #fdf8f1 52%, #efe3d4 78%, #d4c0a7 100%);
-  box-shadow: 0 -2px 10px rgba(255, 245, 228, 0.4);
-  z-index: 2;
-}
-.niche-pedestal::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  height: 34%;
-  transform: translateY(-50%);
-  border-radius: 50%;
-  background: radial-gradient(70% 90% at 50% 40%, #fffdf8 0%, #f6eee3 70%, #e8dbc9 100%);
-  box-shadow: inset 0 -2px 3px rgba(150, 120, 85, 0.25);
-}
-
-/* Brass display stand: round base + thin pole */
-.niche-stand-base {
-  position: absolute;
-  left: 50%;
-  bottom: 11.2%;
-  width: 34%;
-  height: 2.6%;
-  transform: translateX(-50%);
-  border-radius: 50%;
-  background: linear-gradient(90deg, #7a531f 0%, #c99b55 30%, #f2d398 50%, #c48f45 72%, #7a531f 100%);
-  box-shadow:
-    0 2px 0 #8a6128,
-    0 4px 6px rgba(70, 45, 15, 0.35);
-  z-index: 3;
-}
-.niche-stand-pole {
-  position: absolute;
-  left: 50%;
-  bottom: 12.2%;
-  width: max(3px, 1.6%);
-  height: var(--pole, 26%);
-  transform: translateX(-50%);
-  border-radius: 2px;
-  background: linear-gradient(90deg, #7a531f, #f2d398 45%, #b9853f 70%, #6e4a1a);
-  z-index: 3;
-}
-
-.niche-item {
-  position: absolute;
-  left: 50%;
-  bottom: var(--ib, 34%);
-  width: var(--iw, 72%);
-  height: var(--ih, 34%);
-  transform: translateX(-50%);
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  z-index: 4;
-  transition: transform 0.8s var(--ease-soft);
-}
-.niche-item img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-  filter: drop-shadow(0 10px 10px rgba(60, 40, 20, 0.3));
-}
-
-/* Lights on */
-.is-lit .niche::before {
-  box-shadow:
-    0 0 0 1.5px rgba(255, 246, 230, 0.95),
-    0 0 14px 2px rgba(255, 226, 180, 0.65);
-}
-.is-lit .niche-beam {
+.is-lit .niche-photo::after {
   opacity: 1;
 }
-.is-lit .niche-dim {
-  opacity: 0;
-}
-.is-lit .niche-spot::after {
-  opacity: 1;
-  box-shadow: 0 0 16px 7px rgba(255, 238, 205, 0.9);
-}
-.niche::before,
-.niche-spot::after,
-.niche-beam,
-.niche-dim {
-  transition-delay: var(--d, 0ms);
+.niche-label {
+  padding: 1.25rem 0.75rem 1.75rem;
+  text-align: center;
+  background: linear-gradient(180deg, #f3e9dd, #efe3d4);
+  border-top: 1px solid rgba(201, 160, 74, 0.35);
 }
 @media (hover: hover) {
-  a:hover .niche-item,
-  a:focus-visible .niche-item {
-    transform: translateX(-50%) translateY(-4px);
+  a:hover .niche-photo img,
+  a:focus-visible .niche-photo img {
+    transform: scale(1.03);
   }
 }
 
@@ -356,16 +231,12 @@
     transform: none;
     transition: none;
   }
-  .niche .niche-beam {
+  .niche-photo img {
+    filter: none;
+    transition: none;
+  }
+  .niche-photo::after {
     opacity: 1;
-    transition: none;
-  }
-  .niche .niche-dim {
-    opacity: 0;
-    transition: none;
-  }
-  .niche::before,
-  .niche-item {
     transition: none;
   }
   *,
