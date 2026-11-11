@@ -899,9 +899,9 @@
       "shortName": "כובעי SURY",
       "tagline": "FIT SURY",
       "niche": {
-        "src": "images/niches/hats.webp",
-        "w": 599,
-        "h": 900,
+        "src": "images/niches/hats-2.webp",
+        "w": 619,
+        "h": 726,
         "alt": "כובע SURY"
       }
     },
@@ -1380,9 +1380,9 @@
       "shortName": "בנדנות",
       "tagline": "משי · Air · מעוצבות",
       "niche": {
-        "src": "images/niches/bandanas.webp",
-        "w": 749,
-        "h": 796,
+        "src": "images/niches/bandanas-2.webp",
+        "w": 582,
+        "h": 708,
         "alt": "בנדנת משי"
       }
     },
@@ -1562,9 +1562,9 @@
       "shortName": "CLOA",
       "tagline": "אופנת בית",
       "niche": {
-        "src": "images/niches/cloa.webp",
-        "w": 514,
-        "h": 900,
+        "src": "images/niches/cloa-2.webp",
+        "w": 253,
+        "h": 800,
         "alt": "חלוק CLOA"
       }
     },
@@ -1646,9 +1646,9 @@
       "shortName": "מטפחות וצעיפים",
       "tagline": "Soie La · קשמיר",
       "niche": {
-        "src": "images/niches/scarves.webp",
-        "w": 877,
-        "h": 900,
+        "src": "images/niches/scarves-2.webp",
+        "w": 800,
+        "h": 783,
         "alt": "מטפחות Soie La"
       }
     },
@@ -1743,9 +1743,9 @@
       "shortName": "BLANCHE",
       "tagline": "חגיגיות לבנה",
       "niche": {
-        "src": "images/niches/blanche.webp",
+        "src": "images/niches/blanche-2.webp",
         "w": 720,
-        "h": 879,
+        "h": 641,
         "alt": "סינר BLANCHE"
       }
     }
