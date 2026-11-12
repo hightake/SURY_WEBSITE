@@ -4,7 +4,7 @@ import { Logo } from "./Logo";
 
 export function Footer() {
   return (
-    <footer className="bg-ink text-bg/80">
+    <footer className="border-t-2 border-accent bg-ink text-bg/80">
       <div className="container-x grid gap-12 py-16 md:grid-cols-[1.3fr_1fr_1fr_1fr] md:py-20">
         <div>
           <Logo className="h-12 text-bg" />
@@ -33,8 +33,8 @@ export function Footer() {
           <li><Link to="/contact" className="text-accent hover:text-bg">השאירו לנו הודעה ←</Link></li>
         </FooterCol>
       </div>
-      <div className="border-t border-bg/10">
-        <div className="container-x flex flex-col gap-3 pb-28 pt-6 text-xs text-bg/60 md:flex-row md:items-center md:justify-between md:pb-28">
+      <div className="border-t border-accent/30">
+        <div className="container-x flex flex-col gap-3 py-6 pb-24 text-xs text-bg/60 md:flex-row md:items-center md:justify-between md:pb-6 md:pl-28">
           <p>© {new Date().getFullYear()} SURY Headwear &amp; accessories</p>
           <div className="flex gap-6">
             <Link to="/privacy" className="hover:text-bg">מדיניות פרטיות</Link>
@@ -54,7 +54,7 @@ export function Footer() {
 function FooterCol({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div>
-      <h2 className="eyebrow mb-5 text-bg/50">{title}</h2>
+      <h2 className="eyebrow mb-5 !text-accent">{title}</h2>
       <ul className="space-y-3 text-sm">{children}</ul>
     </div>
   );

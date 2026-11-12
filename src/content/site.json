@@ -12,7 +12,59 @@
       "titleBold": "מותג אחד",
       "titleLight": "אינסוף אפשרויות",
       "text": "כובעים, בנדנות, מטפחות ואופנת בית – בהתאמה מדויקת ובעבודת יד.",
-      "cta": "לגלות את העולמות"
+      "cta": "לגלות את העולמות",
+      "banners": [
+        {
+          "image": {
+            "src": "images/site/store.webp",
+            "w": 1774,
+            "h": 887,
+            "alt": "הדמיית חנות SURY – קירות תצוגה מוארים בזהב"
+          },
+          "caption": "החנות של SURY",
+          "link": "/stores"
+        },
+        {
+          "image": {
+            "src": "images/products/bandanas/silk/silk-06-1.webp",
+            "w": 749,
+            "h": 796,
+            "alt": "בנדנת משי מרובעת בהדפס עלים טרופיים"
+          },
+          "caption": "משי בהדפסים בלעדיים",
+          "category": "bandanas"
+        },
+        {
+          "image": {
+            "src": "images/products/scarves/soie-la/soie-bouquet-1.webp",
+            "w": 1536,
+            "h": 1536,
+            "alt": "מניפת מטפחות משי בהדפסים שונים"
+          },
+          "caption": "Soie La – מטפחות משי",
+          "category": "scarves"
+        },
+        {
+          "image": {
+            "src": "images/products/blanche/white-tichels/white-tichel-box-1.webp",
+            "w": 1024,
+            "h": 1024,
+            "alt": "מטפחת לבנה במארז BLANCHE ליד פמוטים"
+          },
+          "caption": "BLANCHE – חגיגיות לבנה",
+          "category": "blanche"
+        },
+        {
+          "image": {
+            "src": "images/site/cover-cloa.webp",
+            "w": 848,
+            "h": 1264,
+            "alt": "חלוק CLOA ארוך בין קשתות"
+          },
+          "caption": "CLOA – אופנת בית",
+          "category": "cloa"
+        }
+      ]
     },
     "worlds": {
       "title": "עולמות המותג",
@@ -60,7 +112,7 @@
     },
     "stores": {
       "title": "החנויות שלנו",
-      "text": "מחכות לך בשלוש חנויות."
+      "text": "מחכות לך בשלוש חנויות ובחנות הסיטונאית."
     },
     "contact": {
       "title": "נשמח לעזור",
@@ -140,6 +192,24 @@
         ]
       ],
       "navQuery": "קניון השדרה בית שמש"
+    },
+    {
+      "city": "סיטונאות",
+      "label": "חנות סיטונאית",
+      "wholesale": true,
+      "address": "כתובת לדוגמה, בני ברק",
+      "phone": "050-3970444",
+      "hours": [
+        [
+          "א׳–ה׳",
+          "09:00–17:00"
+        ],
+        [
+          "ו׳",
+          "סגור"
+        ]
+      ],
+      "navQuery": "בני ברק"
     }
   ],
   "categories": [

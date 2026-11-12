@@ -26,10 +26,10 @@ function Hours({ store, className = "" }: { store: Store; className?: string }) 
 function Actions({ store, className = "" }: { store: Store; className?: string }) {
   return (
     <div className={`flex flex-wrap gap-3 ${className}`}>
-      <a href={navLink(store.navQuery)} target="_blank" rel="noopener noreferrer" className="btn btn-primary flex-1 px-6">
+      <a href={navLink(store.navQuery)} target="_blank" rel="noopener noreferrer" className="btn btn-primary flex-1 whitespace-nowrap px-3 text-[15px]">
         ניווט לחנות
       </a>
-      <a href={telLink(store.phone)} className="btn btn-outline flex-1 px-6">
+      <a href={telLink(store.phone)} className="btn btn-outline flex-1 whitespace-nowrap px-3 text-[15px]">
         חיוג
       </a>
     </div>
@@ -41,7 +41,7 @@ function Gates() {
     <section className="niches-wall py-20 md:py-28" aria-labelledby="stores-title">
       <div className="container-x">
         <SectionHeading id="stores-title" eyebrow="Our Stores" title={site.home.stores.title} text={site.home.stores.text} />
-        <div className="grid gap-8 md:grid-cols-3 md:gap-8">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
           {site.stores.map((store, i) => (
             <Reveal key={store.city} delay={i * 120}>
               <StoreGate store={store} />
@@ -59,7 +59,7 @@ function StoreGate({ store }: { store: Store }) {
                 <span className="store-gate-beam" aria-hidden />
                 <span className="niche-spot" aria-hidden />
                 <div className="relative z-[2] flex h-full flex-col items-center px-7 pb-8 pt-[28%] text-center md:px-8">
-                  <p className="eyebrow text-[11px]">SURY</p>
+                  <p className="eyebrow text-[11px]">{store.label ?? "SURY"}</p>
                   <h3 className="mt-2 text-3xl font-light md:text-4xl">{store.city}</h3>
                   <span aria-hidden className="my-6 block h-px w-10 bg-accent" />
                   <p className="flex items-center gap-2 text-[15px]">

@@ -1,6 +1,6 @@
 import { useParams } from "@tanstack/react-router";
 import { useEffect } from "react";
-import { PageHero } from "../components/PageHero";
+import { CategoryHero } from "../components/CategoryHero";
 import { ProductCard } from "../components/ProductCard";
 import { Reveal } from "../components/Reveal";
 import { getCategory } from "../lib/content";
@@ -19,11 +19,10 @@ export function Category() {
   }, [slug]);
 
   if (!category) return <NotFound />;
-  const index = category.order;
 
   return (
     <>
-      <PageHero eyebrow={`${String(index).padStart(2, "0")} · SURY`} title={category.name} text={category.intro} image={category.cover} />
+      <CategoryHero category={category} />
 
       {/* Sub-category quick links (anchors, not filters) */}
       <nav aria-label="תתי־קטגוריות" className="sticky top-16 z-20 border-y border-shade/60 bg-bg/95 backdrop-blur md:top-20">

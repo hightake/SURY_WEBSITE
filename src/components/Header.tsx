@@ -54,7 +54,7 @@ export function Header() {
   };
 
   return (
-    <header className={`sticky top-0 z-40 transition-[background-color,box-shadow] duration-500 ${scrolled || megaOpen ? "bg-bg/95 shadow-[0_1px_0_rgba(26,22,20,0.08)] backdrop-blur" : "bg-hero"}`}>
+    <header className={`sticky top-0 z-40 transition-[background-color,box-shadow] duration-500 border-b border-accent/40 ${scrolled || megaOpen ? "bg-bg/95 backdrop-blur" : "bg-hero"}`}>
       <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:right-4 focus:top-4 focus:z-50 focus:bg-ink focus:px-4 focus:py-2 focus:text-bg">
         דילוג לתוכן
       </a>
@@ -102,26 +102,26 @@ export function Header() {
         id={megaId}
         onMouseEnter={openMega}
         onMouseLeave={closeMegaSoon}
-        className={`absolute inset-x-0 top-full hidden border-t border-shade/60 bg-bg shadow-[0_30px_40px_-30px_rgba(26,22,20,0.25)] transition-[opacity,visibility,transform] duration-300 lg:block ${megaOpen ? "visible opacity-100" : "invisible -translate-y-1 opacity-0"}`}
+        className={`absolute inset-x-0 top-full hidden border-b-2 border-accent bg-bg shadow-[0_30px_40px_-30px_rgba(26,22,20,0.25)] transition-[opacity,visibility,transform] duration-300 lg:block ${megaOpen ? "visible opacity-100" : "invisible -translate-y-1 opacity-0"}`}
       >
-        <div className="container-x grid grid-cols-5 gap-8 py-10">
+        <div className="container-x grid grid-cols-5 gap-6 py-10">
           {categories.map((c, i) => (
-            <div key={c.slug} className="border-s border-shade/70 ps-6 first:border-s-0 first:ps-0">
-              <p className="latin mb-1 text-xs text-accent">{String(i + 1).padStart(2, "0")}</p>
-              <Link to="/collection/$category" params={{ category: c.slug }} className="mb-4 block text-lg font-medium hover:text-primary">
-                {c.name}
+            <div key={c.slug} className="border-s border-accent/30 ps-6 first:border-s-0 first:ps-0">
+              <Link to="/collection/$category" params={{ category: c.slug }} className="group mb-5 block border-b-2 border-accent pb-3">
+                <span className="latin block text-xs text-accent">{String(i + 1).padStart(2, "0")}</span>
+                <span className="mt-1 block text-xl font-bold leading-tight transition-colors group-hover:text-primary">{c.name}</span>
               </Link>
-              <ul className="space-y-2.5">
+              <ul className="space-y-1">
                 {c.subcategories.map((s) => (
                   <li key={s.slug}>
-                    <Link to="/collection/$category" params={{ category: c.slug }} hash={s.slug} className="text-sm text-muted transition-colors hover:text-ink">
+                    <Link to="/collection/$category" params={{ category: c.slug }} hash={s.slug} className="mega-sub">
                       {s.name}
                     </Link>
                   </li>
                 ))}
               </ul>
-              <Link to="/collection/$category" params={{ category: c.slug }} className="link-underline mt-5 inline-block text-sm text-primary">
-                לכל הקולקציה
+              <Link to="/collection/$category" params={{ category: c.slug }} className="link-underline mt-5 inline-block text-sm font-medium text-primary">
+                לכל הקולקציה ←
               </Link>
             </div>
           ))}

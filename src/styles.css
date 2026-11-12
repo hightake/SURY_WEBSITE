@@ -10,6 +10,7 @@
   --color-ink: #1a1614;
   --color-muted: #6b5d52;
   --color-accent: #c9a04a;
+  --color-gold-deep: #8f6a22;
   --color-hero: #f9f2ec;
 
   --font-sans: "Heebo", system-ui, sans-serif;
@@ -62,7 +63,7 @@
     font-size: 0.8rem;
     letter-spacing: 0.28em;
     text-transform: uppercase;
-    color: var(--color-muted);
+    color: var(--color-gold-deep);
   }
 
   .latin {
@@ -92,12 +93,13 @@
   .btn-primary {
     background: var(--color-primary);
     color: var(--color-bg);
+    box-shadow: inset 0 0 0 1px rgba(201, 160, 74, 0.9), inset 0 0 0 3px var(--color-primary), inset 0 0 0 4px rgba(201, 160, 74, 0.45);
   }
   .btn-primary:hover {
     background: var(--color-primary-dark);
   }
   .btn-outline {
-    border: 1px solid var(--color-ink);
+    border: 1px solid var(--color-accent);
     color: var(--color-ink);
   }
   .btn-outline:hover {
@@ -513,7 +515,7 @@
 /* ---------- Stores: a lit plaster gate per store ---------- */
 .store-gate {
   position: relative;
-  min-height: 34rem;
+  min-height: 31rem;
   border-radius: 999px 999px 8px 8px;
   background:
     radial-gradient(60% 30% at 50% 6%, rgba(255, 249, 236, 0.95), transparent 75%),
@@ -584,3 +586,237 @@ textarea.letter-input {
   min-height: 1.5em;
 }
 
+
+/* ---------- Mega menu: sub-categories as clear, separate links ---------- */
+.mega-sub {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.35rem 0.5rem;
+  margin-inline: -0.5rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  color: var(--color-ink);
+  transition: background-color 0.2s, color 0.2s;
+}
+.mega-sub::before {
+  content: "";
+  flex: none;
+  width: 6px;
+  height: 6px;
+  transform: rotate(45deg);
+  background: var(--color-accent);
+}
+.mega-sub:hover,
+.mega-sub:focus-visible {
+  background: rgba(201, 160, 74, 0.14);
+  color: var(--color-primary);
+}
+
+/* gold ornament rule: line – diamond – line */
+.gold-rule {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 140px;
+}
+.gold-rule::before,
+.gold-rule::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-accent));
+}
+.gold-rule::after {
+  background: linear-gradient(90deg, var(--color-accent), transparent);
+}
+.gold-rule {
+  background: radial-gradient(circle, var(--color-accent) 0 3.5px, transparent 4px) center / 10px 10px no-repeat;
+}
+
+/* ---------- Category page opening ---------- */
+.cat-hero {
+  background:
+    radial-gradient(55% 70% at 30% 20%, rgba(255, 244, 222, 0.95), transparent 70%),
+    linear-gradient(180deg, #f6ede2 0%, #eddfcd 100%);
+  border-bottom: 1px solid rgba(201, 160, 74, 0.45);
+}
+.cat-hero-title {
+  font-size: clamp(3rem, 9vw, 7.5rem);
+  line-height: 0.95;
+  font-weight: 200;
+  letter-spacing: -0.01em;
+  background: linear-gradient(180deg, #1a1614 30%, #5a3f12 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+/* double gold arch frame + LED glow around the cover */
+.cat-hero-frame {
+  position: absolute;
+  inset: -14px;
+  border-radius: 999px 999px 4px 4px;
+  border: 1px solid rgba(201, 160, 74, 0.9);
+  box-shadow:
+    0 0 0 7px rgba(246, 237, 226, 0.9),
+    0 0 0 8px rgba(201, 160, 74, 0.45),
+    0 0 30px 6px rgba(255, 222, 172, 0.55);
+}
+
+/* ---------- Banner hero: photos wipe in over one another ---------- */
+.banner-slide {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+.banner-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.banner-slide.is-prev {
+  visibility: visible;
+  z-index: 1;
+}
+.banner-slide.is-current {
+  visibility: visible;
+  z-index: 2;
+  animation: bannerWipe 1.4s cubic-bezier(0.7, 0, 0.2, 1) both;
+}
+.banner-slide.is-current img {
+  animation: bannerZoom 7.5s ease-out both;
+}
+/* RTL: the new photo slides in from the right edge, over the previous one */
+@keyframes bannerWipe {
+  from {
+    clip-path: inset(0 0 0 100%);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+@keyframes bannerZoom {
+  from {
+    transform: scale(1.14);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+/* gold edge riding the wipe */
+.banner-slide.is-current::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 3px;
+  background: linear-gradient(180deg, transparent, var(--color-accent), transparent);
+  box-shadow: 0 0 24px 6px rgba(201, 160, 74, 0.55);
+  animation: bannerEdge 1.4s cubic-bezier(0.7, 0, 0.2, 1) both;
+}
+@keyframes bannerEdge {
+  from {
+    left: 100%;
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  to {
+    left: 0;
+    opacity: 0;
+  }
+}
+.banner-shade {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  background:
+    linear-gradient(to left, rgba(24, 16, 8, 0.78) 0%, rgba(24, 16, 8, 0.45) 38%, rgba(24, 16, 8, 0.05) 70%),
+    linear-gradient(to top, rgba(24, 16, 8, 0.55), transparent 30%);
+}
+.banner-progress {
+  transform-origin: right;
+  animation: bannerProgress 6s linear both;
+}
+@keyframes bannerProgress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+/* bottom strip of the worlds */
+.banner-tile {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  height: 5.5rem;
+  padding: 0.9rem 1.1rem;
+  overflow: hidden;
+  border-inline-start: 1px solid rgba(201, 160, 74, 0.35);
+  color: var(--color-bg);
+}
+@media (min-width: 768px) {
+  .banner-tile {
+    height: 6rem;
+    padding: 1rem 1.5rem;
+  }
+}
+.banner-tile img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.3;
+  filter: sepia(0.35);
+  transition:
+    opacity 0.5s,
+    transform 0.8s var(--ease-soft);
+}
+.banner-tile::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 3px;
+  background: var(--color-accent);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s var(--ease-soft);
+}
+.banner-tile:hover img,
+.banner-tile:focus-visible img {
+  opacity: 0.5;
+  transform: scale(1.06);
+}
+.banner-tile:hover::after,
+.banner-tile:focus-visible::after {
+  transform: scaleX(1);
+}
+.tile-0,
+.tile-2,
+.tile-4 {
+  background: #1f1712;
+}
+.tile-1,
+.tile-3 {
+  background: #2a1f17;
+}
+@media (prefers-reduced-motion: reduce) {
+  .banner-slide.is-current,
+  .banner-slide.is-current img,
+  .banner-slide.is-current::after,
+  .banner-progress {
+    animation: none;
+  }
+}
+@media (max-width: 767px) {
+  .banner-shade {
+    background: linear-gradient(to top, rgba(24, 16, 8, 0.92) 0%, rgba(24, 16, 8, 0.75) 45%, rgba(24, 16, 8, 0.1) 75%);
+  }
+}

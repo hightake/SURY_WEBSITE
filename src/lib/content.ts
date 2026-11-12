@@ -32,16 +32,21 @@ export type Category = {
 
 export type Store = {
   city: string;
+  /** small label above the name, e.g. "חנות סיטונאית" */
+  label?: string;
+  wholesale?: boolean;
   address: string;
   phone: string;
   hours: [string, string][];
   navQuery: string;
 };
 
+export type HeroBanner = { image: Img; caption: string; category?: string; link?: string };
+
 type SiteData = {
   settings: { phone: string; whatsapp: string; whatsappDisplay: string; email: string; social: { name: string; url: string }[] };
   home: {
-    hero: { eyebrow: string; titleBold: string; titleLight: string; text: string; cta: string };
+    hero: { eyebrow: string; titleBold: string; titleLight: string; text: string; cta: string; banners: HeroBanner[] };
     worlds: { title: string; text: string };
     newCollection: { title: string; text: string };
     uniqueness: { title: string; items: { title: string; text: string }[] };
