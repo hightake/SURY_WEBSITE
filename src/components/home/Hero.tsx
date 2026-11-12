@@ -1,4 +1,4 @@
-import { imgUrl, srcSet, site } from "../../lib/content";
+import { imgUrl, site } from "../../lib/content";
 import { IconChevron } from "../Icons";
 
 export function Hero() {
@@ -26,8 +26,18 @@ export function Hero() {
           <div className="relative mx-auto w-[78%] max-w-[480px] animate-[fadeIn_1.6s_var(--ease-soft)_both] md:w-full">
             {/* gold hairline arch behind the photo */}
             <div aria-hidden className="absolute -inset-3 rounded-t-full border border-accent/60 md:-inset-5" />
-            <div className="arch relative aspect-[2/3] bg-surface shadow-[0_40px_60px_-40px_rgba(80,50,20,0.45)]">
-              <img src={imgUrl(h.image.src)} srcSet={srcSet(h.image)} sizes="(min-width: 768px) 480px, 78vw" alt={h.image.alt} fetchPriority="high" className="size-full object-cover" />
+            {/* the hero product stands lit in a plaster niche, like the brand worlds */}
+            <div className="is-lit">
+              <div className="niche hero-niche shadow-[0_40px_60px_-40px_rgba(80,50,20,0.45)]">
+                <span className="niche-beam" aria-hidden />
+                <span className="niche-spot" aria-hidden />
+                <span className="niche-pedestal" aria-hidden />
+                <span className="niche-stand-base" aria-hidden />
+                <span className="niche-stand-pole" aria-hidden style={{ ["--pole" as string]: "24%" }} />
+                <span className="niche-item" style={{ ["--ib" as string]: "35%", ["--ih" as string]: "36%", ["--iw" as string]: "76%" }}>
+                  <img src={imgUrl(h.image.src)} alt={h.image.alt} fetchPriority="high" />
+                </span>
+              </div>
             </div>
           </div>
         </div>

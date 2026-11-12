@@ -460,3 +460,8 @@
   background: var(--color-bg);
   color: var(--color-primary-dark);
 }
+
+/* Hero: a wider, fully lit niche */
+.hero-niche {
+  aspect-ratio: 2 / 3;
+}
