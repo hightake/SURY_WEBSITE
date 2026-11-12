@@ -38,10 +38,12 @@ export type Store = {
   navQuery: string;
 };
 
+export type HeroSlide = { category: string; label: string; fit: "compact" | "medium" | "tall"; image: Img };
+
 type SiteData = {
   settings: { phone: string; whatsapp: string; whatsappDisplay: string; email: string; social: { name: string; url: string }[] };
   home: {
-    hero: { eyebrow: string; titleBold: string; titleLight: string; text: string; cta: string; image: Img };
+    hero: { eyebrow: string; titleBold: string; titleLight: string; text: string; cta: string; slides: HeroSlide[] };
     worlds: { title: string; text: string };
     newCollection: { title: string; text: string };
     uniqueness: { title: string; items: { title: string; text: string }[] };

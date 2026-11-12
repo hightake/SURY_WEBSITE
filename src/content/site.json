@@ -13,12 +13,74 @@
       "titleLight": "אינסוף אפשרויות",
       "text": "כובעים, בנדנות, מטפחות ואופנת בית – בהתאמה מדויקת ובעבודת יד.",
       "cta": "לגלות את העולמות",
-      "image": {
-        "src": "images/niches/hats-2.webp",
-        "w": 619,
-        "h": 726,
-        "alt": "כובע SURY בקשירת לונגי, שזירת כסף וזהב, על מעמד זהב בגומחה מוארת"
-      }
+      "slides": [
+        {
+          "category": "hats",
+          "label": "כובעי SURY",
+          "fit": "compact",
+          "image": {
+            "src": "images/niches/hats-2.webp",
+            "w": 619,
+            "h": 726,
+            "alt": "כובע SURY בקשירת לונגי, שזירת כסף וזהב"
+          }
+        },
+        {
+          "category": "blanche",
+          "label": "BLANCHE – חגיגיות לבנה",
+          "fit": "compact",
+          "image": {
+            "src": "images/hero/blanche.webp",
+            "w": 300,
+            "h": 346,
+            "alt": "מטפחת לבנה של BLANCHE עם עיטור מחורר"
+          }
+        },
+        {
+          "category": "hats",
+          "label": "MODO",
+          "fit": "compact",
+          "image": {
+            "src": "images/hero/modo.webp",
+            "w": 390,
+            "h": 338,
+            "alt": "כובע MODO בגוון מוקה עם פרחים בעבודת יד"
+          }
+        },
+        {
+          "category": "bandanas",
+          "label": "Air Bandana",
+          "fit": "tall",
+          "image": {
+            "src": "images/hero/air.webp",
+            "w": 252,
+            "h": 568,
+            "alt": "Air Bandana כחולה עם רקמה צבעונית"
+          }
+        },
+        {
+          "category": "scarves",
+          "label": "La Soie – מטפחות משי",
+          "fit": "medium",
+          "image": {
+            "src": "images/hero/soie.webp",
+            "w": 348,
+            "h": 478,
+            "alt": "מטפחת משי La Soie בגווני שמנת וכחול"
+          }
+        },
+        {
+          "category": "cloa",
+          "label": "CLOA – אופנת בית",
+          "fit": "tall",
+          "image": {
+            "src": "images/niches/cloa-3.webp",
+            "w": 292,
+            "h": 568,
+            "alt": "בנדנת CLOA שחורה עם רקמה אדומה"
+          }
+        }
+      ]
     },
     "worlds": {
       "title": "עולמות המותג",
