@@ -200,7 +200,7 @@
               "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
               "order": 1,
               "visible": true,
-              "featured": true,
+              "featured": false,
               "price": null
             },
             {
@@ -441,7 +441,7 @@
               "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
               "order": 7,
               "visible": true,
-              "featured": true,
+              "featured": false,
               "price": null
             },
             {
@@ -520,7 +520,7 @@
               "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
               "order": 3,
               "visible": true,
-              "featured": false,
+              "featured": true,
               "price": null
             },
             {
@@ -612,7 +612,7 @@
               "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
               "order": 1,
               "visible": true,
-              "featured": true,
+              "featured": false,
               "price": null
             },
             {
@@ -884,7 +884,7 @@
               "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
               "order": 1,
               "visible": true,
-              "featured": false,
+              "featured": true,
               "price": null
             }
           ]
@@ -931,7 +931,7 @@
               "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
               "order": 1,
               "visible": true,
-              "featured": false,
+              "featured": true,
               "price": null
             },
             {
@@ -1118,7 +1118,7 @@
               "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
               "order": 1,
               "visible": true,
-              "featured": true,
+              "featured": false,
               "price": null
             },
             {
@@ -1305,7 +1305,7 @@
               "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
               "order": 1,
               "visible": true,
-              "featured": true,
+              "featured": false,
               "price": null
             },
             {
@@ -1437,7 +1437,7 @@
               "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
               "order": 1,
               "visible": true,
-              "featured": true,
+              "featured": false,
               "price": null
             }
           ]
@@ -1504,7 +1504,7 @@
               "details": "חומר והוראות טיפול – יעודכנו מהאדמין.",
               "order": 3,
               "visible": true,
-              "featured": true,
+              "featured": false,
               "price": null
             },
             {
