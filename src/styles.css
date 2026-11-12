@@ -466,69 +466,35 @@
   aspect-ratio: 2 / 3;
 }
 
-/* ---------- Hero sketches (demo variants a / b / c) ---------- */
+/* ---------- Hero sketch: drawn in gold, held, erased ---------- */
 .sketch {
   overflow: visible;
   fill: none;
-  stroke: #b8892f;
-  stroke-width: 1.15;
+  stroke: #8f6418;
+  stroke-width: 2.2;
   stroke-linecap: round;
   stroke-linejoin: round;
-  filter: drop-shadow(0 0 3px rgba(255, 220, 160, 0.55));
+  filter: drop-shadow(0 1px 0 rgba(255, 246, 228, 0.7));
 }
 .sketch path {
-  stroke-dasharray: 1;
-  stroke-dashoffset: 1;
-  animation: sketchDraw 1.6s var(--ease-soft) forwards;
-  animation-delay: calc(var(--sd, 0ms) + var(--si, 0) * 160ms);
+  vector-effect: non-scaling-stroke;
 }
 .sketch .sketch-accent {
   stroke: var(--color-primary);
-  stroke-width: 1;
+  stroke-width: 1.8;
 }
-@keyframes sketchDraw {
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-/* gentle float once drawn */
-.sketch-float {
-  animation: sketchFloat 7s ease-in-out infinite;
-  animation-delay: var(--fl, 0s);
-}
-@keyframes sketchFloat {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-6px);
-  }
-}
-.hero-sketch-arch .sketch {
-  stroke-width: 1.6;
-  stroke: #a87a26;
-}
-.hero-sketch-spot .sketch-float {
-  display: block;
-  width: 100%;
-}
-.hero-sketch-spot:hover .sketch,
-.hero-sketch-spot:focus-visible .sketch {
-  filter: drop-shadow(0 0 6px rgba(255, 210, 140, 0.9));
-}
-/* c – draw, hold, erase */
 .sketch-cycle path {
-  animation: sketchCycle 4.6s var(--ease-soft) both;
-  animation-delay: calc(var(--si, 0) * 140ms);
+  stroke-dasharray: 1;
+  animation: sketchCycle 5.2s var(--ease-soft) both;
+  animation-delay: calc(var(--si, 0) * 90ms);
 }
 @keyframes sketchCycle {
   0% {
     stroke-dashoffset: 1;
     opacity: 1;
   }
-  40%,
-  82% {
+  45%,
+  84% {
     stroke-dashoffset: 0;
     opacity: 1;
   }
@@ -537,63 +503,9 @@
     opacity: 0;
   }
 }
-.sketch-cycle {
-  stroke-width: 1.1;
-  stroke: #a87a26;
-}
-/* b – light rays from above and floating dust */
-.hero-rays::before {
-  content: "";
-  position: absolute;
-  inset: -10% 0 0;
-  background:
-    conic-gradient(from 180deg at 50% -10%, transparent 0deg 160deg, rgba(255, 236, 200, 0.55) 170deg, transparent 176deg, rgba(255, 236, 200, 0.4) 182deg, transparent 188deg, rgba(255, 236, 200, 0.5) 194deg, transparent 204deg 360deg),
-    radial-gradient(50% 45% at 50% 40%, rgba(255, 242, 220, 0.95), transparent 75%);
-  animation: raysBreathe 9s ease-in-out infinite;
-  pointer-events: none;
-}
-@keyframes raysBreathe {
-  0%,
-  100% {
-    opacity: 0.75;
-  }
-  50% {
-    opacity: 1;
-  }
-}
-.hero-dust {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background-image:
-    radial-gradient(circle, rgba(201, 160, 74, 0.6) 0 1px, transparent 1.5px),
-    radial-gradient(circle, rgba(201, 160, 74, 0.35) 0 1px, transparent 1.5px);
-  background-size:
-    140px 160px,
-    90px 110px;
-  background-position:
-    0 0,
-    40px 60px;
-  animation: dustDrift 30s linear infinite;
-  mask-image: radial-gradient(60% 60% at 50% 40%, #000 30%, transparent 80%);
-}
-@keyframes dustDrift {
-  to {
-    background-position:
-      0 -320px,
-      40px -160px;
-  }
-}
 @media (prefers-reduced-motion: reduce) {
-  .sketch path,
   .sketch-cycle path {
     animation: none;
     stroke-dashoffset: 0;
-    opacity: 1;
-  }
-  .sketch-float,
-  .hero-rays::before,
-  .hero-dust {
-    animation: none;
   }
 }
