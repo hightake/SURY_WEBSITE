@@ -30,6 +30,7 @@ export function Footer() {
           <li><a href={telLink(site.settings.phone)} className="hover:text-bg" dir="ltr">{site.settings.phone}</a></li>
           <li><a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="hover:text-bg">וואטסאפ <span dir="ltr">{site.settings.whatsappDisplay}</span></a></li>
           <li><a href={`mailto:${site.settings.email}`} className="break-all hover:text-bg">{site.settings.email}</a></li>
+          <li><Link to="/contact" className="text-accent hover:text-bg">השאירו לנו הודעה ←</Link></li>
         </FooterCol>
       </div>
       <div className="border-t border-bg/10">
