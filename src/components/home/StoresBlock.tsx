@@ -1,12 +1,10 @@
 import { navLink, site, telLink, type Store } from "../../lib/content";
 import { IconPin } from "../Icons";
-import { OpenBadge, useOpenStatus } from "../OpenBadge";
 import { Reveal } from "../Reveal";
 import { SectionHeading } from "../SectionHeading";
 
 /*
- * Block 6 – our stores. Each store stands in a plaster gate whose spot is
- * lit while the store is open and dimmed while it is closed.
+ * Block 6 – our stores. Each store stands in a lit plaster gate.
  */
 export function StoresBlock() {
   return <Gates />;
@@ -56,16 +54,13 @@ function Gates() {
 }
 
 function StoreGate({ store }: { store: Store }) {
-  const status = useOpenStatus(store);
-  const lit = status?.open ?? true;
   return (
-              <article className={`store-gate ${lit ? "is-lit" : "is-closed"}`}>
+              <article className="store-gate is-lit">
                 <span className="store-gate-beam" aria-hidden />
                 <span className="niche-spot" aria-hidden />
                 <div className="relative z-[2] flex h-full flex-col items-center px-7 pb-8 pt-[28%] text-center md:px-8">
                   <p className="eyebrow text-[11px]">SURY</p>
                   <h3 className="mt-2 text-3xl font-light md:text-4xl">{store.city}</h3>
-                  <OpenBadge status={status} className="mt-3" />
                   <span aria-hidden className="my-6 block h-px w-10 bg-accent" />
                   <p className="flex items-center gap-2 text-[15px]">
                     <IconPin className="size-4 text-muted" />
