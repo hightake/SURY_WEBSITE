@@ -510,8 +510,7 @@
   }
 }
 
-/* ---------- Stores (demo variants) ---------- */
-/* a – a lit plaster gate per store */
+/* ---------- Stores: a plaster gate per store, lit while open ---------- */
 .store-gate {
   position: relative;
   min-height: 34rem;
@@ -529,45 +528,35 @@
   top: 4%;
   width: 9%;
 }
-/* b – route map pins */
-.store-pin {
-  position: relative;
-  display: block;
-  margin-inline: auto;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: #c9a04a;
-  box-shadow: 0 0 0 4px rgba(201, 160, 74, 0.2);
-  transition: background-color 0.3s, transform 0.3s;
-}
-.store-pin.is-active {
-  background: var(--color-primary);
-  transform: scale(1.25);
-}
-.store-pin.is-active::after {
-  content: "";
+/* light under the spot – on while the store is open */
+.store-gate-beam {
   position: absolute;
-  inset: -6px;
-  border-radius: 50%;
-  border: 1px solid var(--color-primary);
-  animation: pinPulse 2s ease-out infinite;
+  inset: 0;
+  border-radius: inherit;
+  background:
+    radial-gradient(34% 10% at 50% 10%, rgba(255, 255, 250, 1) 0%, rgba(255, 249, 232, 0.95) 45%, transparent 100%),
+    radial-gradient(62% 40% at 50% 18%, rgba(255, 244, 218, 1) 0%, rgba(255, 232, 192, 0.6) 50%, transparent 90%),
+    radial-gradient(80% 30% at 50% 95%, rgba(255, 236, 205, 0.5) 0%, transparent 80%);
+  opacity: 0;
+  transition: opacity 1.2s var(--ease-soft);
+  pointer-events: none;
+  z-index: 1;
 }
-@keyframes pinPulse {
-  from {
-    transform: scale(0.6);
-    opacity: 1;
-  }
-  to {
-    transform: scale(2.2);
-    opacity: 0;
-  }
+.store-gate .niche-spot {
+  z-index: 3;
 }
-.store-route {
-  animation: routeFlow 20s linear infinite;
+.store-gate.is-lit .store-gate-beam {
+  opacity: 1;
 }
-@keyframes routeFlow {
-  to {
-    stroke-dashoffset: -60;
-  }
+.store-gate.is-lit .niche-spot::after {
+  opacity: 1;
+  box-shadow: 0 0 18px 9px rgba(255, 240, 210, 0.95);
+}
+/* closed: lights off, LED strip off, a touch dimmer */
+.store-gate.is-closed {
+  background: linear-gradient(90deg, #c4a688 0%, #d9c4ad 18%, #e0cfbb 50%, #d9c4ad 82%, #c4a688 100%);
+  box-shadow:
+    inset 0 22px 30px -14px rgba(90, 60, 30, 0.45),
+    0 0 0 1px rgba(201, 160, 74, 0.35),
+    0 30px 50px -35px rgba(80, 50, 20, 0.5);
 }
