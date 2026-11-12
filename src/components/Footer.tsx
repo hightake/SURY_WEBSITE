@@ -40,14 +40,10 @@ export function Footer() {
             <Link to="/privacy" className="hover:text-bg">מדיניות פרטיות</Link>
             <Link to="/accessibility" className="hover:text-bg">הצהרת נגישות</Link>
           </div>
-          {/* site credit – HIGHTAKE wordmark (to be replaced by the logo file) */}
-          <a href="mailto:hightake10@gmail.com" dir="ltr" aria-label="developed by HIGHTAKE – hightake10@gmail.com" className="group inline-flex items-center gap-2 text-bg/60 transition-colors hover:text-bg">
+          {/* site credit */}
+          <a href="mailto:hightake10@gmail.com" dir="ltr" className="inline-flex items-center gap-2.5 text-bg/60 transition-colors hover:text-bg">
             <span>developed by</span>
-            <span className="font-sans text-sm font-black tracking-wide text-bg">
-              <span className="font-light text-[#FE5E5E]">{"{ "}</span>
-              HIGHTAKE
-              <span className="font-light text-[#FE5E5E]">{" }"}</span>
-            </span>
+            <img src={`${import.meta.env.BASE_URL}images/site/hightake-logo.webp`} alt="HIGHTAKE – hightake10@gmail.com" width={298} height={41} className="h-[18px] w-auto" />
           </a>
         </div>
       </div>
