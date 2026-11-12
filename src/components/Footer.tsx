@@ -34,12 +34,21 @@ export function Footer() {
         </FooterCol>
       </div>
       <div className="border-t border-bg/10">
-        <div className="container-x flex flex-col gap-3 py-6 text-xs text-bg/60 md:flex-row md:items-center md:justify-between">
+        <div className="container-x flex flex-col gap-3 pb-28 pt-6 text-xs text-bg/60 md:flex-row md:items-center md:justify-between md:pb-28">
           <p>© {new Date().getFullYear()} SURY Headwear &amp; accessories</p>
           <div className="flex gap-6">
             <Link to="/privacy" className="hover:text-bg">מדיניות פרטיות</Link>
             <Link to="/accessibility" className="hover:text-bg">הצהרת נגישות</Link>
           </div>
+          {/* site credit – HIGHTAKE wordmark (to be replaced by the logo file) */}
+          <a href="mailto:hightake10@gmail.com" dir="ltr" aria-label="developed by HIGHTAKE – hightake10@gmail.com" className="group inline-flex items-center gap-2 text-bg/60 transition-colors hover:text-bg">
+            <span>developed by</span>
+            <span className="font-sans text-sm font-black tracking-wide text-bg">
+              <span className="font-light text-[#FE5E5E]">{"{ "}</span>
+              HIGHTAKE
+              <span className="font-light text-[#FE5E5E]">{" }"}</span>
+            </span>
+          </a>
         </div>
       </div>
     </footer>
