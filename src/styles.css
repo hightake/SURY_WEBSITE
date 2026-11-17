@@ -1285,3 +1285,59 @@ textarea.letter-input {
   color: var(--t-deep);
   font-weight: 500;
 }
+/* more angles of the same product – small lit arches */
+.pp-angle {
+  position: relative;
+  display: block;
+  width: 4.25rem;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border-radius: 999px 999px 3px 3px;
+  opacity: 0.6;
+  box-shadow: 0 0 0 1px rgba(201, 160, 74, 0.45);
+  transition:
+    opacity 0.3s,
+    box-shadow 0.3s,
+    transform 0.3s;
+}
+.pp-angle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.pp-angle:hover,
+.pp-angle.is-active {
+  opacity: 1;
+  transform: translateY(-3px);
+  box-shadow:
+    0 0 0 1.5px rgba(255, 246, 230, 1),
+    0 0 12px 3px rgba(255, 222, 172, 0.75),
+    0 0 0 3px var(--color-accent);
+}
+.pp-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  background: rgba(253, 250, 245, 0.85);
+  color: var(--color-gold-deep);
+  font-size: 1.6rem;
+  line-height: 1;
+  box-shadow: 0 0 0 1px rgba(201, 160, 74, 0.6);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.pp-label-photo:hover .pp-arrow,
+.pp-arrow:focus-visible {
+  opacity: 1;
+}
+@media (hover: none) {
+  .pp-arrow {
+    opacity: 1;
+  }
+}

@@ -145,10 +145,29 @@ function Label({ category, sub, product }: Data) {
               <span className="niche-spot" aria-hidden />
               <span className="pp-label-beam" aria-hidden />
               <div className="pp-label-photo">
+                {product.images.length > 1 && (
+                  <>
+                    <button type="button" className="pp-arrow right-3" aria-label="הזווית הקודמת" onClick={() => setActive((active - 1 + product.images.length) % product.images.length)}>›</button>
+                    <button type="button" className="pp-arrow left-3" aria-label="הזווית הבאה" onClick={() => setActive((active + 1) % product.images.length)}>‹</button>
+                  </>
+                )}
                 <img key={img.src} src={imgUrl(img.src)} srcSet={srcSet(img)} sizes="(min-width: 768px) 50vw, 100vw" alt={img.alt} className="animate-[fadeIn_0.7s_var(--ease-soft)_both]" />
               </div>
             </div>
-            <Thumbs product={product} active={active} onPick={setActive} className="mt-4" />
+            {product.images.length > 1 && (
+              <div className="mt-6">
+                <p className="kicker text-center">{product.images.length} זוויות</p>
+                <ul className="mt-3 flex justify-center gap-4" aria-label="זוויות נוספות">
+                  {product.images.map((im, i) => (
+                    <li key={im.src}>
+                      <button type="button" onClick={() => setActive(i)} aria-label={`זווית ${i + 1}`} aria-current={i === active} className={`pp-angle ${i === active ? "is-active" : ""}`}>
+                        <img src={imgSmUrl(im.src)} alt="" />
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </div>
           {/* the hang-tag */}
           <div className="relative pt-10 md:pt-14">
