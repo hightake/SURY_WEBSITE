@@ -12,20 +12,28 @@ export function Product() {
   usePageTitle(found?.product.name);
   const [active, setActive] = useState(0);
   const track = useRef<HTMLDivElement>(null);
+  const jumping = useRef(false);
+  const jumpTimer = useRef<number | undefined>(undefined);
   if (!found) return <NotFound />;
   const { category, sub, product } = found;
   const images = product.images;
   const stores = site.stores.filter((s) => !s.wholesale);
 
+  // jump the photo strip to image i (RTL: scrollLeft runs negative)
   const show = (i: number) => {
+    const el = track.current;
     setActive(i);
-    const el = track.current?.children[i] as HTMLElement | undefined;
-    el?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+    if (!el) return;
+    jumping.current = true;
+    window.clearTimeout(jumpTimer.current);
+    jumpTimer.current = window.setTimeout(() => (jumping.current = false), 700);
+    const rtl = getComputedStyle(el).direction === "rtl";
+    el.scrollTo({ left: (rtl ? -1 : 1) * i * el.clientWidth, behavior: "smooth" });
   };
-  // keep the active dot in sync when swiping on mobile
+  // keep the active thumbnail in sync when swiping on mobile
   const onScroll = () => {
     const el = track.current;
-    if (!el) return;
+    if (!el || jumping.current) return;
     const i = Math.round(Math.abs(el.scrollLeft) / el.clientWidth);
     if (i !== active) setActive(i);
   };
@@ -71,11 +79,15 @@ export function Product() {
               ))}
             </div>
             {images.length > 1 && (
-              <div className="mt-4 flex justify-center gap-2 md:hidden" aria-hidden>
+              <ul className="mt-3 grid grid-cols-5 gap-2 md:hidden" aria-label="תמונות המוצר">
                 {images.map((im, i) => (
-                  <span key={im.src} className={`h-1.5 rounded-full transition-all ${i === active ? "w-6 bg-primary" : "w-1.5 bg-shade"}`} />
+                  <li key={im.src}>
+                    <button type="button" onClick={() => show(i)} aria-label={`תמונה ${i + 1}`} aria-current={i === active} className={`pd-thumb ${i === active ? "is-active" : ""}`}>
+                      <img src={imgSmUrl(im.src)} alt="" />
+                    </button>
+                  </li>
                 ))}
-              </div>
+              </ul>
             )}
           </div>
         </div>
