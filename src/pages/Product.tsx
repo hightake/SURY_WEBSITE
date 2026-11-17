@@ -88,17 +88,6 @@ export function Product() {
           <h1 className="mt-3 text-3xl font-light leading-tight md:text-[2.75rem]">{product.name}</h1>
           {product.description && <p className="mt-5 text-lg leading-relaxed text-ink/80">{product.description}</p>}
 
-          <div className="mt-8 border-t border-shade pt-8">
-            <a href={whatsappLink(`שלום SURY, אשמח לפרטים על: ${product.name}`)} target="_blank" rel="noopener noreferrer" className="pd-cta">
-              <IconWhatsapp />
-              לפרטים והזמנה בוואטסאפ
-            </a>
-            <p className="mt-3 text-center text-sm text-muted">
-              או בטלפון{" "}
-              <a href={telLink(site.settings.phone)} dir="ltr" className="text-ink hover:text-primary">{site.settings.phone}</a>
-            </p>
-          </div>
-
           <div className="mt-8 border-t border-shade">
             {product.details && (
               <details className="pd-acc" open>
@@ -119,6 +108,17 @@ export function Product() {
               </ul>
             </details>
           </div>
+          <div className="mt-8">
+            <a href={whatsappLink(`שלום SURY, אשמח לפרטים על: ${product.name}`)} target="_blank" rel="noopener noreferrer" className="pd-cta">
+              <IconWhatsapp />
+              לפרטים והזמנה בוואטסאפ
+            </a>
+            <p className="mt-3 text-center text-sm text-muted">
+              או בטלפון{" "}
+              <a href={telLink(site.settings.phone)} dir="ltr" className="text-ink hover:text-primary">{site.settings.phone}</a>
+            </p>
+          </div>
+
         </div>
       </div>
     </div>
