@@ -1114,6 +1114,14 @@ textarea.letter-input {
   aspect-ratio: 4 / 5;
   object-fit: cover;
 }
+/* desktop: the whole gate fits on screen, so the angles beside it are visible */
+@media (min-width: 768px) {
+  .pp-label-photo img {
+    max-height: calc(100svh - 21rem);
+    min-height: 360px;
+    object-position: center 25%;
+  }
+}
 /* brass hook the tag hangs from */
 .pp-hook {
   position: absolute;

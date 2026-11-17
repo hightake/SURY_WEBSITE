@@ -139,9 +139,9 @@ function Label({ category, sub, product }: Data) {
       <div className="container-x pb-20 pt-6 md:pt-8">
         <Crumbs category={category} sub={sub} className="text-muted" />
         <div className="mt-6 grid items-start gap-10 md:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] lg:gap-14">
-          <div className="md:sticky md:top-28">
+          <div className="md:sticky md:top-28 md:flex md:items-center md:gap-5">
             {/* the photo stands in a lit plaster gate, like the brand worlds */}
-            <div className="pp-label-gate is-lit">
+            <div className="pp-label-gate is-lit md:min-w-0 md:flex-1">
               <span className="niche-spot" aria-hidden />
               <span className="pp-label-beam" aria-hidden />
               <div className="pp-label-photo">
@@ -155,9 +155,9 @@ function Label({ category, sub, product }: Data) {
               </div>
             </div>
             {product.images.length > 1 && (
-              <div className="mt-6">
+              <div className="mt-6 md:order-last md:mt-0 md:shrink-0">
                 <p className="kicker text-center">{product.images.length} זוויות</p>
-                <ul className="mt-3 flex justify-center gap-4" aria-label="זוויות נוספות">
+                <ul className="mt-3 flex justify-center gap-4 md:flex-col md:gap-3" aria-label="זוויות נוספות">
                   {product.images.map((im, i) => (
                     <li key={im.src}>
                       <button type="button" onClick={() => setActive(i)} aria-label={`זווית ${i + 1}`} aria-current={i === active} className={`pp-angle ${i === active ? "is-active" : ""}`}>
