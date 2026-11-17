@@ -14,7 +14,7 @@
   --color-hero: #f9f2ec;
 
   --font-sans: "Heebo", system-ui, sans-serif;
-  --font-serif: "Bodoni Moda", "Didot", Georgia, serif;
+  --font-serif: "Bodoni Moda", "Heebo", "Didot", Georgia, serif;
 
   --ease-soft: cubic-bezier(0.22, 0.61, 0.36, 1);
 }
@@ -63,6 +63,15 @@
     font-size: 0.8rem;
     letter-spacing: 0.28em;
     text-transform: uppercase;
+    color: var(--color-gold-deep);
+  }
+
+  /* small label for Hebrew text – no wide tracking, no serif */
+  .kicker {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
     color: var(--color-gold-deep);
   }
 
@@ -678,8 +687,8 @@ textarea.letter-input {
   font-weight: 400;
 }
 .ch-spaced {
-  font-size: 0.95rem;
-  letter-spacing: 0.35em;
+  font-size: clamp(1.15rem, 2vw, 1.5rem);
+  font-weight: 300;
   color: var(--color-gold-deep);
 }
 .ch-band {
@@ -913,4 +922,119 @@ textarea.letter-input {
   .banner-shade {
     background: linear-gradient(to top, rgba(24, 16, 8, 0.92) 0%, rgba(24, 16, 8, 0.75) 45%, rgba(24, 16, 8, 0.1) 75%);
   }
+}
+
+/* ---------- Product page (demo variants) ---------- */
+/* a – the photo in a lit plaster niche */
+.pp-niche {
+  position: relative;
+  padding: 16% 8% 8%;
+  border-radius: 999px 999px 8px 8px / 220px 220px 8px 8px;
+  background: linear-gradient(90deg, #d8bc9b 0%, #eddcc8 16%, #f6ebde 50%, #eddcc8 84%, #d8bc9b 100%);
+  box-shadow:
+    inset 0 24px 32px -14px rgba(120, 78, 38, 0.42),
+    0 0 0 1.5px rgba(255, 246, 230, 0.95),
+    0 0 22px 4px rgba(255, 222, 172, 0.55),
+    0 40px 60px -40px rgba(80, 50, 20, 0.5);
+}
+.pp-niche .niche-spot {
+  top: 3.5%;
+  width: 8%;
+  z-index: 3;
+}
+.pp-niche.is-lit .niche-spot::after {
+  opacity: 1;
+  box-shadow: 0 0 18px 9px rgba(255, 240, 210, 0.95);
+}
+.pp-niche-beam {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(40% 16% at 50% 8%, rgba(255, 252, 240, 1), rgba(255, 244, 222, 0.6) 55%, transparent 100%);
+  pointer-events: none;
+}
+.pp-niche-photo {
+  position: relative;
+  z-index: 2;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: 999px 999px 4px 4px / 180px 180px 4px 4px;
+  box-shadow: 0 20px 30px -18px rgba(80, 50, 20, 0.6);
+  background: var(--color-surface);
+}
+.pp-niche-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.pp-thumb {
+  display: block;
+  width: 4.5rem;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border-radius: 999px 999px 3px 3px;
+  opacity: 0.65;
+  box-shadow: 0 0 0 1px rgba(201, 160, 74, 0.4);
+  transition: opacity 0.3s, box-shadow 0.3s;
+}
+.pp-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.pp-thumb:hover,
+.pp-thumb.is-active {
+  opacity: 1;
+  box-shadow:
+    0 0 0 1.5px var(--color-accent),
+    0 0 0 4px var(--color-bg),
+    0 0 0 5px rgba(201, 160, 74, 0.5);
+}
+.pp-card {
+  padding: 2rem 1.5rem;
+  background: #fbf6ef;
+  border-radius: 6px;
+  box-shadow:
+    0 0 0 1px rgba(201, 160, 74, 0.5),
+    0 0 0 7px #fbf6ef,
+    0 0 0 8px rgba(201, 160, 74, 0.28),
+    0 30px 50px -35px rgba(80, 50, 20, 0.4);
+}
+@media (min-width: 768px) {
+  .pp-card {
+    padding: 2.75rem 2.5rem;
+    margin-top: 2rem;
+  }
+}
+.pp-details {
+  border-top: 1px solid rgba(201, 160, 74, 0.4);
+  border-bottom: 1px solid rgba(201, 160, 74, 0.4);
+  padding: 0.9rem 0;
+}
+.pp-details summary {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 500;
+}
+.pp-details summary::after {
+  content: "+";
+  color: var(--color-accent);
+  font-size: 1.3rem;
+  line-height: 1;
+}
+.pp-details[open] summary::after {
+  content: "–";
+}
+/* c – gold double frame around an arch photo */
+.cat-frame {
+  position: absolute;
+  inset: -14px;
+  border-radius: 999px 999px 4px 4px;
+  border: 1px solid rgba(201, 160, 74, 0.9);
+  box-shadow:
+    0 0 0 7px var(--color-bg),
+    0 0 0 8px rgba(201, 160, 74, 0.45),
+    0 0 30px 6px rgba(255, 222, 172, 0.5);
 }

@@ -59,7 +59,7 @@ function StoreGate({ store }: { store: Store }) {
                 <span className="store-gate-beam" aria-hidden />
                 <span className="niche-spot" aria-hidden />
                 <div className="relative z-[2] flex h-full flex-col items-center px-7 pb-8 pt-[28%] text-center md:px-8">
-                  <p className="eyebrow text-[11px]">{store.label ?? "SURY"}</p>
+                  <p className={store.label ? "kicker text-sm" : "eyebrow text-[11px]"}>{store.label ?? "SURY"}</p>
                   <h3 className="mt-2 text-3xl font-light md:text-4xl">{store.city}</h3>
                   <span aria-hidden className="my-6 block h-px w-10 bg-accent" />
                   <p className="flex items-center gap-2 text-[15px]">
