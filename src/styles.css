@@ -709,7 +709,7 @@ textarea.letter-input {
 /* b – the name inside a lit gate */
 .ch-gate {
   position: relative;
-  min-height: 30rem;
+  min-height: 22rem;
   border-radius: 999px 999px 8px 8px / 260px 260px 8px 8px;
   background: linear-gradient(90deg, #dcc2a3 0%, #efe0cd 16%, #f6ebde 50%, #efe0cd 84%, #dcc2a3 100%);
   box-shadow:
@@ -717,6 +717,11 @@ textarea.letter-input {
     0 0 0 1.5px rgba(255, 246, 230, 0.95),
     0 0 22px 4px rgba(255, 222, 172, 0.55),
     0 40px 60px -40px rgba(80, 50, 20, 0.5);
+}
+@media (min-width: 768px) {
+  .ch-gate {
+    min-height: 30rem;
+  }
 }
 .ch-gate .niche-spot {
   top: 4%;

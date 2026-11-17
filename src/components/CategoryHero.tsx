@@ -71,7 +71,7 @@ function Gate({ category }: { category: Category }) {
             {category.intro && <p className="mt-6 max-w-md text-base leading-relaxed text-ink/75 md:text-lg">{category.intro}</p>}
           </div>
         </div>
-        <div className="relative mx-auto hidden w-full max-w-[340px] md:block animate-[fadeIn_1.4s_var(--ease-soft)_0.2s_both]">
+        <div className="relative mx-auto w-[72%] max-w-[340px] md:w-full animate-[fadeIn_1.4s_var(--ease-soft)_0.2s_both]">
           <div className="arch aspect-[3/4] bg-surface shadow-[0_0_0_1px_rgba(201,160,74,0.8),0_0_0_7px_#f3e9dd,0_0_0_8px_rgba(201,160,74,0.4),0_40px_60px_-35px_rgba(80,50,20,0.55)]">
             <img src={imgUrl(category.cover.src)} srcSet={srcSet(category.cover)} sizes="340px" alt={category.cover.alt} className="size-full object-cover" />
           </div>
