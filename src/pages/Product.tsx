@@ -1,167 +1,233 @@
 import { Link, useParams } from "@tanstack/react-router";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { IconWhatsapp } from "../components/Icons";
-import { getProduct, imgSmUrl, imgUrl, site, srcSet, telLink, whatsappLink } from "../lib/content";
+import { getProduct, imgSmUrl, imgUrl, site, srcSet, telLink, whatsappLink, type Category, type Product as ProductT, type Subcategory } from "../lib/content";
 import { usePageTitle } from "../lib/usePageTitle";
 import { NotFound } from "./NotFound";
 
 /*
- * Product page – clean and product-first: a large gallery and a short details column.
- * DEMO: three SURY signature touches on the same layout, picked with ?pp=a|b|c
- *   a – arch: the photo has the gate shape with a gold hairline frame, arched thumbnails
- *   b – spotlight: a brass spot lights the photo from above, the photo stands on a marble ledge
- *   c – seal: a round gold SURY seal with the collection name sits on the photo's corner
+ * Product page.
+ * DEMO: three structural directions, picked with ?pp=a|b|c
+ *   a – atmosphere: the page takes the product's own colour; the photo floats over a
+ *       soft blur of itself, the name is set huge across it, details on a card below
+ *   b – the label: a large photo beside a couture hang-tag (gold eyelet and cord)
+ *       that carries the name, details and the WhatsApp button
+ *   c – lookbook: tall photos side by side across the screen, the name runs vertically,
+ *       and a slim bar with the name and WhatsApp stays at the bottom
+ * Once one is chosen the other two are removed.
  */
-function useSig() {
-  const [v, setV] = useState<"a" | "b" | "c">("a");
+type Variant = "a" | "b" | "c";
+type Data = { category: Category; sub: Subcategory; product: ProductT };
+
+function useVariant(): Variant {
+  const [v, setV] = useState<Variant>("a");
   useEffect(() => {
     const q = new URLSearchParams(window.location.search).get("pp");
     if (q === "b" || q === "c") setV(q);
   }, []);
   return v;
 }
+
 export function Product() {
   const { category: catSlug, product: productSlug } = useParams({ from: "/collection/$category/$product" });
   const found = getProduct(catSlug, productSlug);
   usePageTitle(found?.product.name);
-  const [active, setActive] = useState(0);
-  const sig = useSig();
-  const track = useRef<HTMLDivElement>(null);
-  const jumping = useRef(false);
-  const jumpTimer = useRef<number | undefined>(undefined);
+  const v = useVariant();
   if (!found) return <NotFound />;
-  const { category, sub, product } = found;
-  const images = product.images;
-  const stores = site.stores.filter((s) => !s.wholesale);
+  if (v === "b") return <Label {...found} />;
+  if (v === "c") return <Lookbook {...found} />;
+  return <Atmosphere {...found} />;
+}
 
-  // jump the photo strip to image i (RTL: scrollLeft runs negative)
-  const show = (i: number) => {
-    const el = track.current;
-    setActive(i);
-    if (!el) return;
-    jumping.current = true;
-    window.clearTimeout(jumpTimer.current);
-    jumpTimer.current = window.setTimeout(() => (jumping.current = false), 700);
-    const rtl = getComputedStyle(el).direction === "rtl";
-    el.scrollTo({ left: (rtl ? -1 : 1) * i * el.clientWidth, behavior: "smooth" });
-  };
-  // keep the active thumbnail in sync when swiping on mobile
-  const onScroll = () => {
-    const el = track.current;
-    if (!el || jumping.current) return;
-    const i = Math.round(Math.abs(el.scrollLeft) / el.clientWidth);
-    if (i !== active) setActive(i);
-  };
+/* ---------- shared ---------- */
+const toneVars = (p: ProductT): CSSProperties =>
+  ({ ["--t-soft" as string]: p.tone?.soft ?? "#efe4d6", ["--t-mid" as string]: p.tone?.mid ?? "#dcc8b0", ["--t-deep" as string]: p.tone?.deep ?? "#4e0c10" }) as CSSProperties;
 
+function Crumbs({ category, sub, className = "" }: { category: Category; sub: Subcategory; className?: string }) {
   return (
-    <div className={`pd-sig-${sig} container-x pb-16 pt-6 md:pb-24 md:pt-10`}>
-      <nav aria-label="פירורי לחם" className="mb-6 text-sm text-muted md:mb-8">
-        <ol className="flex flex-wrap items-center gap-2">
-          <li><Link to="/" className="hover:text-ink">דף הבית</Link></li>
-          <li aria-hidden>›</li>
-          <li><Link to="/collection/$category" params={{ category: category.slug }} className="hover:text-ink">{category.shortName}</Link></li>
-          <li aria-hidden>›</li>
-          <li><Link to="/collection/$category" params={{ category: category.slug }} hash={sub.slug} className="hover:text-ink">{sub.name}</Link></li>
-        </ol>
-      </nav>
+    <nav aria-label="פירורי לחם" className={`text-sm ${className}`}>
+      <ol className="flex flex-wrap items-center gap-2">
+        <li><Link to="/" className="opacity-70 hover:opacity-100">דף הבית</Link></li>
+        <li aria-hidden className="opacity-50">›</li>
+        <li><Link to="/collection/$category" params={{ category: category.slug }} className="opacity-70 hover:opacity-100">{category.shortName}</Link></li>
+        <li aria-hidden className="opacity-50">›</li>
+        <li><Link to="/collection/$category" params={{ category: category.slug }} hash={sub.slug} className="opacity-70 hover:opacity-100">{sub.name}</Link></li>
+      </ol>
+    </nav>
+  );
+}
 
-      <div className="grid gap-8 md:grid-cols-[minmax(0,1.25fr)_minmax(0,1fr)] lg:gap-16">
-        {/* Gallery */}
-        <div className="flex gap-4 md:sticky md:top-28 md:self-start">
-          {images.length > 1 && (
-            <ul className="hidden w-20 shrink-0 flex-col gap-3 md:flex" aria-label="תמונות המוצר">
-              {images.map((im, i) => (
-                <li key={im.src}>
-                  <button type="button" onClick={() => show(i)} aria-label={`תמונה ${i + 1}`} aria-current={i === active} className={`pd-thumb ${i === active ? "is-active" : ""}`}>
-                    <img src={imgSmUrl(im.src)} alt="" />
-                  </button>
-                </li>
-              ))}
-            </ul>
-          )}
-          <div className="min-w-0 flex-1">
-            <div className="pd-stage relative">
-            {sig === "b" && <span className="pd-spot" aria-hidden />}
-            {sig === "c" && (
-              <svg className="pd-seal" viewBox="0 0 120 120" aria-hidden="true" direction="ltr">
-                <defs>
-                  <path id="pd-seal-path" d="M60 60 m-44 0 a44 44 0 1 1 88 0 a44 44 0 1 1 -88 0" />
-                </defs>
-                <circle cx="60" cy="60" r="58" />
-                <circle cx="60" cy="60" r="52" className="pd-seal-ring" />
-                <text>
-                  <textPath href="#pd-seal-path" startOffset="0">{`SURY · ${category.slug.toUpperCase()} · SURY · ${category.slug.toUpperCase()} · `}</textPath>
-                </text>
-                <text x="60" y="72" textAnchor="middle" className="pd-seal-s">S</text>
-              </svg>
-            )}
-            <div ref={track} onScroll={onScroll} className="pd-main no-scrollbar flex snap-x snap-mandatory overflow-x-auto bg-surface/60">
-              {images.map((im, i) => (
-                <img
-                  key={im.src}
-                  src={imgUrl(im.src)}
-                  srcSet={srcSet(im)}
-                  sizes="(min-width: 768px) 50vw, 100vw"
-                  alt={im.alt}
-                  loading={i ? "lazy" : "eager"}
-                  className="aspect-[4/5] w-full shrink-0 snap-center object-cover"
-                />
-              ))}
-            </div>
-            </div>
-            {images.length > 1 && (
-              <ul className="mt-3 grid grid-cols-5 gap-2 md:hidden" aria-label="תמונות המוצר">
-                {images.map((im, i) => (
-                  <li key={im.src}>
-                    <button type="button" onClick={() => show(i)} aria-label={`תמונה ${i + 1}`} aria-current={i === active} className={`pd-thumb ${i === active ? "is-active" : ""}`}>
-                      <img src={imgSmUrl(im.src)} alt="" />
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            )}
+const waHref = (p: ProductT) => whatsappLink(`שלום SURY, אשמח לפרטים על: ${p.name}`);
+
+function StoresList() {
+  return (
+    <ul className="space-y-2 text-[15px]">
+      {site.stores.filter((s) => !s.wholesale).map((s) => (
+        <li key={s.city} className="flex justify-between gap-4">
+          <span className="font-medium">{s.city}</span>
+          <span className="opacity-70">{s.address}</span>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+function Thumbs({ product, active, onPick, className = "" }: { product: ProductT; active: number; onPick: (i: number) => void; className?: string }) {
+  if (product.images.length < 2) return null;
+  return (
+    <ul className={`flex gap-3 ${className}`} aria-label="תמונות המוצר">
+      {product.images.map((im, i) => (
+        <li key={im.src}>
+          <button type="button" onClick={() => onPick(i)} aria-label={`תמונה ${i + 1}`} aria-current={i === active} className={`pd-thumb !w-16 ${i === active ? "is-active" : ""}`}>
+            <img src={imgSmUrl(im.src)} alt="" />
+          </button>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+/* ---------- a – atmosphere ---------- */
+function Atmosphere({ category, sub, product }: Data) {
+  const [active, setActive] = useState(0);
+  const img = product.images[active] ?? product.images[0];
+  return (
+    <div className="pp-atmo" style={toneVars(product)}>
+      <section className="relative overflow-hidden">
+        <img aria-hidden src={imgSmUrl(img.src)} alt="" className="pp-atmo-blur" />
+        <div className="container-x relative pb-10 pt-6 md:pt-8">
+          <Crumbs category={category} sub={sub} className="text-[color:var(--t-deep)]" />
+          <div className="relative mt-6 grid place-items-center md:mt-4">
+            <img key={img.src} src={imgUrl(img.src)} srcSet={srcSet(img)} sizes="(min-width: 768px) 480px, 82vw" alt={img.alt} className="pp-atmo-photo animate-[fadeIn_0.7s_var(--ease-soft)_both]" />
+            <h1 className="pp-atmo-title">{product.name}</h1>
           </div>
+          <Thumbs product={product} active={active} onPick={setActive} className="mt-6 justify-center" />
         </div>
-
-        {/* Details */}
-        <div className="md:pt-2">
-          <Link to="/collection/$category" params={{ category: category.slug }} hash={sub.slug} className="kicker hover:text-primary">
-            {sub.name}
-          </Link>
-          <h1 className="mt-3 text-3xl font-light leading-tight md:text-[2.75rem]">{product.name}</h1>
-          {product.description && <p className="mt-5 text-lg leading-relaxed text-ink/80">{product.description}</p>}
-
-          <div className="mt-8 border-t border-shade">
-            {product.details && (
-              <details className="pd-acc" open>
-                <summary>פרטי המוצר</summary>
-                <p className="whitespace-pre-line pb-5 leading-relaxed text-muted">{product.details}</p>
-              </details>
-            )}
-            <details className="pd-acc">
-              <summary>איפה אפשר למדוד</summary>
-              <ul className="space-y-3 pb-5 text-[15px]">
-                {stores.map((s) => (
-                  <li key={s.city} className="flex justify-between gap-4">
-                    <span className="font-medium">{s.city}</span>
-                    <span className="text-muted">{s.address}</span>
-                  </li>
-                ))}
-                <li><Link to="/stores" className="link-underline text-sm text-primary">שעות פתיחה וניווט</Link></li>
-              </ul>
-            </details>
+      </section>
+      <section className="container-x relative -mt-2 pb-20">
+        <div className="pp-atmo-card mx-auto grid max-w-4xl gap-8 md:grid-cols-[1.2fr_1fr] md:gap-12">
+          <div>
+            <Link to="/collection/$category" params={{ category: category.slug }} hash={sub.slug} className="kicker !text-[color:var(--t-deep)]">{category.shortName} · {sub.name}</Link>
+            {product.description && <p className="mt-4 text-xl font-light leading-relaxed">{product.description}</p>}
+            {product.details && <p className="mt-4 whitespace-pre-line leading-relaxed text-muted">{product.details}</p>}
+            <div className="mt-7 border-t border-[color:var(--t-mid)] pt-5">
+              <p className="mb-3 text-sm font-medium">איפה אפשר למדוד</p>
+              <StoresList />
+            </div>
           </div>
-          <div className="mt-8">
-            <a href={whatsappLink(`שלום SURY, אשמח לפרטים על: ${product.name}`)} target="_blank" rel="noopener noreferrer" className="pd-cta">
+          <div className="flex flex-col justify-center md:border-s md:border-[color:var(--t-mid)] md:ps-10">
+            <a href={waHref(product)} target="_blank" rel="noopener noreferrer" className="pp-atmo-cta">
               <IconWhatsapp />
               לפרטים והזמנה בוואטסאפ
             </a>
             <p className="mt-3 text-center text-sm text-muted">
-              או בטלפון{" "}
-              <a href={telLink(site.settings.phone)} dir="ltr" className="text-ink hover:text-primary">{site.settings.phone}</a>
+              או בטלפון <a href={telLink(site.settings.phone)} dir="ltr" className="text-ink">{site.settings.phone}</a>
             </p>
           </div>
+        </div>
+      </section>
+    </div>
+  );
+}
 
+/* ---------- b – the label ---------- */
+function Label({ category, sub, product }: Data) {
+  const [active, setActive] = useState(0);
+  const img = product.images[active] ?? product.images[0];
+  return (
+    <div className="pp-label-page" style={toneVars(product)}>
+      <div className="container-x pb-20 pt-6 md:pt-8">
+        <Crumbs category={category} sub={sub} className="text-muted" />
+        <div className="mt-6 grid items-start gap-10 md:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] lg:gap-14">
+          <div className="md:sticky md:top-28">
+            <div className="pp-label-photo">
+              <img key={img.src} src={imgUrl(img.src)} srcSet={srcSet(img)} sizes="(min-width: 768px) 55vw, 100vw" alt={img.alt} className="animate-[fadeIn_0.7s_var(--ease-soft)_both]" />
+            </div>
+            <Thumbs product={product} active={active} onPick={setActive} className="mt-4" />
+          </div>
+          {/* the hang-tag */}
+          <div className="relative pt-10 md:pt-14">
+            <svg className="pp-cord" viewBox="0 0 100 60" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M2 2 C30 30 60 10 50 58" />
+            </svg>
+            <article className="pp-tag">
+              <span className="pp-tag-eyelet" aria-hidden />
+              <p className="latin text-center text-sm tracking-[0.3em] text-gold-deep">SURY</p>
+              <p className="mt-1 text-center text-xs text-muted">{category.shortName}</p>
+              <span aria-hidden className="pp-tag-rule" />
+              <p className="kicker text-center">{sub.name}</p>
+              <h1 className="mt-2 text-center text-3xl font-light leading-tight md:text-4xl">{product.name}</h1>
+              {product.description && <p className="mt-5 text-center leading-relaxed">{product.description}</p>}
+              <dl className="pp-tag-specs mt-7">
+                {product.details && (
+                  <>
+                    <dt>פרטים</dt>
+                    <dd className="whitespace-pre-line">{product.details}</dd>
+                  </>
+                )}
+                <dt>למדידה</dt>
+                <dd>{site.stores.filter((s) => !s.wholesale).map((s) => s.city).join(" · ")}</dd>
+              </dl>
+              <a href={waHref(product)} target="_blank" rel="noopener noreferrer" className="pd-cta mt-8">
+                <IconWhatsapp />
+                לפרטים והזמנה בוואטסאפ
+              </a>
+              <p className="mt-3 text-center text-sm text-muted">
+                או בטלפון <a href={telLink(site.settings.phone)} dir="ltr" className="text-ink">{site.settings.phone}</a>
+              </p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ---------- c – lookbook ---------- */
+function Lookbook({ category, sub, product }: Data) {
+  const strip = useRef<HTMLDivElement>(null);
+  return (
+    <div className="pp-look" style={toneVars(product)}>
+      <div className="container-x flex items-end justify-between gap-6 pb-6 pt-6 md:pt-8">
+        <Crumbs category={category} sub={sub} className="text-muted" />
+        <p className="kicker hidden md:block">{category.shortName} · {sub.name}</p>
+      </div>
+      <div className="pp-look-row">
+        <h1 className="pp-look-title"><span>{product.name}</span></h1>
+        <div ref={strip} className="no-scrollbar flex snap-x snap-mandatory gap-3 overflow-x-auto ps-5 md:ps-0">
+          {product.images.map((im, i) => (
+            <img key={im.src} src={imgUrl(im.src)} srcSet={srcSet(im)} sizes="(min-width: 768px) 34vw, 78vw" alt={im.alt} loading={i ? "lazy" : "eager"} className="pp-look-frame" />
+          ))}
+          {/* a colour panel taken from the photo, carrying the description */}
+          <div className="pp-look-panel">
+            <p className="kicker !text-[color:var(--t-soft)]">{sub.name}</p>
+            {product.description && <p className="mt-4 text-2xl font-extralight leading-snug md:text-3xl">{product.description}</p>}
+            <span aria-hidden className="mt-8 block h-px w-16 bg-accent" />
+          </div>
+          <span className="w-5 shrink-0 md:w-10" aria-hidden />
+        </div>
+      </div>
+      <div className="container-x grid gap-10 pb-32 pt-12 md:grid-cols-3 md:gap-14 md:pb-36">
+        <div className="md:col-span-2">
+          <h2 className="text-3xl font-light md:hidden">{product.name}</h2>
+          {product.details && <p className="mt-4 whitespace-pre-line leading-relaxed text-muted md:mt-0 md:text-lg">{product.details}</p>}
+        </div>
+        <div>
+          <p className="mb-3 text-sm font-medium">איפה אפשר למדוד</p>
+          <StoresList />
+        </div>
+      </div>
+      {/* slim bar that stays at the bottom */}
+      <div className="pp-look-bar">
+        <div className="container-x flex items-center justify-between gap-4 py-3">
+          <div className="min-w-0">
+            <p className="truncate text-base font-medium md:text-lg">{product.name}</p>
+            <p className="hidden text-xs text-bg/70 md:block">{category.shortName} · {sub.name}</p>
+          </div>
+          <a href={waHref(product)} target="_blank" rel="noopener noreferrer" className="pp-look-cta">
+            <IconWhatsapp />
+            <span>לפרטים בוואטסאפ</span>
+          </a>
         </div>
       </div>
     </div>

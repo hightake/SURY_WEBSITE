@@ -246,7 +246,12 @@
               "order": 1,
               "visible": true,
               "featured": true,
-              "price": null
+              "price": null,
+              "tone": {
+                "soft": "#eae6e0",
+                "mid": "#d1c9bc",
+                "deep": "#4c402d"
+              }
             }
           ]
         },
@@ -271,7 +276,12 @@
               "order": 1,
               "visible": true,
               "featured": false,
-              "price": null
+              "price": null,
+              "tone": {
+                "soft": "#f0e4da",
+                "mid": "#ddc4b0",
+                "deep": "#573a23"
+              }
             },
             {
               "slug": "modo-02",
@@ -289,7 +299,12 @@
               "order": 2,
               "visible": true,
               "featured": false,
-              "price": null
+              "price": null,
+              "tone": {
+                "soft": "#ece5de",
+                "mid": "#d7c7b6",
+                "deep": "#4f3d2b"
+              }
             },
             {
               "slug": "modo-03",
@@ -307,7 +322,12 @@
               "order": 3,
               "visible": true,
               "featured": false,
-              "price": null
+              "price": null,
+              "tone": {
+                "soft": "#efe4db",
+                "mid": "#ddc5b0",
+                "deep": "#553b24"
+              }
             },
             {
               "slug": "modo-04",
@@ -325,7 +345,12 @@
               "order": 4,
               "visible": true,
               "featured": false,
-              "price": null
+              "price": null,
+              "tone": {
+                "soft": "#eedcde",
+                "mid": "#dbb2b6",
+                "deep": "#53262b"
+              }
             },
             {
               "slug": "modo-05",
@@ -343,7 +368,12 @@
               "order": 5,
               "visible": true,
               "featured": false,
-              "price": null
+              "price": null,
+              "tone": {
+                "soft": "#f0e7da",
+                "mid": "#ddc9b0",
+                "deep": "#594120"
+              }
             },
             {
               "slug": "modo-06",
@@ -361,7 +391,12 @@
               "order": 6,
               "visible": true,
               "featured": false,
-              "price": null
+              "price": null,
+              "tone": {
+                "soft": "#f0e5da",
+                "mid": "#ddc7b0",
+                "deep": "#573d22"
+              }
             },
             {
               "slug": "modo-07",
@@ -379,7 +414,12 @@
               "order": 7,
               "visible": true,
               "featured": false,
-              "price": null
+              "price": null,
+              "tone": {
+                "soft": "#f0e4da",
+                "mid": "#ddc3b0",
+                "deep": "#563923"
+              }
             }
           ]
         },
@@ -404,7 +444,12 @@
               "order": 1,
               "visible": true,
               "featured": false,
-              "price": null
+              "price": null,
+              "tone": {
+                "soft": "#eee7dc",
+                "mid": "#daccb2",
+                "deep": "#524327"
+              }
             },
             {
               "slug": "modo-classic-09",
@@ -422,7 +467,12 @@
               "order": 2,
               "visible": true,
               "featured": false,
-              "price": null
+              "price": null,
+              "tone": {
+                "soft": "#ece0de",
+                "mid": "#d6bbb7",
+                "deep": "#4d302c"
+              }
             },
             {
               "slug": "modo-classic-11",
@@ -440,7 +490,12 @@
               "order": 3,
               "visible": true,
               "featured": false,
-              "price": null
+              "price": null,
+              "tone": {
+                "soft": "#efe4db",
+                "mid": "#dcc5b1",
+                "deep": "#543b25"
+              }
             },
             {
               "slug": "modo-classic-14",
@@ -458,7 +513,12 @@
               "order": 4,
               "visible": true,
               "featured": false,
-              "price": null
+              "price": null,
+              "tone": {
+                "soft": "#ece5de",
+                "mid": "#d5c6b8",
+                "deep": "#4c3d2d"
+              }
             },
             {
               "slug": "modo-classic-15",
@@ -476,7 +536,12 @@
               "order": 5,
               "visible": true,
               "featured": false,
-              "price": null
+              "price": null,
+              "tone": {
+                "soft": "#dde1ee",
+                "mid": "#b4bfd9",
+                "deep": "#283451"
+              }
             },
             {
               "slug": "modo-classic-16",
@@ -494,7 +559,12 @@
               "order": 6,
               "visible": true,
               "featured": false,
-              "price": null
+              "price": null,
+              "tone": {
+                "soft": "#e0e1ea",
+                "mid": "#bbbed2",
+                "deep": "#2d314c"
+              }
             },
             {
               "slug": "modo-classic-18",
@@ -512,7 +582,12 @@
               "order": 7,
               "visible": true,
               "featured": false,
-              "price": null
+              "price": null,
+              "tone": {
+                "soft": "#ece6de",
+                "mid": "#d6c8b6",
+                "deep": "#4e3e2b"
+              }
             },
             {
               "slug": "modo-classic-20",
@@ -530,7 +605,12 @@
               "order": 8,
               "visible": true,
               "featured": false,
-              "price": null
+              "price": null,
+              "tone": {
+                "soft": "#efe5db",
+                "mid": "#ddc7b0",
+                "deep": "#563d24"
+              }
             }
           ]
         },
@@ -555,7 +635,12 @@
               "order": 1,
               "visible": true,
               "featured": true,
-              "price": null
+              "price": null,
+              "tone": {
+                "soft": "#e9e8e1",
+                "mid": "#d0ccbd",
+                "deep": "#4c462d"
+              }
             },
             {
               "slug": "bow-02",
@@ -573,7 +658,12 @@
               "order": 2,
               "visible": true,
               "featured": false,
-              "price": null
+              "price": null,
+              "tone": {
+                "soft": "#ebe8df",
+                "mid": "#d3cdba",
+                "deep": "#4c452d"
+              }
             },
             {
               "slug": "bow-03",
@@ -591,7 +681,12 @@
               "order": 3,
               "visible": true,
               "featured": true,
-              "price": null
+              "price": null,
+              "tone": {
+                "soft": "#e9e8e1",
+                "mid": "#d0ccbd",
+                "deep": "#4c462d"
+              }
             },
             {
               "slug": "bow-04",
@@ -609,7 +704,12 @@
               "order": 4,
               "visible": true,
               "featured": false,
-              "price": null
+              "price": null,
+              "tone": {
+                "soft": "#e9e7e1",
+                "mid": "#d0ccbd",
+                "deep": "#4c452d"
+              }
             },
             {
               "slug": "bow-05",
@@ -627,7 +727,12 @@
               "order": 5,
               "visible": true,
               "featured": false,
-              "price": null
+              "price": null,
+              "tone": {
+                "soft": "#eee4dc",
+                "mid": "#dac5b3",
+                "deep": "#523b28"
+              }
             }
           ]
         },
@@ -658,7 +763,12 @@
               "order": 1,
               "visible": true,
               "featured": false,
-              "price": null
+              "price": null,
+              "tone": {
+                "soft": "#e6e5e4",
+                "mid": "#c8c6c5",
+                "deep": "#4c352d"
+              }
             }
           ]
         },
@@ -683,7 +793,12 @@
               "order": 1,
               "visible": true,
               "featured": false,
-              "price": null
+              "price": null,
+              "tone": {
+                "soft": "#f0e6da",
+                "mid": "#ddc8b0",
+                "deep": "#5a3f1f"
+              }
             },
             {
               "slug": "longi-02",
@@ -701,7 +816,12 @@
               "order": 2,
               "visible": true,
               "featured": false,
-              "price": null
+              "price": null,
+              "tone": {
+                "soft": "#eae5e0",
+                "mid": "#d1c6bc",
+                "deep": "#4c3c2d"
+              }
             },
             {
               "slug": "longi-04",
@@ -719,7 +839,12 @@
               "order": 3,
               "visible": true,
               "featured": false,
-              "price": null
+              "price": null,
+              "tone": {
+                "soft": "#e6e5e4",
+                "mid": "#c8c6c5",
+                "deep": "#4c3a2d"
+              }
             },
             {
               "slug": "longi-05",
@@ -737,7 +862,12 @@
               "order": 4,
               "visible": true,
               "featured": false,
-              "price": null
+              "price": null,
+              "tone": {
+                "soft": "#f0e7da",
+                "mid": "#ddcab0",
+                "deep": "#614218"
+              }
             },
             {
               "slug": "longi-06",
@@ -755,7 +885,12 @@
               "order": 5,
               "visible": true,
               "featured": false,
-              "price": null
+              "price": null,
+              "tone": {
+                "soft": "#eee5dc",
+                "mid": "#dbc7b2",
+                "deep": "#533e26"
+              }
             },
             {
               "slug": "longi-08",
@@ -773,7 +908,12 @@
               "order": 6,
               "visible": true,
               "featured": false,
-              "price": null
+              "price": null,
+              "tone": {
+                "soft": "#e9e5e1",
+                "mid": "#cfc6be",
+                "deep": "#4c3c2d"
+              }
             },
             {
               "slug": "longi-09",
@@ -791,7 +931,12 @@
               "order": 7,
               "visible": true,
               "featured": false,
-              "price": null
+              "price": null,
+              "tone": {
+                "soft": "#f0e3da",
+                "mid": "#ddc3b0",
+                "deep": "#5c381d"
+              }
             },
             {
               "slug": "longi-11",
@@ -809,7 +954,12 @@
               "order": 8,
               "visible": true,
               "featured": false,
-              "price": null
+              "price": null,
+              "tone": {
+                "soft": "#f0e4da",
+                "mid": "#ddc4b0",
+                "deep": "#583a22"
+              }
             },
             {
               "slug": "longi-12",
@@ -827,7 +977,12 @@
               "order": 9,
               "visible": true,
               "featured": false,
-              "price": null
+              "price": null,
+              "tone": {
+                "soft": "#f0e2da",
+                "mid": "#ddc1b0",
+                "deep": "#5d341c"
+              }
             },
             {
               "slug": "longi-13",
@@ -845,7 +1000,12 @@
               "order": 10,
               "visible": true,
               "featured": false,
-              "price": null
+              "price": null,
+              "tone": {
+                "soft": "#f0e5da",
+                "mid": "#ddc6b0",
+                "deep": "#5e3d1b"
+              }
             },
             {
               "slug": "longi-15",
@@ -863,7 +1023,12 @@
               "order": 11,
               "visible": true,
               "featured": false,
-              "price": null
+              "price": null,
+              "tone": {
+                "soft": "#ebe1df",
+                "mid": "#d4bdb9",
+                "deep": "#4c322d"
+              }
             },
             {
               "slug": "longi-16",
@@ -881,7 +1046,12 @@
               "order": 12,
               "visible": true,
               "featured": false,
-              "price": null
+              "price": null,
+              "tone": {
+                "soft": "#f0e3da",
+                "mid": "#ddc2b0",
+                "deep": "#583722"
+              }
             }
           ]
         },
@@ -912,7 +1082,12 @@
               "order": 1,
               "visible": true,
               "featured": false,
-              "price": null
+              "price": null,
+              "tone": {
+                "soft": "#e2e4e8",
+                "mid": "#c1c5cc",
+                "deep": "#2d384c"
+              }
             },
             {
               "slug": "base-volume",
@@ -930,7 +1105,12 @@
               "order": 2,
               "visible": true,
               "featured": false,
-              "price": null
+              "price": null,
+              "tone": {
+                "soft": "#e4e4e6",
+                "mid": "#c4c4c8",
+                "deep": "#2d2d4c"
+              }
             }
           ]
         },
@@ -955,7 +1135,12 @@
               "order": 1,
               "visible": true,
               "featured": true,
-              "price": null
+              "price": null,
+              "tone": {
+                "soft": "#ebe2df",
+                "mid": "#d4bfb9",
+                "deep": "#4c342d"
+              }
             }
           ]
         }
@@ -1002,7 +1187,12 @@
               "order": 1,
               "visible": true,
               "featured": true,
-              "price": null
+              "price": null,
+              "tone": {
+                "soft": "#eee3dc",
+                "mid": "#dac3b3",
+                "deep": "#523928"
+              }
             },
             {
               "slug": "silk-02",
@@ -1020,7 +1210,12 @@
               "order": 2,
               "visible": true,
               "featured": false,
-              "price": null
+              "price": null,
+              "tone": {
+                "soft": "#ede7dd",
+                "mid": "#d8cab4",
+                "deep": "#504129"
+              }
             },
             {
               "slug": "silk-03",
@@ -1038,7 +1233,12 @@
               "order": 3,
               "visible": true,
               "featured": false,
-              "price": null
+              "price": null,
+              "tone": {
+                "soft": "#ece5de",
+                "mid": "#d5c6b8",
+                "deep": "#4c3c2d"
+              }
             },
             {
               "slug": "silk-04",
@@ -1056,7 +1256,12 @@
               "order": 4,
               "visible": true,
               "featured": false,
-              "price": null
+              "price": null,
+              "tone": {
+                "soft": "#ece0de",
+                "mid": "#d6bcb6",
+                "deep": "#4e312b"
+              }
             },
             {
               "slug": "silk-05",
@@ -1074,7 +1279,12 @@
               "order": 5,
               "visible": true,
               "featured": false,
-              "price": null
+              "price": null,
+              "tone": {
+                "soft": "#ece4de",
+                "mid": "#d6c5b6",
+                "deep": "#4e3b2b"
+              }
             },
             {
               "slug": "silk-06",
@@ -1092,7 +1302,12 @@
               "order": 6,
               "visible": true,
               "featured": true,
-              "price": null
+              "price": null,
+              "tone": {
+                "soft": "#f0e6da",
+                "mid": "#ddc8b0",
+                "deep": "#5b3e1f"
+              }
             },
             {
               "slug": "silk-07",
@@ -1110,7 +1325,12 @@
               "order": 7,
               "visible": true,
               "featured": false,
-              "price": null
+              "price": null,
+              "tone": {
+                "soft": "#f0e5da",
+                "mid": "#ddc6b0",
+                "deep": "#563c23"
+              }
             },
             {
               "slug": "silk-08",
@@ -1128,7 +1348,12 @@
               "order": 8,
               "visible": true,
               "featured": false,
-              "price": null
+              "price": null,
+              "tone": {
+                "soft": "#f0e5da",
+                "mid": "#ddc7b0",
+                "deep": "#573d22"
+              }
             },
             {
               "slug": "silk-09",
@@ -1146,7 +1371,12 @@
               "order": 9,
               "visible": true,
               "featured": false,
-              "price": null
+              "price": null,
+              "tone": {
+                "soft": "#eee5dc",
+                "mid": "#d9c6b4",
+                "deep": "#513c28"
+              }
             },
             {
               "slug": "silk-10",
@@ -1164,7 +1394,12 @@
               "order": 10,
               "visible": true,
               "featured": false,
-              "price": null
+              "price": null,
+              "tone": {
+                "soft": "#ece4de",
+                "mid": "#d5c5b8",
+                "deep": "#4d3b2d"
+              }
             }
           ]
         },
@@ -1189,7 +1424,12 @@
               "order": 1,
               "visible": true,
               "featured": false,
-              "price": null
+              "price": null,
+              "tone": {
+                "soft": "#ebe0df",
+                "mid": "#d4bcb9",
+                "deep": "#4c312d"
+              }
             },
             {
               "slug": "air-02",
@@ -1207,7 +1447,12 @@
               "order": 2,
               "visible": true,
               "featured": false,
-              "price": null
+              "price": null,
+              "tone": {
+                "soft": "#ece3de",
+                "mid": "#d7c2b6",
+                "deep": "#4e382b"
+              }
             },
             {
               "slug": "air-03",
@@ -1225,7 +1470,12 @@
               "order": 3,
               "visible": true,
               "featured": false,
-              "price": null
+              "price": null,
+              "tone": {
+                "soft": "#eee4dc",
+                "mid": "#dbc5b2",
+                "deep": "#533b26"
+              }
             },
             {
               "slug": "air-04",
@@ -1243,7 +1493,12 @@
               "order": 4,
               "visible": true,
               "featured": false,
-              "price": null
+              "price": null,
+              "tone": {
+                "soft": "#ece3de",
+                "mid": "#d6c3b7",
+                "deep": "#4d392c"
+              }
             },
             {
               "slug": "air-05",
@@ -1261,7 +1516,12 @@
               "order": 5,
               "visible": true,
               "featured": false,
-              "price": null
+              "price": null,
+              "tone": {
+                "soft": "#ece3de",
+                "mid": "#d6c3b7",
+                "deep": "#4e392b"
+              }
             },
             {
               "slug": "air-06",
@@ -1279,7 +1539,12 @@
               "order": 6,
               "visible": true,
               "featured": false,
-              "price": null
+              "price": null,
+              "tone": {
+                "soft": "#eee3dc",
+                "mid": "#dbc3b2",
+                "deep": "#533926"
+              }
             },
             {
               "slug": "air-07",
@@ -1297,7 +1562,12 @@
               "order": 7,
               "visible": true,
               "featured": false,
-              "price": null
+              "price": null,
+              "tone": {
+                "soft": "#ede3dd",
+                "mid": "#d8c2b5",
+                "deep": "#503829"
+              }
             },
             {
               "slug": "air-08",
@@ -1315,7 +1585,12 @@
               "order": 8,
               "visible": true,
               "featured": false,
-              "price": null
+              "price": null,
+              "tone": {
+                "soft": "#ede3dd",
+                "mid": "#d9c2b4",
+                "deep": "#513829"
+              }
             },
             {
               "slug": "air-09",
@@ -1333,7 +1608,12 @@
               "order": 9,
               "visible": true,
               "featured": false,
-              "price": null
+              "price": null,
+              "tone": {
+                "soft": "#ece3de",
+                "mid": "#d7c3b6",
+                "deep": "#4f392b"
+              }
             },
             {
               "slug": "air-10",
@@ -1351,7 +1631,12 @@
               "order": 10,
               "visible": true,
               "featured": false,
-              "price": null
+              "price": null,
+              "tone": {
+                "soft": "#eee4dc",
+                "mid": "#dac4b3",
+                "deep": "#523a27"
+              }
             }
           ]
         },
@@ -1376,7 +1661,12 @@
               "order": 1,
               "visible": true,
               "featured": false,
-              "price": null
+              "price": null,
+              "tone": {
+                "soft": "#e9e4e1",
+                "mid": "#d0c4bd",
+                "deep": "#4c392d"
+              }
             },
             {
               "slug": "designed-blue",
@@ -1406,7 +1696,12 @@
               "order": 2,
               "visible": true,
               "featured": false,
-              "price": null
+              "price": null,
+              "tone": {
+                "soft": "#e8e5e2",
+                "mid": "#cdc6c0",
+                "deep": "#4c3b2d"
+              }
             },
             {
               "slug": "designed-burgundy",
@@ -1436,7 +1731,12 @@
               "order": 3,
               "visible": true,
               "featured": false,
-              "price": null
+              "price": null,
+              "tone": {
+                "soft": "#e7e5e3",
+                "mid": "#ccc6c1",
+                "deep": "#4c3b2d"
+              }
             }
           ]
         }
@@ -1483,7 +1783,12 @@
               "order": 1,
               "visible": true,
               "featured": false,
-              "price": null
+              "price": null,
+              "tone": {
+                "soft": "#e9e5e1",
+                "mid": "#d0c6bd",
+                "deep": "#4c3c2d"
+              }
             }
           ]
         },
@@ -1508,7 +1813,12 @@
               "order": 1,
               "visible": true,
               "featured": false,
-              "price": null
+              "price": null,
+              "tone": {
+                "soft": "#f0e4da",
+                "mid": "#ddc4b0",
+                "deep": "#593a20"
+              }
             }
           ]
         },
@@ -1533,7 +1843,12 @@
               "order": 1,
               "visible": true,
               "featured": false,
-              "price": null
+              "price": null,
+              "tone": {
+                "soft": "#ede7dd",
+                "mid": "#d9cbb4",
+                "deep": "#514129"
+              }
             },
             {
               "slug": "robe-02",
@@ -1557,7 +1872,12 @@
               "order": 2,
               "visible": true,
               "featured": false,
-              "price": null
+              "price": null,
+              "tone": {
+                "soft": "#ede6dd",
+                "mid": "#d8c9b4",
+                "deep": "#503f29"
+              }
             },
             {
               "slug": "robe-03",
@@ -1575,7 +1895,12 @@
               "order": 3,
               "visible": true,
               "featured": false,
-              "price": null
+              "price": null,
+              "tone": {
+                "soft": "#eee6dc",
+                "mid": "#dacab3",
+                "deep": "#524027"
+              }
             },
             {
               "slug": "robe-04",
@@ -1593,7 +1918,12 @@
               "order": 4,
               "visible": true,
               "featured": false,
-              "price": null
+              "price": null,
+              "tone": {
+                "soft": "#ede6dd",
+                "mid": "#d7c8b6",
+                "deep": "#4f3f2a"
+              }
             }
           ]
         },
@@ -1618,7 +1948,12 @@
               "order": 1,
               "visible": true,
               "featured": false,
-              "price": null
+              "price": null,
+              "tone": {
+                "soft": "#ece4de",
+                "mid": "#d6c4b6",
+                "deep": "#4e3a2b"
+              }
             }
           ]
         }
@@ -1665,7 +2000,12 @@
               "order": 1,
               "visible": true,
               "featured": true,
-              "price": null
+              "price": null,
+              "tone": {
+                "soft": "#e9e3e1",
+                "mid": "#d0c3bd",
+                "deep": "#4c372d"
+              }
             }
           ]
         },
@@ -1702,7 +2042,12 @@
               "order": 1,
               "visible": true,
               "featured": false,
-              "price": null
+              "price": null,
+              "tone": {
+                "soft": "#f0dadf",
+                "mid": "#ddb0bb",
+                "deep": "#57222f"
+              }
             }
           ]
         }
@@ -1749,7 +2094,12 @@
               "order": 1,
               "visible": true,
               "featured": true,
-              "price": null
+              "price": null,
+              "tone": {
+                "soft": "#e9e3e1",
+                "mid": "#d0c1bd",
+                "deep": "#4c352d"
+              }
             }
           ]
         },
@@ -1774,7 +2124,12 @@
               "order": 1,
               "visible": true,
               "featured": false,
-              "price": null
+              "price": null,
+              "tone": {
+                "soft": "#e8e6e2",
+                "mid": "#ccc8c0",
+                "deep": "#4c412d"
+              }
             }
           ]
         },
@@ -1799,7 +2154,12 @@
               "order": 1,
               "visible": true,
               "featured": false,
-              "price": null
+              "price": null,
+              "tone": {
+                "soft": "#e9e3e1",
+                "mid": "#d0c1bd",
+                "deep": "#4c352d"
+              }
             }
           ]
         }

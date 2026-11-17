@@ -1,7 +1,11 @@
+import { useRouterState } from "@tanstack/react-router";
 import { whatsappLink } from "../lib/content";
 import { IconWhatsapp } from "./Icons";
 
 export function WhatsAppFloat() {
+  // product pages carry their own WhatsApp button
+  const onProduct = useRouterState({ select: (s) => /\/collection\/[^/]+\/[^/]+/.test(s.location.pathname) });
+  if (onProduct) return null;
   return (
     <a
       href={whatsappLink("שלום SURY, אשמח לפרטים")}

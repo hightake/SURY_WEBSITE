@@ -14,6 +14,8 @@ export type Product = {
   visible: boolean;
   featured: boolean;
   price: number | null; // optional, never displayed
+  /** colours taken from the main photo, for the page atmosphere */
+  tone?: { soft: string; mid: string; deep: string };
 };
 
 export type Subcategory = { slug: string; name: string; order: number; products: Product[] };
