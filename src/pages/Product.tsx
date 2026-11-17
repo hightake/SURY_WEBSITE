@@ -1,16 +1,31 @@
 import { Link, useParams } from "@tanstack/react-router";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { IconWhatsapp } from "../components/Icons";
 import { getProduct, imgSmUrl, imgUrl, site, srcSet, telLink, whatsappLink } from "../lib/content";
 import { usePageTitle } from "../lib/usePageTitle";
 import { NotFound } from "./NotFound";
 
-/* Product page – clean and product-first: a large gallery and a short details column. */
+/*
+ * Product page – clean and product-first: a large gallery and a short details column.
+ * DEMO: three SURY signature touches on the same layout, picked with ?pp=a|b|c
+ *   a – arch: the photo has the gate shape with a gold hairline frame, arched thumbnails
+ *   b – spotlight: a brass spot lights the photo from above, the photo stands on a marble ledge
+ *   c – seal: a round gold SURY seal with the collection name sits on the photo's corner
+ */
+function useSig() {
+  const [v, setV] = useState<"a" | "b" | "c">("a");
+  useEffect(() => {
+    const q = new URLSearchParams(window.location.search).get("pp");
+    if (q === "b" || q === "c") setV(q);
+  }, []);
+  return v;
+}
 export function Product() {
   const { category: catSlug, product: productSlug } = useParams({ from: "/collection/$category/$product" });
   const found = getProduct(catSlug, productSlug);
   usePageTitle(found?.product.name);
   const [active, setActive] = useState(0);
+  const sig = useSig();
   const track = useRef<HTMLDivElement>(null);
   const jumping = useRef(false);
   const jumpTimer = useRef<number | undefined>(undefined);
@@ -39,7 +54,7 @@ export function Product() {
   };
 
   return (
-    <div className="container-x pb-16 pt-6 md:pb-24 md:pt-10">
+    <div className={`pd-sig-${sig} container-x pb-16 pt-6 md:pb-24 md:pt-10`}>
       <nav aria-label="פירורי לחם" className="mb-6 text-sm text-muted md:mb-8">
         <ol className="flex flex-wrap items-center gap-2">
           <li><Link to="/" className="hover:text-ink">דף הבית</Link></li>
@@ -65,7 +80,22 @@ export function Product() {
             </ul>
           )}
           <div className="min-w-0 flex-1">
-            <div ref={track} onScroll={onScroll} className="no-scrollbar flex snap-x snap-mandatory overflow-x-auto bg-surface/60">
+            <div className="pd-stage relative">
+            {sig === "b" && <span className="pd-spot" aria-hidden />}
+            {sig === "c" && (
+              <svg className="pd-seal" viewBox="0 0 120 120" aria-hidden="true" direction="ltr">
+                <defs>
+                  <path id="pd-seal-path" d="M60 60 m-44 0 a44 44 0 1 1 88 0 a44 44 0 1 1 -88 0" />
+                </defs>
+                <circle cx="60" cy="60" r="58" />
+                <circle cx="60" cy="60" r="52" className="pd-seal-ring" />
+                <text>
+                  <textPath href="#pd-seal-path" startOffset="0">{`SURY · ${category.slug.toUpperCase()} · SURY · ${category.slug.toUpperCase()} · `}</textPath>
+                </text>
+                <text x="60" y="72" textAnchor="middle" className="pd-seal-s">S</text>
+              </svg>
+            )}
+            <div ref={track} onScroll={onScroll} className="pd-main no-scrollbar flex snap-x snap-mandatory overflow-x-auto bg-surface/60">
               {images.map((im, i) => (
                 <img
                   key={im.src}
@@ -77,6 +107,7 @@ export function Product() {
                   className="aspect-[4/5] w-full shrink-0 snap-center object-cover"
                 />
               ))}
+            </div>
             </div>
             {images.length > 1 && (
               <ul className="mt-3 grid grid-cols-5 gap-2 md:hidden" aria-label="תמונות המוצר">

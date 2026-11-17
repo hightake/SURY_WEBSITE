@@ -996,3 +996,102 @@ textarea.letter-input {
     0 0 0 8px rgba(201, 160, 74, 0.45),
     0 0 30px 6px rgba(255, 222, 172, 0.5);
 }
+
+/* ---------- Product page: SURY signature touches (demo a / b / c) ---------- */
+/* a – the gate */
+.pd-sig-a .pd-main {
+  border-radius: 999px 999px 4px 4px / 220px 220px 4px 4px;
+}
+.pd-sig-a .pd-stage::before {
+  content: "";
+  position: absolute;
+  inset: -10px;
+  border: 1px solid rgba(201, 160, 74, 0.85);
+  border-radius: 999px 999px 6px 6px / 230px 230px 6px 6px;
+  pointer-events: none;
+}
+.pd-sig-a .pd-thumb {
+  border-radius: 999px 999px 3px 3px;
+}
+/* b – spotlight on a marble ledge */
+.pd-sig-b .pd-stage {
+  padding-top: 2.5rem;
+  background:
+    radial-gradient(45% 22% at 50% 0%, rgba(255, 246, 225, 0.95), transparent 100%),
+    linear-gradient(180deg, #efe2d1, #e9dac6);
+  padding-inline: 6%;
+  padding-bottom: 0;
+}
+.pd-sig-b .pd-stage::after {
+  content: "";
+  display: block;
+  height: 14px;
+  margin-inline: -6.4%;
+  background: linear-gradient(180deg, #fbf4ea 0%, #ecdcc8 55%, #d6bc9e 100%);
+  box-shadow: 0 10px 16px -8px rgba(110, 75, 40, 0.5);
+}
+.pd-sig-b .pd-main {
+  box-shadow: 0 -20px 40px -20px rgba(255, 236, 200, 0.9), 0 18px 26px -18px rgba(80, 50, 20, 0.45);
+}
+.pd-spot {
+  position: absolute;
+  top: 0.4rem;
+  left: 50%;
+  width: 34px;
+  height: 22px;
+  transform: translateX(-50%);
+  border-radius: 2px 2px 40% 40%;
+  background: linear-gradient(90deg, #5e3b12, #a8742f 18%, #e3b56c 40%, #fbe3b0 50%, #d6a259 64%, #8a5f24 84%, #5e3b12);
+  box-shadow: 0 10px 22px 6px rgba(255, 238, 205, 0.85);
+  z-index: 2;
+}
+/* c – the SURY seal */
+.pd-seal {
+  position: absolute;
+  top: -22px;
+  right: -22px;
+  width: 104px;
+  height: 104px;
+  z-index: 3;
+  filter: drop-shadow(0 6px 10px rgba(60, 35, 10, 0.35));
+  animation: sealSpin 40s linear infinite;
+}
+.pd-seal circle {
+  fill: #5a0f14;
+}
+.pd-seal .pd-seal-ring {
+  fill: none;
+  stroke: var(--color-accent);
+  stroke-width: 1;
+}
+.pd-seal text {
+  direction: ltr;
+  unicode-bidi: plaintext;
+  fill: #e9cf94;
+  font-family: var(--font-serif);
+  font-size: 10.5px;
+  letter-spacing: 2.2px;
+}
+.pd-seal .pd-seal-s {
+  font-size: 34px;
+  letter-spacing: 0;
+  fill: #f4ebe0;
+}
+@keyframes sealSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (max-width: 767px) {
+  .pd-seal {
+    top: -14px;
+    right: -8px;
+    width: 82px;
+    height: 82px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pd-seal {
+    animation: none;
+  }
+}
