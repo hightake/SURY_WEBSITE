@@ -1100,3 +1100,48 @@ textarea.letter-input {
     animation: none;
   }
 }
+/* b – the photo stands lit inside the gate */
+.ch-gate-wide {
+  border-radius: 999px 999px 8px 8px / 200px 200px 8px 8px;
+}
+.ch-gate-wide .niche-spot {
+  width: 54px;
+}
+.ch-gate-wide .ch-gate-beam {
+  background:
+    radial-gradient(18% 14% at 50% 7%, rgba(255, 255, 250, 1), rgba(255, 248, 230, 0.75) 55%, transparent 100%),
+    radial-gradient(60% 55% at 50% 25%, rgba(255, 243, 216, 0.95), transparent 85%);
+}
+.ch-gate-photo {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border-radius: 999px 999px 4px 4px;
+  box-shadow:
+    0 0 0 1.5px rgba(255, 246, 230, 0.95),
+    0 0 18px 3px rgba(255, 222, 172, 0.65),
+    0 24px 34px -20px rgba(80, 50, 20, 0.6);
+}
+.ch-gate-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* a warm wash from the spot over the top of the photo */
+.ch-gate-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(70% 35% at 50% 0%, rgba(255, 236, 200, 0.35), transparent 80%);
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+@media (max-width: 767px) {
+  .ch-gate-wide {
+    border-radius: 999px 999px 8px 8px / 160px 160px 8px 8px;
+  }
+  .ch-gate-wide .niche-spot {
+    width: 38px;
+    top: 2.2%;
+  }
+}
