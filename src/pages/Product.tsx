@@ -20,10 +20,10 @@ type Variant = "a" | "b" | "c";
 type Data = { category: Category; sub: Subcategory; product: ProductT };
 
 function useVariant(): Variant {
-  const [v, setV] = useState<Variant>("a");
+  const [v, setV] = useState<Variant>("b");
   useEffect(() => {
     const q = new URLSearchParams(window.location.search).get("pp");
-    if (q === "b" || q === "c") setV(q);
+    if (q === "a" || q === "c") setV(q);
   }, []);
   return v;
 }
@@ -135,26 +135,32 @@ function Label({ category, sub, product }: Data) {
   const [active, setActive] = useState(0);
   const img = product.images[active] ?? product.images[0];
   return (
-    <div className="pp-label-page" style={toneVars(product)}>
+    <div className="pp-label-page niches-wall" style={toneVars(product)}>
       <div className="container-x pb-20 pt-6 md:pt-8">
         <Crumbs category={category} sub={sub} className="text-muted" />
         <div className="mt-6 grid items-start gap-10 md:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] lg:gap-14">
           <div className="md:sticky md:top-28">
-            <div className="pp-label-photo">
-              <img key={img.src} src={imgUrl(img.src)} srcSet={srcSet(img)} sizes="(min-width: 768px) 55vw, 100vw" alt={img.alt} className="animate-[fadeIn_0.7s_var(--ease-soft)_both]" />
+            {/* the photo stands in a lit plaster gate, like the brand worlds */}
+            <div className="pp-label-gate is-lit">
+              <span className="niche-spot" aria-hidden />
+              <span className="pp-label-beam" aria-hidden />
+              <div className="pp-label-photo">
+                <img key={img.src} src={imgUrl(img.src)} srcSet={srcSet(img)} sizes="(min-width: 768px) 50vw, 100vw" alt={img.alt} className="animate-[fadeIn_0.7s_var(--ease-soft)_both]" />
+              </div>
             </div>
             <Thumbs product={product} active={active} onPick={setActive} className="mt-4" />
           </div>
           {/* the hang-tag */}
           <div className="relative pt-10 md:pt-14">
+            <span className="pp-hook" aria-hidden />
             <svg className="pp-cord" viewBox="0 0 100 60" preserveAspectRatio="none" aria-hidden="true">
-              <path d="M2 2 C30 30 60 10 50 58" />
+              <path d="M2 2 C45 22 32 42 9 60" />
             </svg>
             <article className="pp-tag">
               <span className="pp-tag-eyelet" aria-hidden />
               <p className="latin text-center text-sm tracking-[0.3em] text-gold-deep">SURY</p>
               <p className="mt-1 text-center text-xs text-muted">{category.shortName}</p>
-              <span aria-hidden className="pp-tag-rule" />
+              <span aria-hidden className="gold-rule mx-auto my-5" />
               <p className="kicker text-center">{sub.name}</p>
               <h1 className="mt-2 text-center text-3xl font-light leading-tight md:text-4xl">{product.name}</h1>
               {product.description && <p className="mt-5 text-center leading-relaxed">{product.description}</p>}
@@ -165,10 +171,12 @@ function Label({ category, sub, product }: Data) {
                     <dd className="whitespace-pre-line">{product.details}</dd>
                   </>
                 )}
+                <dt>עולם</dt>
+                <dd><Link to="/collection/$category" params={{ category: category.slug }} className="link-underline text-ink">{category.name}</Link></dd>
                 <dt>למדידה</dt>
                 <dd>{site.stores.filter((s) => !s.wholesale).map((s) => s.city).join(" · ")}</dd>
               </dl>
-              <a href={waHref(product)} target="_blank" rel="noopener noreferrer" className="pd-cta mt-8">
+              <a href={waHref(product)} target="_blank" rel="noopener noreferrer" className="btn btn-wide btn-primary mt-8 w-full">
                 <IconWhatsapp />
                 לפרטים והזמנה בוואטסאפ
               </a>
