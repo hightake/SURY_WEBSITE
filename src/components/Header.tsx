@@ -1,5 +1,6 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useId, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { categories, site, telLink } from "../lib/content";
 import { Logo } from "./Logo";
 import { IconChevron, IconClose, IconMenu, IconPhone } from "./Icons";
@@ -129,7 +130,8 @@ export function Header() {
       </div>
 
       {/* Mobile drawer */}
-      <MobileDrawer open={drawerOpen} onClose={() => setDrawerOpen(false)} />
+      {/* rendered into <body>: inside the header (backdrop blur) a fixed panel would be clipped to the header */}
+      {typeof document !== "undefined" && createPortal(<MobileDrawer open={drawerOpen} onClose={() => setDrawerOpen(false)} />, document.body)}
     </header>
   );
 }
@@ -159,15 +161,18 @@ function MobileDrawer({ open, onClose }: { open: boolean; onClose: () => void })
             const expanded = openCat === c.slug;
             return (
               <div key={c.slug} className="border-t border-shade/50">
-                <button type="button" className="flex w-full items-center justify-between py-4 text-start text-lg" aria-expanded={expanded} onClick={() => setOpenCat(expanded ? null : c.slug)}>
-                  <span>
-                    <span className="latin me-3 text-xs text-accent">{String(i + 1).padStart(2, "0")}</span>
-                    {c.name}
-                  </span>
-                  <IconChevron className={`size-4 transition-transform duration-300 ${expanded ? "rotate-180" : ""}`} />
-                </button>
+                <div className="flex items-center gap-2">
+                  {/* the name opens the collection page; the arrow opens the sub-categories */}
+                  <Link to="/collection/$category" params={{ category: c.slug }} className="flex flex-1 items-baseline gap-3 py-4 text-lg">
+                    <span className="latin w-6 shrink-0 text-xs text-accent">{String(i + 1).padStart(2, "0")}</span>
+                    <span>{c.name}</span>
+                  </Link>
+                  <button type="button" className="-me-2 p-3" aria-expanded={expanded} aria-label={`תתי־קטגוריות של ${c.name}`} onClick={() => setOpenCat(expanded ? null : c.slug)}>
+                    <IconChevron className={`size-4 transition-transform duration-300 ${expanded ? "rotate-180" : ""}`} />
+                  </button>
+                </div>
                 <div className={`grid transition-[grid-template-rows] duration-300 ${expanded ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}>
-                  <ul className="overflow-hidden ps-7">
+                  <ul className="overflow-hidden ps-9">
                     {c.subcategories.map((s) => (
                       <li key={s.slug}>
                         <Link to="/collection/$category" params={{ category: c.slug }} hash={s.slug} className="block py-2 text-muted" tabIndex={expanded ? 0 : -1}>
