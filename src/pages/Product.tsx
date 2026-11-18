@@ -194,9 +194,10 @@ function Label({ category, sub, product }: Data) {
                 <dt>למדידה</dt>
                 <dd>{site.stores.filter((s) => !s.wholesale).map((s) => s.city).join(" · ")}</dd>
               </dl>
-              <a href={waHref(product)} target="_blank" rel="noopener noreferrer" className="btn btn-wide btn-primary mt-8 w-full">
-                <IconWhatsapp />
-                לפרטים והזמנה בוואטסאפ
+              <a href={waHref(product)} target="_blank" rel="noopener noreferrer" className="btn btn-wide btn-primary mt-8 w-full whitespace-nowrap px-4 text-[15px] sm:text-base">
+                <IconWhatsapp className="size-5 shrink-0" />
+                <span className="sm:hidden">לפרטים בוואטסאפ</span>
+                <span className="hidden sm:inline">לפרטים והזמנה בוואטסאפ</span>
               </a>
               <p className="mt-3 text-center text-sm text-muted">
                 או בטלפון <a href={telLink(site.settings.phone)} dir="ltr" className="text-ink">{site.settings.phone}</a>
