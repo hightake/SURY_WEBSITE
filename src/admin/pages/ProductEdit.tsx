@@ -69,7 +69,7 @@ function ProductLink({ catSlug, slug }: { catSlug: string; slug: string }) {
   const url = `${location.origin}${import.meta.env.BASE_URL}collection/${catSlug}/${slug}`;
   return (
     <div className="grid gap-1.5">
-      <p className="text-sm font-medium">קישור לעמוד המוצר{/^\d+$/.test(slug) ? ` · מק״ט ${slug}` : ""}</p>
+      <p className="text-sm font-medium">קישור לעמוד המוצר · מק״ט {slug}</p>
       <div className="flex items-center gap-1 rounded-lg border border-[#dccbb5] bg-surface/50 p-1 ps-3">
         <p dir="ltr" className="min-w-0 flex-1 truncate text-start text-sm text-muted" title={url}>{url}</p>
         <button type="button" className={`shrink-0 rounded-md px-3 py-1.5 text-sm font-medium transition-colors ${copied ? "bg-[#3f7d4e] text-white" : "bg-primary text-white hover:bg-primary-dark"}`} onClick={async () => {

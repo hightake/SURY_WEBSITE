@@ -36,9 +36,9 @@ export function migrate(input: SiteData): SiteData {
   d.pages.story.body = plainTextToHtml(d.pages.story.body ?? "");
   for (const k of ["privacy", "accessibility"] as const) d.pages[k].body = plainTextToHtml(d.pages[k].body);
 
-  // product links: replace temporary codes (p-xxxx) with running numbers
+  // product links: every product gets a running number (1001, 1002…) – one link format for all
   let next = nextNumber(d as SiteData);
-  for (const c of d.categories) for (const s of c.subcategories) for (const p of s.products) if (/^p-[a-z0-9]+$/.test(p.slug)) p.slug = String(next++);
+  for (const c of d.categories) for (const s of c.subcategories) for (const p of s.products) if (!/^\d+$/.test(p.slug)) p.slug = String(next++);
 
   return d as SiteData;
 }

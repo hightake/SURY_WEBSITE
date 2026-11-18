@@ -230,7 +230,7 @@
           "order": 1,
           "products": [
             {
-              "slug": "classic-fabric-flower",
+              "slug": "1001",
               "name": "כובע קלאסי עם פרח בד",
               "images": [
                 {
@@ -260,7 +260,7 @@
           "order": 2,
           "products": [
             {
-              "slug": "modo-01",
+              "slug": "1002",
               "name": "MODO עיטורי לורקס שחור זהב",
               "images": [
                 {
@@ -283,7 +283,7 @@
               }
             },
             {
-              "slug": "modo-02",
+              "slug": "1003",
               "name": "MODO עיטורי לורקס חום",
               "images": [
                 {
@@ -306,7 +306,7 @@
               }
             },
             {
-              "slug": "modo-03",
+              "slug": "1004",
               "name": "MODO עיטורי לורקס שחור",
               "images": [
                 {
@@ -329,7 +329,7 @@
               }
             },
             {
-              "slug": "modo-04",
+              "slug": "1005",
               "name": "MODO עיטורי קטיפה אבנים בורדו",
               "images": [
                 {
@@ -352,7 +352,7 @@
               }
             },
             {
-              "slug": "modo-05",
+              "slug": "1006",
               "name": "MODO עיטורי קטיפה אבנים ירוק",
               "images": [
                 {
@@ -375,7 +375,7 @@
               }
             },
             {
-              "slug": "modo-06",
+              "slug": "1007",
               "name": "MODO עיטורי קטיפה אבנים כסף שחור",
               "images": [
                 {
@@ -398,7 +398,7 @@
               }
             },
             {
-              "slug": "modo-07",
+              "slug": "1008",
               "name": "MODO עיטורי קטיפה אבנים שחור",
               "images": [
                 {
@@ -428,7 +428,7 @@
           "order": 3,
           "products": [
             {
-              "slug": "modo-classic-08",
+              "slug": "1009",
               "name": "MODO רשת אבנים ירוק",
               "images": [
                 {
@@ -451,7 +451,7 @@
               }
             },
             {
-              "slug": "modo-classic-09",
+              "slug": "1010",
               "name": "MODO רשת אבנים בורדו",
               "images": [
                 {
@@ -474,7 +474,7 @@
               }
             },
             {
-              "slug": "modo-classic-11",
+              "slug": "1011",
               "name": "MODO רשת אבנים פודרה",
               "images": [
                 {
@@ -497,7 +497,7 @@
               }
             },
             {
-              "slug": "modo-classic-14",
+              "slug": "1012",
               "name": "MODO רשת אבנים שחור",
               "images": [
                 {
@@ -520,7 +520,7 @@
               }
             },
             {
-              "slug": "modo-classic-15",
+              "slug": "1013",
               "name": "MODO רשת אבנים כחול",
               "images": [
                 {
@@ -543,7 +543,7 @@
               }
             },
             {
-              "slug": "modo-classic-16",
+              "slug": "1014",
               "name": "MODO סריגה כחול מלאנג‘",
               "images": [
                 {
@@ -566,7 +566,7 @@
               }
             },
             {
-              "slug": "modo-classic-18",
+              "slug": "1015",
               "name": "MODO רקמה פרחים בז‘",
               "images": [
                 {
@@ -589,7 +589,7 @@
               }
             },
             {
-              "slug": "modo-classic-20",
+              "slug": "1016",
               "name": "MODO רשת כיווץ יוקרתי שחור",
               "images": [
                 {
@@ -619,7 +619,7 @@
           "order": 4,
           "products": [
             {
-              "slug": "bow-01",
+              "slug": "1017",
               "name": "קשת פרחים בעבודת יד 01",
               "images": [
                 {
@@ -642,7 +642,7 @@
               }
             },
             {
-              "slug": "bow-02",
+              "slug": "1018",
               "name": "קשת פרחים בעבודת יד 02",
               "images": [
                 {
@@ -665,7 +665,7 @@
               }
             },
             {
-              "slug": "bow-03",
+              "slug": "1019",
               "name": "קשת פרחים בעבודת יד 03",
               "images": [
                 {
@@ -688,7 +688,7 @@
               }
             },
             {
-              "slug": "bow-04",
+              "slug": "1020",
               "name": "קשת פרחים בעבודת יד 04",
               "images": [
                 {
@@ -711,7 +711,7 @@
               }
             },
             {
-              "slug": "bow-05",
+              "slug": "1021",
               "name": "קשת פרחים בעבודת יד 05",
               "images": [
                 {
@@ -741,7 +741,7 @@
           "order": 5,
           "products": [
             {
-              "slug": "modular-tie",
+              "slug": "1022",
               "name": "פטנט קשירה מודולרי",
               "images": [
                 {
@@ -777,7 +777,7 @@
           "order": 6,
           "products": [
             {
-              "slug": "longi-01",
+              "slug": "1023",
               "name": "LONGI שזירת כסף זהב",
               "images": [
                 {
@@ -800,7 +800,7 @@
               }
             },
             {
-              "slug": "longi-02",
+              "slug": "1024",
               "name": "LONGI גווני ארגמן",
               "images": [
                 {
@@ -823,7 +823,7 @@
               }
             },
             {
-              "slug": "longi-04",
+              "slug": "1025",
               "name": "LONGI עלי ארגמן",
               "images": [
                 {
@@ -846,7 +846,7 @@
               }
             },
             {
-              "slug": "longi-05",
+              "slug": "1026",
               "name": "LONGI גלקסיה קסומה",
               "images": [
                 {
@@ -869,7 +869,7 @@
               }
             },
             {
-              "slug": "longi-06",
+              "slug": "1027",
               "name": "LONGI תנועה טבעית",
               "images": [
                 {
@@ -892,7 +892,7 @@
               }
             },
             {
-              "slug": "longi-08",
+              "slug": "1028",
               "name": "LONGI קוי זרימה",
               "images": [
                 {
@@ -915,7 +915,7 @@
               }
             },
             {
-              "slug": "longi-09",
+              "slug": "1029",
               "name": "LONGI פריחה כחולה",
               "images": [
                 {
@@ -938,7 +938,7 @@
               }
             },
             {
-              "slug": "longi-11",
+              "slug": "1030",
               "name": "LONGI מארג מסולסל שחור",
               "images": [
                 {
@@ -961,7 +961,7 @@
               }
             },
             {
-              "slug": "longi-12",
+              "slug": "1031",
               "name": "LONGI רקמה יוקרתית שחור",
               "images": [
                 {
@@ -984,7 +984,7 @@
               }
             },
             {
-              "slug": "longi-13",
+              "slug": "1032",
               "name": "LONGI רשת ריבועים שחור",
               "images": [
                 {
@@ -1007,7 +1007,7 @@
               }
             },
             {
-              "slug": "longi-15",
+              "slug": "1033",
               "name": "LONGI עיטורי קטיפה חום",
               "images": [
                 {
@@ -1030,7 +1030,7 @@
               }
             },
             {
-              "slug": "longi-16",
+              "slug": "1034",
               "name": "LONGI מלאנג‘ פרחוני אפור",
               "images": [
                 {
@@ -1066,7 +1066,7 @@
           "order": 8,
           "products": [
             {
-              "slug": "base-classic",
+              "slug": "1035",
               "name": "בסיס לכובע – קלאסי",
               "images": [
                 {
@@ -1089,7 +1089,7 @@
               }
             },
             {
-              "slug": "base-volume",
+              "slug": "1036",
               "name": "בסיס לכובע – עם נפח",
               "images": [
                 {
@@ -1119,7 +1119,7 @@
           "order": 9,
           "products": [
             {
-              "slug": "feather-band",
+              "slug": "1037",
               "name": "קשת נוצות בעבודת יד",
               "images": [
                 {
@@ -1171,7 +1171,7 @@
           "order": 1,
           "products": [
             {
-              "slug": "silk-01",
+              "slug": "1038",
               "name": "שיש מלכותי אפרסק",
               "images": [
                 {
@@ -1194,7 +1194,7 @@
               }
             },
             {
-              "slug": "silk-02",
+              "slug": "1039",
               "name": "שיש מלכותי מנטה",
               "images": [
                 {
@@ -1217,7 +1217,7 @@
               }
             },
             {
-              "slug": "silk-03",
+              "slug": "1040",
               "name": "שיש מלכותי סגול",
               "images": [
                 {
@@ -1240,7 +1240,7 @@
               }
             },
             {
-              "slug": "silk-04",
+              "slug": "1041",
               "name": "פריחה עדינה",
               "images": [
                 {
@@ -1263,7 +1263,7 @@
               }
             },
             {
-              "slug": "silk-05",
+              "slug": "1042",
               "name": "מארג אורבני",
               "images": [
                 {
@@ -1286,7 +1286,7 @@
               }
             },
             {
-              "slug": "silk-06",
+              "slug": "1043",
               "name": "עלים טרופיים",
               "images": [
                 {
@@ -1309,7 +1309,7 @@
               }
             },
             {
-              "slug": "silk-07",
+              "slug": "1044",
               "name": "עלי כותרת משי",
               "images": [
                 {
@@ -1332,7 +1332,7 @@
               }
             },
             {
-              "slug": "silk-08",
+              "slug": "1045",
               "name": "גווני פודרה זהב",
               "images": [
                 {
@@ -1355,7 +1355,7 @@
               }
             },
             {
-              "slug": "silk-09",
+              "slug": "1046",
               "name": "תנועה זוהרת",
               "images": [
                 {
@@ -1378,7 +1378,7 @@
               }
             },
             {
-              "slug": "silk-10",
+              "slug": "1047",
               "name": "שיש מלכותי חום כחול",
               "images": [
                 {
@@ -1408,7 +1408,7 @@
           "order": 2,
           "products": [
             {
-              "slug": "air-01",
+              "slug": "1048",
               "name": "Air Bandana · דגם 01",
               "images": [
                 {
@@ -1431,7 +1431,7 @@
               }
             },
             {
-              "slug": "air-02",
+              "slug": "1049",
               "name": "Air Bandana · דגם 02",
               "images": [
                 {
@@ -1454,7 +1454,7 @@
               }
             },
             {
-              "slug": "air-03",
+              "slug": "1050",
               "name": "Air Bandana · דגם 03",
               "images": [
                 {
@@ -1477,7 +1477,7 @@
               }
             },
             {
-              "slug": "air-04",
+              "slug": "1051",
               "name": "Air Bandana · דגם 04",
               "images": [
                 {
@@ -1500,7 +1500,7 @@
               }
             },
             {
-              "slug": "air-05",
+              "slug": "1052",
               "name": "Air Bandana · דגם 05",
               "images": [
                 {
@@ -1523,7 +1523,7 @@
               }
             },
             {
-              "slug": "air-06",
+              "slug": "1053",
               "name": "Air Bandana · דגם 06",
               "images": [
                 {
@@ -1546,7 +1546,7 @@
               }
             },
             {
-              "slug": "air-07",
+              "slug": "1054",
               "name": "Air Bandana · דגם 07",
               "images": [
                 {
@@ -1569,7 +1569,7 @@
               }
             },
             {
-              "slug": "air-08",
+              "slug": "1055",
               "name": "Air Bandana · דגם 08",
               "images": [
                 {
@@ -1592,7 +1592,7 @@
               }
             },
             {
-              "slug": "air-09",
+              "slug": "1056",
               "name": "Air Bandana · דגם 09",
               "images": [
                 {
@@ -1615,7 +1615,7 @@
               }
             },
             {
-              "slug": "air-10",
+              "slug": "1057",
               "name": "Air Bandana · דגם 10",
               "images": [
                 {
@@ -1645,7 +1645,7 @@
           "order": 3,
           "products": [
             {
-              "slug": "designed-black-floral",
+              "slug": "1058",
               "name": "בנדנה מעוצבת – שחור פרחוני",
               "images": [
                 {
@@ -1668,7 +1668,7 @@
               }
             },
             {
-              "slug": "designed-blue",
+              "slug": "1059",
               "name": "בנדנה מעוצבת – כחול",
               "images": [
                 {
@@ -1703,7 +1703,7 @@
               }
             },
             {
-              "slug": "designed-burgundy",
+              "slug": "1060",
               "name": "בנדנה מעוצבת – בורדו",
               "images": [
                 {
@@ -1767,7 +1767,7 @@
           "order": 1,
           "products": [
             {
-              "slug": "nightgown-colorblock",
+              "slug": "1061",
               "name": "כותונת לילה – צבעונית",
               "images": [
                 {
@@ -1797,7 +1797,7 @@
           "order": 2,
           "products": [
             {
-              "slug": "set-night-stripes",
+              "slug": "1062",
               "name": "סט פסים עם בנדנה תואמת",
               "images": [
                 {
@@ -1827,7 +1827,7 @@
           "order": 3,
           "products": [
             {
-              "slug": "robe-01",
+              "slug": "1063",
               "name": "חלוק קווין",
               "images": [
                 {
@@ -1850,7 +1850,7 @@
               }
             },
             {
-              "slug": "robe-02",
+              "slug": "1064",
               "name": "חלוק שובל פרחים",
               "images": [
                 {
@@ -1879,7 +1879,7 @@
               }
             },
             {
-              "slug": "robe-03",
+              "slug": "1065",
               "name": "חלוק צווארון מלכותי",
               "images": [
                 {
@@ -1902,7 +1902,7 @@
               }
             },
             {
-              "slug": "robe-04",
+              "slug": "1066",
               "name": "חלוק פרח מריחות",
               "images": [
                 {
@@ -1932,7 +1932,7 @@
           "order": 4,
           "products": [
             {
-              "slug": "home-top-colorblock",
+              "slug": "1067",
               "name": "חולצת בית בשילוב צבעים",
               "images": [
                 {
@@ -1984,7 +1984,7 @@
           "order": 1,
           "products": [
             {
-              "slug": "soie-bouquet",
+              "slug": "1068",
               "name": "Soie La – מארז מטפחות משי",
               "images": [
                 {
@@ -2026,7 +2026,7 @@
           "order": 4,
           "products": [
             {
-              "slug": "cashmere-paisley",
+              "slug": "1069",
               "name": "מטפחות קשמיר – פייזלי",
               "images": [
                 {
@@ -2078,7 +2078,7 @@
           "order": 1,
           "products": [
             {
-              "slug": "white-tichel-box",
+              "slug": "1070",
               "name": "מטפחת לבנה במארז",
               "images": [
                 {
@@ -2108,7 +2108,7 @@
           "order": 2,
           "products": [
             {
-              "slug": "white-apron-lace",
+              "slug": "1071",
               "name": "סינר לבן עם תחרה",
               "images": [
                 {
@@ -2138,7 +2138,7 @@
           "order": 3,
           "products": [
             {
-              "slug": "blanche-set",
+              "slug": "1072",
               "name": "סט BLANCHE תואם",
               "images": [
                 {
