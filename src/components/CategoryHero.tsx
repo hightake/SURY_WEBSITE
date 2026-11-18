@@ -80,11 +80,11 @@ function Gate({ category }: { category: Category }) {
             {photo("ch-gate-photo mx-auto w-[78%] max-w-[330px] md:hidden", "78vw")}
           </div>
         </div>
-        {/* desktop: its own lit gate */}
-        <div className="ch-gate ch-gate-solo is-lit hidden md:block animate-[fadeIn_1.4s_var(--ease-soft)_0.2s_both]">
-          <span className="ch-gate-beam" aria-hidden />
-          <span className="niche-spot" aria-hidden />
-          {photo("ch-gate-photo relative z-[2] mx-[9%] mb-[9%] mt-[24%]", "340px")}
+        {/* desktop: the photo in its own framed arch */}
+        <div className="relative mx-auto hidden w-full max-w-[340px] md:block animate-[fadeIn_1.4s_var(--ease-soft)_0.2s_both]">
+          <div className="arch aspect-[3/4] bg-surface shadow-[0_0_0_1px_rgba(201,160,74,0.8),0_0_0_7px_#f3e9dd,0_0_0_8px_rgba(201,160,74,0.4),0_40px_60px_-35px_rgba(80,50,20,0.55)]">
+            <img src={imgUrl(category.cover.src)} srcSet={srcSet(category.cover)} sizes="340px" alt={category.cover.alt} className="size-full object-cover" />
+          </div>
         </div>
       </div>
     </section>
