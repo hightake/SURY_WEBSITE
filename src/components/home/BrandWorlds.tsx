@@ -27,13 +27,13 @@ export function BrandWorlds() {
   }, [inView]);
 
   return (
-    <section id="worlds" className="niches-wall scroll-mt-16 py-20 md:py-28" aria-labelledby="worlds-title">
+    <section id="worlds" className="niches-wall worlds-fit scroll-mt-16 py-20 md:py-6" aria-labelledby="worlds-title">
       <div className="container-x">
         <SectionHeading id="worlds-title" eyebrow="SURY Worlds" title={site.home.worlds.title} text={site.home.worlds.text} />
       </div>
       <div className="container-x">
-        <div ref={ref} className={`niches-panel overflow-hidden ${lit ? "is-lit" : ""}`}>
-          <div className="no-scrollbar flex snap-x snap-mandatory overflow-x-auto px-3 pt-12 md:grid md:grid-cols-5 md:overflow-visible md:px-6 md:pt-16 lg:px-10 lg:pt-20">
+        <div ref={ref} className={`niches-panel worlds-panel overflow-hidden ${lit ? "is-lit" : ""}`}>
+          <div className="no-scrollbar flex snap-x snap-mandatory overflow-x-auto px-3 pt-12 md:grid md:grid-cols-5 md:overflow-visible md:px-6 md:pt-10 lg:px-10 lg:pt-12">
             {categories.map((c, i) => {
               const pl = placement[c.slug] ?? defaultPlacement;
               return (
@@ -59,7 +59,7 @@ export function BrandWorlds() {
                   </div>
                   </div>
                   <div className="niches-ledge" aria-hidden />
-                  <div className="px-2 pb-8 pt-5 text-center md:pb-10">
+                  <div className="px-2 pb-8 pt-5 text-center md:pb-5 md:pt-3">
                     <p className="latin text-sm text-accent">{String(i + 1).padStart(2, "0")}</p>
                     <h3 className="mt-1 text-lg font-medium md:text-xl">{c.shortName}</h3>
                     <p className="mt-1 text-sm text-muted">{c.tagline}</p>

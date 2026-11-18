@@ -1403,3 +1403,28 @@ html.home-snap main > section {
     min-height: calc(100svh - 5rem);
   }
 }
+
+/* ---------- Brand worlds: the whole section fits one desktop screen ---------- */
+@media (min-width: 768px) {
+  .worlds-fit {
+    /* niche height = screen − header − heading − labels − paddings */
+    --nh: clamp(220px, calc(100svh - 5rem - 27rem), 520px);
+  }
+  .worlds-fit > .container-x:first-child > div {
+    margin-bottom: 1.5rem;
+  }
+  .worlds-fit .niche {
+    height: var(--nh);
+    width: calc(var(--nh) * 9 / 17);
+    margin-inline: auto;
+    aspect-ratio: auto;
+  }
+  .worlds-panel {
+    width: fit-content;
+    max-width: 100%;
+    margin-inline: auto;
+  }
+  .worlds-panel > div {
+    grid-template-columns: repeat(5, auto);
+  }
+}
