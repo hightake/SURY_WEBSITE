@@ -1,7 +1,7 @@
 import type { LegalPage } from "../../models/content";
 import { useAdmin } from "../state/AdminStore";
-import { Card, LongText, Text } from "../ui/fields";
-import { TEXT_HINT } from "./StoryAdmin";
+import { RichTextEditor } from "../ui/RichTextEditor";
+import { Card, Text } from "../ui/fields";
 
 type Key = "privacy" | "accessibility";
 
@@ -24,7 +24,7 @@ function PageEditor({ k, label }: { k: Key; label: string }) {
         <Text label="כותרת העמוד" value={page.title} onChange={(v) => set((p) => void (p.title = v))} />
         <Text label="עודכן בתאריך" value={page.updated} placeholder="למשל 1.12.2026" onChange={(v) => set((p) => void (p.updated = v))} />
       </div>
-      <LongText label="תוכן העמוד" value={page.body} rows={18} onChange={(v) => set((p) => void (p.body = v))} hint={`${TEXT_HINT} {phone} ו-{email} מוחלפים בטלפון ובמייל מ״פרטי קשר״.`} />
+      <RichTextEditor label="תוכן העמוד" value={page.body} onChange={(v) => set((p) => void (p.body = v))} hint="אפשר לכתוב {phone} או {email} – יוחלפו אוטומטית בטלפון ובמייל מ״פרטי קשר״." />
     </Card>
   );
 }

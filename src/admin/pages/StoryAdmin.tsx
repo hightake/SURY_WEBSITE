@@ -1,5 +1,6 @@
 import { useAdmin } from "../state/AdminStore";
-import { Card, ImageField, LongText, Text } from "../ui/fields";
+import { RichTextEditor } from "../ui/RichTextEditor";
+import { Card, ImageField, Text } from "../ui/fields";
 
 export function StoryAdmin() {
   const { data, update } = useAdmin();
@@ -16,10 +17,9 @@ export function StoryAdmin() {
         </div>
       </Card>
       <Card>
-        <LongText label="הסיפור" value={st.body} onChange={(v) => update((d) => void (d.pages.story.body = v))} hint={TEXT_HINT} />
+        <RichTextEditor label="הסיפור" value={st.body} onChange={(v) => update((d) => void (d.pages.story.body = v))} />
       </Card>
     </div>
   );
 }
 
-export const TEXT_HINT = "נשמר בדיוק כמו שכתוב: מעברי שורה, טאבים ונקודות (•). שורה ריקה = פסקה חדשה. שורה שמתחילה ב-״# ״ = כותרת משנה.";

@@ -1627,17 +1627,55 @@ html.home-snap main > section {
   background: #f8f9fa;
 }
 
-/* Admin-written text, kept as typed */
+/* Text written in the admin editor */
 .rich-text p {
-  white-space: pre-wrap;
-  tab-size: 4;
-  margin-bottom: 1.25em;
+  margin-bottom: 1.1em;
 }
 .rich-text h2 {
-  margin: 2em 0 0.6em;
-  font-size: 1.25rem;
+  margin: 1.8em 0 0.6em;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--color-ink);
+}
+.rich-text h3 {
+  margin: 1.4em 0 0.5em;
+  font-size: 1.15rem;
   font-weight: 500;
 }
-.rich-text section:first-child h2 {
+.rich-text > :first-child {
   margin-top: 0;
+}
+.rich-text ul,
+.rich-text ol {
+  margin: 0 0 1.1em;
+  padding-inline-start: 1.5em;
+}
+.rich-text ul {
+  list-style: disc;
+}
+.rich-text ol {
+  list-style: decimal;
+}
+.rich-text li {
+  margin-bottom: 0.35em;
+}
+.rich-text li > p {
+  margin: 0;
+}
+.rich-text strong,
+.rich-text b {
+  font-weight: 600;
+}
+.rich-text a {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+/* editor surface in the admin */
+.adm-editor {
+  min-height: 18rem;
+  max-height: 65vh;
+  overflow-y: auto;
+  padding: 1rem 1.1rem;
+  line-height: 1.75;
+  outline: none;
 }

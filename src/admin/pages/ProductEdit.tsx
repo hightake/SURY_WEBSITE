@@ -46,7 +46,9 @@ export function ProductEdit() {
         <Toggle label="מוצג בקולקציה החדשה בדף הבית" checked={p.featured} onChange={(v) => edit((x) => void (x.featured = v))} />
         <div className="grid gap-5 md:grid-cols-2">
           <Text label="מחיר (לא מוצג באתר)" value={p.price == null ? "" : String(p.price)} dir="ltr" onChange={(v) => edit((x) => setPrice(x, v))} hint="שמור להמשך, אם האתר יהפוך לחנות" />
-          <ProductLink catSlug={c.slug} slug={p.slug} />
+          <div className="md:col-span-2">
+            <ProductLink catSlug={c.slug} slug={p.slug} />
+          </div>
         </div>
       </Card>
 
@@ -67,10 +69,10 @@ function ProductLink({ catSlug, slug }: { catSlug: string; slug: string }) {
   const url = `${location.origin}${import.meta.env.BASE_URL}collection/${catSlug}/${slug}`;
   return (
     <div className="grid gap-1.5">
-      <p className="text-sm font-medium">קישור לעמוד המוצר · מק״ט {slug}</p>
-      <div className="flex gap-2">
-        <p dir="ltr" className="min-w-0 flex-1 truncate rounded-lg bg-surface/60 px-3 py-2.5 text-start text-sm text-muted">{url}</p>
-        <button type="button" className="adm-btn" onClick={async () => {
+      <p className="text-sm font-medium">קישור לעמוד המוצר{/^\d+$/.test(slug) ? ` · מק״ט ${slug}` : ""}</p>
+      <div className="flex items-center gap-1 rounded-lg border border-[#dccbb5] bg-surface/50 p-1 ps-3">
+        <p dir="ltr" className="min-w-0 flex-1 truncate text-start text-sm text-muted" title={url}>{url}</p>
+        <button type="button" className={`shrink-0 rounded-md px-3 py-1.5 text-sm font-medium transition-colors ${copied ? "bg-[#3f7d4e] text-white" : "bg-primary text-white hover:bg-primary-dark"}`} onClick={async () => {
           try {
             await navigator.clipboard.writeText(url);
             setCopied(true);
@@ -78,7 +80,7 @@ function ProductLink({ catSlug, slug }: { catSlug: string; slug: string }) {
           } catch {
             prompt("העתיקי את הקישור:", url);
           }
-        }}>{copied ? "הועתק ✓" : "העתקה"}</button>
+        }}>{copied ? "הועתק ✓" : "העתקת קישור"}</button>
       </div>
       <p className="text-xs text-muted">מספר קבוע שנקבע אוטומטית – לא משתנה גם אם משנים את שם המוצר, כך שקישורים שנשלחו ממשיכים לעבוד.</p>
     </div>

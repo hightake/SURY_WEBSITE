@@ -37,29 +37,6 @@ export function Text({ label, value, onChange, hint, multiline, dir, placeholder
   );
 }
 
-/**
- * Long free text kept exactly as typed. Tab inserts a tab (instead of leaving the field);
- * pasted bullets and line breaks are kept.
- */
-export function LongText({ label, value, onChange, hint, rows = 14 }: { label: string; value: string; onChange: (v: string) => void; hint?: string; rows?: number }) {
-  const id = useId();
-  const onKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-    if (e.key !== "Tab" || e.shiftKey) return;
-    e.preventDefault();
-    const t = e.currentTarget;
-    const { selectionStart: a, selectionEnd: b } = t;
-    onChange(value.slice(0, a) + "\t" + value.slice(b));
-    requestAnimationFrame(() => t.setSelectionRange(a + 1, a + 1));
-  };
-  return (
-    <div className="grid gap-1.5">
-      <label htmlFor={id} className="text-sm font-medium">{label}</label>
-      <textarea id={id} value={value} rows={rows} onChange={(e) => onChange(e.target.value)} onKeyDown={onKeyDown} className="adm-input resize-y leading-relaxed" style={{ tabSize: 4, whiteSpace: "pre-wrap" }} />
-      {hint && <p className="text-xs text-muted">{hint}</p>}
-    </div>
-  );
-}
-
 export function Toggle({ label, checked, onChange, hint }: { label: string; checked: boolean; onChange: (v: boolean) => void; hint?: string }) {
   return (
     <label className="flex cursor-pointer items-start gap-3">

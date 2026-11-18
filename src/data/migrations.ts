@@ -3,6 +3,7 @@
  * Runs on every load (cheap and idempotent).
  */
 import type { SiteData } from "../models/content";
+import { plainTextToHtml } from "../lib/html";
 import { seedAdmins, seedContent } from "./seed";
 
 type Legacy = Record<string, any>; // eslint-disable-line @typescript-eslint/no-explicit-any
@@ -30,6 +31,10 @@ export function migrate(input: SiteData): SiteData {
     }
     if (typeof pg?.body !== "string") d.pages[k] = seedContent.pages[k];
   }
+
+  // rich text: plain text (earlier format) → HTML
+  d.pages.story.body = plainTextToHtml(d.pages.story.body ?? "");
+  for (const k of ["privacy", "accessibility"] as const) d.pages[k].body = plainTextToHtml(d.pages[k].body);
 
   // product links: replace temporary codes (p-xxxx) with running numbers
   let next = nextNumber(d as SiteData);

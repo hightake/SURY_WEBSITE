@@ -52,8 +52,9 @@ export type Store = {
 export type HeroBanner = { image: Img; caption: string; category?: string; link?: string };
 
 /**
- * Free text written in the admin, kept exactly as typed: line breaks, tabs and bullets.
- * A line starting with "# " is a sub-heading; {phone} and {email} are filled in.
+ * Formatted text from the admin editor, stored as HTML (paragraphs, headings,
+ * bold/italic/underline, bullet and numbered lists). Sanitised before display.
+ * {phone} and {email} are filled in with the contact details.
  */
 export type RichText = string;
 
