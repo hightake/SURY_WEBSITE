@@ -1,8 +1,11 @@
-// All site content comes from one JSON file. In stage 3 this module is the
-// only place that changes: the same getters will read from the database.
+// All site content lives in one object (SiteData). It is loaded through the
+// backend adapter (src/lib/backend) before the app renders, and the admin
+// writes back through the same adapter. The exports below are live bindings:
+// applyContent() refreshes them for every importer.
 import data from "../content/site.json";
 
-export type Img = { src: string; w: number; h: number; alt: string };
+/** src: a path under public/ or a data/https URL (admin uploads). sm: optional small version. */
+export type Img = { src: string; w: number; h: number; alt: string; sm?: string };
 
 export type Product = {
   slug: string;
@@ -45,7 +48,11 @@ export type Store = {
 
 export type HeroBanner = { image: Img; caption: string; category?: string; link?: string };
 
-type SiteData = {
+export type Role = "owner" | "editor";
+export type AdminUser = { email: string; role: Role };
+
+export type SiteData = {
+  admins?: AdminUser[];
   settings: { phone: string; whatsapp: string; whatsappDisplay: string; email: string; social: { name: string; url: string }[] };
   home: {
     hero: { eyebrow: string; titleBold: string; titleLight: string; text: string; cta: string; banners: HeroBanner[] };
@@ -65,17 +72,44 @@ type SiteData = {
   categories: Category[];
 };
 
-export const site = data as unknown as SiteData;
+// uploaded images register their small version here so imgSmUrl(src) can find it
+const smallOf = new Map<string, string>();
+export const registerSmall = (img: Img) => img.sm && smallOf.set(img.src, img.sm);
+
+export const defaultContent = data as unknown as SiteData;
 
 const byOrder = <T extends { order: number }>(a: T, b: T) => a.order - b.order;
 
-export const categories = [...site.categories].sort(byOrder).map((c) => ({
-  ...c,
-  subcategories: [...c.subcategories].sort(byOrder).map((s) => ({
-    ...s,
-    products: s.products.filter((p) => p.visible).sort(byOrder),
-  })),
-}));
+export type FeaturedItem = { category: Category; sub: Subcategory; product: Product };
+
+export let site: SiteData = defaultContent;
+export let categories: Category[] = [];
+export let featured: FeaturedItem[] = [];
+
+/** Replace the content the site renders from. */
+export function applyContent(next: SiteData) {
+  site = next;
+  const walk = (v: unknown): void => {
+    if (Array.isArray(v)) v.forEach(walk);
+    else if (v && typeof v === "object") {
+      const o = v as Record<string, unknown>;
+      if (typeof o.src === "string" && typeof o.sm === "string") registerSmall(o as unknown as Img);
+      Object.values(o).forEach(walk);
+    }
+  };
+  walk(next);
+  categories = [...next.categories].sort(byOrder).map((c) => ({
+    ...c,
+    subcategories: [...c.subcategories].sort(byOrder).map((s) => ({
+      ...s,
+      products: s.products.filter((p) => p.visible).sort(byOrder),
+    })),
+  }));
+  featured = categories.flatMap((category) =>
+    category.subcategories.flatMap((sub) => sub.products.filter((p) => p.featured).map((product) => ({ category, sub, product }))),
+  );
+}
+applyContent(defaultContent);
 
 export const getCategory = (slug: string) => categories.find((c) => c.slug === slug);
 
@@ -89,18 +123,13 @@ export function getProduct(catSlug: string, productSlug: string) {
   return undefined;
 }
 
-export type FeaturedItem = { category: Category; sub: Subcategory; product: Product };
-
-export const featured: FeaturedItem[] = categories.flatMap((category) =>
-  category.subcategories.flatMap((sub) =>
-    sub.products.filter((p) => p.featured).map((product) => ({ category, sub, product })),
-  ),
-);
-
 /** Public URL of an image, respecting the deploy base path. */
-export const imgUrl = (src: string) => `${import.meta.env.BASE_URL}${src}`;
-export const imgSmUrl = (src: string) => imgUrl(src.replace(/\.webp$/, "-sm.webp"));
-export const srcSet = (img: Img) => `${imgSmUrl(img.src)} 700w, ${imgUrl(img.src)} ${img.w}w`;
+const isAbsolute = (src: string) => /^(data:|blob:|https?:)/.test(src);
+export const imgUrl = (src: string) => (isAbsolute(src) ? src : `${import.meta.env.BASE_URL}${src}`);
+/** Small version: bundled images have a -sm.webp sibling; uploads carry their own (or reuse the full one). */
+export const imgSmUrl = (src: string) => (isAbsolute(src) ? (smallOf.get(src) ?? src) : imgUrl(src.replace(/\.webp$/, "-sm.webp")));
+export const srcSet = (img: Img) => (isAbsolute(img.src) ? `${imgUrl(img.src)} ${img.w}w` : `${imgSmUrl(img.src)} 700w, ${imgUrl(img.src)} ${img.w}w`);
+
 
 export const whatsappLink = (text?: string) =>
   `https://wa.me/${site.settings.whatsapp}${text ? `?text=${encodeURIComponent(text)}` : ""}`;
