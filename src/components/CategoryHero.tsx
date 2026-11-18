@@ -1,60 +1,19 @@
-import { useEffect, useState } from "react";
 import { imgUrl, srcSet, type Category } from "../lib/content";
 
 /*
- * Category page opening.
- * DEMO: three directions, picked with ?ch=a|b|c
- *   a – centred monument: the name between long gold hairlines, cover below in a wide arch
- *   b – inside the gate: the name stands in a lit plaster arch, like the brand niches
- *   c – magazine cover: large cover photo, the name overlapping its edge
- * Once one is chosen the other two are removed.
+ * Category page opening: the name stands in a lit plaster gate.
+ * Desktop – the cover photo in its own framed arch beside it;
+ * mobile – the photo in a lit arch inside the same gate.
  */
-type Variant = "a" | "b" | "c";
-
-function useVariant(): Variant {
-  const [v, setV] = useState<Variant>("a");
-  useEffect(() => {
-    const q = new URLSearchParams(window.location.search).get("ch");
-    if (q === "b" || q === "c") setV(q);
-  }, []);
-  return v;
-}
-
 function useName(category: Category) {
   const [main, sub] = category.name.split(/\s+–\s+/);
   return { main, sub, latin: /^[A-Za-z]/.test(main), num: String(category.order).padStart(2, "0") };
 }
 
 export function CategoryHero({ category }: { category: Category }) {
-  const v = useVariant();
-  if (v === "b") return <Gate category={category} />;
-  if (v === "c") return <Cover category={category} />;
-  return <Monument category={category} />;
+  return <Gate category={category} />;
 }
 
-/* ---------- a – centred monument ---------- */
-function Monument({ category }: { category: Category }) {
-  const { main, sub, latin, num } = useName(category);
-  return (
-    <section className="ch-monument" aria-labelledby="cat-title">
-      <div className="container-x pb-14 pt-14 text-center md:pb-20 md:pt-20">
-        <span className="ch-num animate-[fadeIn_1s_var(--ease-soft)_both]">{num}</span>
-        <div className="ch-hairlines mt-7 animate-[fadeUp_1s_var(--ease-soft)_0.1s_both]">
-          <h1 id="cat-title" className={`ch-monument-title ${latin ? "latin is-latin" : ""}`}>{main}</h1>
-        </div>
-        {sub && <p className="ch-spaced mt-5 animate-[fadeUp_1s_var(--ease-soft)_0.2s_both]">{sub}</p>}
-        {category.intro && <p className="mx-auto mt-6 max-w-xl text-lg font-light leading-relaxed text-ink/75 animate-[fadeUp_1s_var(--ease-soft)_0.3s_both]">{category.intro}</p>}
-        <div className="mx-auto mt-12 max-w-4xl animate-[fadeIn_1.4s_var(--ease-soft)_0.3s_both]">
-          <div className="ch-band">
-            <img src={imgUrl(category.cover.src)} srcSet={srcSet(category.cover)} sizes="(min-width: 900px) 900px, 100vw" alt={category.cover.alt} />
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ---------- b – inside the gate ---------- */
 function Gate({ category }: { category: Category }) {
   const { main, sub, latin, num } = useName(category);
   const photo = (cls: string, sizes: string) => (
@@ -84,35 +43,6 @@ function Gate({ category }: { category: Category }) {
         <div className="relative mx-auto hidden w-full max-w-[340px] md:block animate-[fadeIn_1.4s_var(--ease-soft)_0.2s_both]">
           <div className="arch aspect-[3/4] bg-surface shadow-[0_0_0_1px_rgba(201,160,74,0.8),0_0_0_7px_#f3e9dd,0_0_0_8px_rgba(201,160,74,0.4),0_40px_60px_-35px_rgba(80,50,20,0.55)]">
             <img src={imgUrl(category.cover.src)} srcSet={srcSet(category.cover)} sizes="340px" alt={category.cover.alt} className="size-full object-cover" />
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ---------- c – magazine cover ---------- */
-function Cover({ category }: { category: Category }) {
-  const { main, sub, latin, num } = useName(category);
-  return (
-    <section className="ch-cover relative overflow-hidden" aria-labelledby="cat-title">
-      <div className="grid md:min-h-[78svh] md:grid-cols-2">
-        {/* photo – left half in RTL */}
-        <div className="relative order-1 h-[52svh] md:order-2 md:h-auto">
-          <img src={imgUrl(category.cover.src)} srcSet={srcSet(category.cover)} sizes="(min-width: 768px) 50vw, 100vw" alt={category.cover.alt} className="absolute inset-0 size-full object-cover animate-[fadeIn_1.6s_var(--ease-soft)_both]" />
-          <div aria-hidden className="absolute inset-y-0 right-0 w-px bg-accent" />
-        </div>
-        <div className="relative order-2 flex items-center md:order-1">
-          <div className="w-full px-5 py-12 md:pe-0 md:ps-[max(2.5rem,calc((100vw-1320px)/2+2.5rem))]">
-            <div className="flex items-start gap-5">
-              <span className="ch-vertical hidden md:block">{num} — SURY</span>
-              <div className="min-w-0 flex-1">
-                <h1 id="cat-title" className={`ch-cover-title md:text-end animate-[fadeUp_1.1s_var(--ease-soft)_0.15s_both] ${latin ? "latin" : ""}`}>{main}</h1>
-                {sub && <p className="mt-4 text-xl font-light italic text-gold-deep md:text-3xl">{sub}</p>}
-                <span aria-hidden className="mt-8 block h-px w-24 bg-accent" />
-                {category.intro && <p className="mt-7 max-w-md text-lg font-light leading-relaxed text-ink/80">{category.intro}</p>}
-              </div>
-            </div>
           </div>
         </div>
       </div>
