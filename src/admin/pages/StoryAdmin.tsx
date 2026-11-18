@@ -1,6 +1,5 @@
-import { Card, ImageField, RowTools, Text } from "../ui/fields";
-import { moveItem } from "../../lib/list";
 import { useAdmin } from "../state/AdminStore";
+import { Card, ImageField, LongText, Text } from "../ui/fields";
 
 export function StoryAdmin() {
   const { data, update } = useAdmin();
@@ -16,19 +15,11 @@ export function StoryAdmin() {
           </div>
         </div>
       </Card>
-      <Card title="פסקאות">
-        {st.paragraphs.map((para, i) => (
-          <div key={i} className="grid gap-2">
-            <Text label={`פסקה ${i + 1}`} value={para} multiline onChange={(v) => update((d) => void (d.pages.story.paragraphs[i] = v))} />
-            <RowTools
-              onUp={i > 0 ? () => update((d) => moveItem(d.pages.story.paragraphs, i, -1)) : undefined}
-              onDown={i < st.paragraphs.length - 1 ? () => update((d) => moveItem(d.pages.story.paragraphs, i, 1)) : undefined}
-              onDelete={() => update((d) => void d.pages.story.paragraphs.splice(i, 1))}
-            />
-          </div>
-        ))}
-        <button type="button" className="adm-btn justify-self-start" onClick={() => update((d) => void d.pages.story.paragraphs.push(""))}>+ הוספת פסקה</button>
+      <Card>
+        <LongText label="הסיפור" value={st.body} onChange={(v) => update((d) => void (d.pages.story.body = v))} hint={TEXT_HINT} />
       </Card>
     </div>
   );
 }
+
+export const TEXT_HINT = "נשמר בדיוק כמו שכתוב: מעברי שורה, טאבים ונקודות (•). שורה ריקה = פסקה חדשה. שורה שמתחילה ב-״# ״ = כותרת משנה.";

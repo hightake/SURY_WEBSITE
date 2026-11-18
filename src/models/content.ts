@@ -52,10 +52,12 @@ export type Store = {
 export type HeroBanner = { image: Img; caption: string; category?: string; link?: string };
 
 /**
- * A text page edited in the admin. In `text`, lines starting with "- " are bullets;
- * {phone}, {email} are replaced with the contact details.
+ * Free text written in the admin, kept exactly as typed: line breaks, tabs and bullets.
+ * A line starting with "# " is a sub-heading; {phone} and {email} are filled in.
  */
-export type LegalPage = { title: string; updated: string; blocks: { heading: string; text: string }[] };
+export type RichText = string;
+
+export type LegalPage = { title: string; updated: string; body: RichText };
 
 export type Settings = {
   phone: string;
@@ -81,7 +83,7 @@ export type SiteData = {
     contact: { title: string; text: string };
   };
   pages: {
-    story: { title: string; lead: string; image: Img; paragraphs: string[] };
+    story: { title: string; lead: string; image: Img; body: RichText };
     privacy: LegalPage;
     accessibility: LegalPage;
   };

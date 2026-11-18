@@ -1626,3 +1626,18 @@ html.home-snap main > section {
 .adm-google:hover {
   background: #f8f9fa;
 }
+
+/* Admin-written text, kept as typed */
+.rich-text p {
+  white-space: pre-wrap;
+  tab-size: 4;
+  margin-bottom: 1.25em;
+}
+.rich-text h2 {
+  margin: 2em 0 0.6em;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+.rich-text section:first-child h2 {
+  margin-top: 0;
+}

@@ -26,14 +26,19 @@ export function StoresAdmin() {
           </div>
           <div className="grid gap-2">
             <p className="text-sm font-medium">שעות פתיחה</p>
+            <div className="flex gap-2 text-xs text-muted">
+              <span className="w-36">ימים</span>
+              <span className="w-40">שעות</span>
+            </div>
             {st.hours.map(([days, time], hi) => (
               <div key={hi} className="flex flex-wrap items-center gap-2">
-                <input value={days} onChange={(e) => update((d) => void (d.stores[i].hours[hi][0] = e.target.value))} className="adm-input w-28" aria-label="ימים" />
-                <input value={time} dir="ltr" onChange={(e) => update((d) => void (d.stores[i].hours[hi][1] = e.target.value))} className="adm-input w-40" aria-label="שעות" />
+                <input value={days} placeholder="למשל: א׳–ה׳" onChange={(e) => update((d) => void (d.stores[i].hours[hi][0] = e.target.value))} className="adm-input !w-36" aria-label="ימים" />
+                <input value={time} placeholder="10:00–20:00" dir="ltr" onChange={(e) => update((d) => void (d.stores[i].hours[hi][1] = e.target.value))} className="adm-input !w-40" aria-label="שעות" />
                 <button type="button" className="adm-chip text-primary" onClick={() => update((d) => void d.stores[i].hours.splice(hi, 1))}>הסרה</button>
               </div>
             ))}
             <button type="button" className="adm-chip justify-self-start" onClick={() => update((d) => void d.stores[i].hours.push(["", ""]))}>+ שורת שעות</button>
+            <p className="text-xs text-muted">כל שורה = ימים + שעות. למשל: ״א׳–ה׳״ ו-״10:00–20:00״, ״ו׳״ ו-״10:00–13:00״. ביום סגור כותבים ״סגור״.</p>
           </div>
         </Card>
       ))}

@@ -1,4 +1,5 @@
 import { Link, useNavigate, useParams } from "@tanstack/react-router";
+import { useState } from "react";
 import type { Product } from "../../models/content";
 import { deleteProduct, findProduct, moveProduct, setPrice, updateProduct, type ProductRef } from "../../services/catalogService";
 import { useAdmin } from "../state/AdminStore";
@@ -45,10 +46,7 @@ export function ProductEdit() {
         <Toggle label="מוצג בקולקציה החדשה בדף הבית" checked={p.featured} onChange={(v) => edit((x) => void (x.featured = v))} />
         <div className="grid gap-5 md:grid-cols-2">
           <Text label="מחיר (לא מוצג באתר)" value={p.price == null ? "" : String(p.price)} dir="ltr" onChange={(v) => edit((x) => setPrice(x, v))} hint="שמור להמשך, אם האתר יהפוך לחנות" />
-          <div className="grid gap-1.5">
-            <p className="text-sm font-medium">כתובת העמוד</p>
-            <p dir="ltr" className="rounded-lg bg-surface/60 px-3 py-2.5 text-start text-sm text-muted">/collection/{c.slug}/{p.slug}</p>
-          </div>
+          <ProductLink catSlug={c.slug} slug={p.slug} />
         </div>
       </Card>
 
@@ -59,6 +57,30 @@ export function ProductEdit() {
       }}>
         מחיקת המוצר
       </button>
+    </div>
+  );
+}
+
+/** The product's public link: a fixed number, so it keeps working when the name changes. */
+function ProductLink({ catSlug, slug }: { catSlug: string; slug: string }) {
+  const [copied, setCopied] = useState(false);
+  const url = `${location.origin}${import.meta.env.BASE_URL}collection/${catSlug}/${slug}`;
+  return (
+    <div className="grid gap-1.5">
+      <p className="text-sm font-medium">קישור לעמוד המוצר · מק״ט {slug}</p>
+      <div className="flex gap-2">
+        <p dir="ltr" className="min-w-0 flex-1 truncate rounded-lg bg-surface/60 px-3 py-2.5 text-start text-sm text-muted">{url}</p>
+        <button type="button" className="adm-btn" onClick={async () => {
+          try {
+            await navigator.clipboard.writeText(url);
+            setCopied(true);
+            setTimeout(() => setCopied(false), 1500);
+          } catch {
+            prompt("העתיקי את הקישור:", url);
+          }
+        }}>{copied ? "הועתק ✓" : "העתקה"}</button>
+      </div>
+      <p className="text-xs text-muted">מספר קבוע שנקבע אוטומטית – לא משתנה גם אם משנים את שם המוצר, כך שקישורים שנשלחו ממשיכים לעבוד.</p>
     </div>
   );
 }

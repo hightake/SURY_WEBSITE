@@ -1,6 +1,7 @@
 import type { Img, SiteData } from "../models/content";
 import type { AdminUser } from "../models/user";
-import { seedAdmins, seedContent } from "./seed";
+import { migrate } from "./migrations";
+import { seedContent } from "./seed";
 import { NotAllowedError, type Backend } from "./types";
 
 /*
@@ -35,28 +36,16 @@ const toDataUrl = (b: Blob) =>
     r.readAsDataURL(b);
   });
 
-/** Fill fields added after a browser saved its copy, so older saves keep working. */
-const upgrade = (d: SiteData): SiteData => ({
-  ...seedContent,
-  ...d,
-  admins: d.admins?.length ? d.admins : seedAdmins,
-  settings: { ...seedContent.settings, ...d.settings },
-  pages: {
-    ...seedContent.pages,
-    ...d.pages,
-    privacy: "blocks" in (d.pages?.privacy ?? {}) ? d.pages.privacy : seedContent.pages.privacy,
-    accessibility: "blocks" in (d.pages?.accessibility ?? {}) ? d.pages.accessibility : seedContent.pages.accessibility,
-  },
-});
+
 
 export const mockBackend: Backend = {
   kind: "mock",
   async loadContent() {
     try {
       const saved = await idb<SiteData | undefined>("readonly", (s) => s.get("content") as IDBRequest<SiteData | undefined>);
-      return upgrade(saved ?? structuredClone(seedContent));
+      return migrate(saved ?? structuredClone(seedContent));
     } catch {
-      return upgrade(structuredClone(seedContent));
+      return migrate(structuredClone(seedContent));
     }
   },
   async saveContent(data) {

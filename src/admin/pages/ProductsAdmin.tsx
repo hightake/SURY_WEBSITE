@@ -35,7 +35,7 @@ export function ProductsAdmin() {
         </label>
         <label className="flex items-center gap-2 whitespace-nowrap pb-2.5 text-sm">
           <input type="checkbox" checked={featuredOnly} onChange={(e) => setFeaturedOnly(e.target.checked)} className="size-4 accent-[var(--color-primary)]" />
-          רק בקולקציה החדשה
+          הצג כאן רק את הקולקציה החדשה
         </label>
         <button type="button" className="adm-btn adm-btn-primary" onClick={create}>+ מוצר חדש</button>
       </div>

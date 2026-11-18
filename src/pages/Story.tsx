@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { PageHero } from "../components/PageHero";
 import { Reveal } from "../components/Reveal";
+import { RichTextView } from "../components/RichTextView";
 import { categories, site } from "../services/contentState";
 import { usePageTitle } from "../lib/usePageTitle";
 
@@ -11,11 +12,9 @@ export function Story() {
     <>
       <PageHero eyebrow="Our Story" title={s.title} text={s.lead} image={s.image} />
       <div className="container-x max-w-3xl py-16 md:py-24">
-        {s.paragraphs.map((p, i) => (
-          <Reveal key={i} as="p" className={`mb-7 leading-loose ${i === 0 ? "text-2xl font-light md:text-3xl leading-relaxed" : "text-lg text-muted"}`}>
-            {p}
-          </Reveal>
-        ))}
+        <Reveal>
+          <RichTextView text={s.body} className="text-lg leading-loose text-ink/85" />
+        </Reveal>
       </div>
       <section className="niches-wall py-16 md:py-20" aria-label="העולמות של SURY">
         <ul className="container-x grid grid-cols-2 gap-6 text-center md:grid-cols-5">
