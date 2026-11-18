@@ -28,14 +28,20 @@ applyContent(seedContent);
 
 export const getCategory = (slug: string) => categories.find((c) => c.slug === slug);
 
+/**
+ * Find a product by its number. Numbers are unique across the whole site, so a
+ * link keeps working after the product moves to another category – the caller
+ * gets the product's current category and can redirect to the current link.
+ */
 export function getProduct(catSlug: string, productSlug: string) {
-  const category = getCategory(catSlug);
-  if (!category) return undefined;
-  for (const sub of category.subcategories) {
-    const product = sub.products.find((p) => p.slug === productSlug);
-    if (product) return { category, sub, product };
-  }
-  return undefined;
+  const inCategory = (c: Category) => {
+    for (const sub of c.subcategories) {
+      const product = sub.products.find((p) => p.slug === productSlug);
+      if (product) return { category: c, sub, product };
+    }
+  };
+  const preferred = getCategory(catSlug);
+  return (preferred && inCategory(preferred)) ?? categories.map(inCategory).find(Boolean);
 }
 
 function forEachImage(v: unknown, fn: (img: Img) => void): void {

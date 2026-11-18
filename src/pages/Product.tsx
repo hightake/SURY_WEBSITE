@@ -1,4 +1,4 @@
-import { Link, useParams } from "@tanstack/react-router";
+import { Link, useNavigate, useParams } from "@tanstack/react-router";
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { IconWhatsapp } from "../components/Icons";
 import { getProduct, site } from "../services/contentState";
@@ -36,6 +36,12 @@ export function Product() {
   const found = getProduct(catSlug, productSlug);
   usePageTitle(found?.product.name);
   const v = useVariant();
+  const navigate = useNavigate();
+  // moved to another category: an old link still works and switches to the current address
+  const current = found?.category.slug;
+  useEffect(() => {
+    if (current && current !== catSlug) navigate({ to: "/collection/$category/$product", params: { category: current, product: productSlug }, replace: true });
+  }, [current, catSlug, productSlug, navigate]);
   if (!found) return <NotFound />;
   if (v === "b") return <Label {...found} />;
   if (v === "c") return <Lookbook {...found} />;
