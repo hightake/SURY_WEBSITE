@@ -1,4 +1,4 @@
-import { useParams } from "@tanstack/react-router";
+import { useParams, useRouterState } from "@tanstack/react-router";
 import { useEffect } from "react";
 import { CategoryHero } from "../components/CategoryHero";
 import { ProductCard } from "../components/ProductCard";
@@ -13,10 +13,11 @@ export function Category() {
   usePageTitle(category?.name);
 
   // Jump to a sub-category when arriving from the menu (#slug).
+  const hash = useRouterState({ select: (s) => s.location.hash });
   useEffect(() => {
-    const id = decodeURIComponent(window.location.hash.slice(1));
-    if (id) requestAnimationFrame(() => document.getElementById(id)?.scrollIntoView());
-  }, [slug]);
+    const id = decodeURIComponent(hash.replace(/^#/, ""));
+    if (id) requestAnimationFrame(() => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" }));
+  }, [slug, hash]);
 
   if (!category) return <NotFound />;
 

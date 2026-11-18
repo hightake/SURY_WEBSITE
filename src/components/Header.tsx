@@ -153,7 +153,7 @@ function MobileDrawer({ open, onClose }: { open: boolean; onClose: () => void })
             <IconClose />
           </button>
         </div>
-        <nav aria-label="ניווט ראשי" className="flex-1 overflow-y-auto px-5 py-4">
+        <nav aria-label="ניווט ראשי" className="flex-1 overflow-y-auto px-5 py-4" onClick={(e) => (e.target as HTMLElement).closest("a") && onClose()}>
           <Link to="/" className="block py-3 text-lg">
             דף הבית
           </Link>
