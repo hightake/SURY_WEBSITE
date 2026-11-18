@@ -40,12 +40,13 @@ export default function AdminLayout() {
 }
 
 function Shell() {
-  const { user, status } = useAdmin();
+  const { user, status, dirty, save, discard } = useAdmin();
   const navigate = useNavigate();
   const base = import.meta.env.BASE_URL.replace(/\/$/, "");
   const path = useRouterState({ select: (s) => s.location.pathname }).replace(base, "");
   const current = [...NAV].reverse().find((n) => ("exact" in n ? path === n.to || path === `${n.to}/` : path.startsWith(n.to)));
   const out = async () => {
+    if (dirty && !confirm("יש שינויים שלא נשמרו. לצאת בלי לשמור?")) return;
     await signOut();
     navigate({ to: "/admin/login" });
   };
@@ -74,8 +75,12 @@ function Shell() {
       <div className="min-w-0">
         <header className="adm-top">
           <h1 className="text-xl font-light md:text-2xl">{current?.label}</h1>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3">
             <SaveIndicator status={status} />
+            {dirty && <button type="button" onClick={discard} className="adm-btn hidden sm:inline-flex">ביטול שינויים</button>}
+            <button type="button" onClick={save} disabled={!dirty || status === "saving"} className="adm-btn adm-btn-primary disabled:!bg-shade disabled:!border-shade disabled:!text-muted" title="שמירה (Ctrl+S)">
+              {status === "saving" ? "שומרת…" : "שמירה"}
+            </button>
             <button type="button" onClick={out} className="text-sm text-muted hover:text-ink md:hidden">יציאה</button>
           </div>
         </header>
@@ -89,11 +94,12 @@ function Shell() {
 
 function SaveIndicator({ status }: { status: SaveStatus }) {
   const map: Record<SaveStatus, [string, string]> = {
-    idle: ["", ""],
-    saving: ["שומרת…", "text-muted"],
+    clean: ["", ""],
+    dirty: ["● יש שינויים שלא נשמרו", "text-[#a8701e]"],
+    saving: ["", ""],
     saved: ["✓ נשמר ומופיע באתר", "text-[#3f7d4e]"],
-    error: ["השמירה נכשלה", "text-primary"],
+    error: ["השמירה נכשלה – נסי שוב", "text-primary"],
   };
   const [text, cls] = map[status];
-  return <p role="status" aria-live="polite" className={`text-sm ${cls}`}>{text}</p>;
+  return <p role="status" aria-live="polite" className={`hidden text-sm sm:block ${cls}`}>{text}</p>;
 }

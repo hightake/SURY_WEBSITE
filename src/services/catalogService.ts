@@ -21,10 +21,16 @@ export function findProduct(d: SiteData, ref: ProductRef) {
   return undefined;
 }
 
+/** Search by name or by SKU (the product number). */
+const matches = (p: Product, q?: string) => {
+  const t = q?.trim();
+  return !t || p.name.includes(t) || p.slug === t || (/^\d+$/.test(t) && p.slug.startsWith(t));
+};
+
 export function listProducts(d: SiteData, filter: { cat?: string; q?: string; featuredOnly?: boolean } = {}) {
   return d.categories.flatMap((c) =>
     c.subcategories.flatMap((s) => s.products.map((p) => ({ c, s, p }))),
-  ).filter(({ c, p }) => (!filter.cat || c.slug === filter.cat) && (!filter.q || p.name.includes(filter.q)) && (!filter.featuredOnly || p.featured));
+  ).filter(({ c, p }) => (!filter.cat || c.slug === filter.cat) && matches(p, filter.q) && (!filter.featuredOnly || p.featured));
 }
 
 export class CatalogError extends Error {}

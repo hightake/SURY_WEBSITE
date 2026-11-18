@@ -31,7 +31,7 @@ export function ProductsAdmin() {
         </label>
         <label className="grid gap-1 text-sm">
           חיפוש
-          <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="שם המוצר" className="adm-input" />
+          <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="שם המוצר או מק״ט" className="adm-input" />
         </label>
         <label className="flex items-center gap-2 whitespace-nowrap pb-2.5 text-sm">
           <input type="checkbox" checked={featuredOnly} onChange={(e) => setFeaturedOnly(e.target.checked)} className="size-4 accent-[var(--color-primary)]" />
@@ -50,7 +50,8 @@ export function ProductsAdmin() {
                 {p.images[0] ? <img src={imgSmUrl(p.images[0].src)} alt="" /> : <span className="text-xs text-muted">אין תמונה</span>}
               </Link>
               <div className="min-w-0 flex-1">
-                <Link to="/admin/products/$cat/$slug" params={ref} className="block truncate font-medium hover:text-primary">{p.name}</Link>
+                <span className="adm-sku">מק״ט {p.slug}</span>
+                <Link to="/admin/products/$cat/$slug" params={ref} className="mt-1 block truncate font-medium hover:text-primary">{p.name}</Link>
                 <p className="truncate text-xs text-muted">{c.shortName} · {s.name}</p>
                 <div className="mt-2 flex flex-wrap gap-1.5">
                   {!p.visible && <span className="adm-badge !bg-shade !text-ink">מוסתר</span>}

@@ -13,6 +13,11 @@ export function ProductEdit() {
   if (!found) return <p className="text-muted">המוצר לא נמצא. <Link to="/admin/products" className="text-primary underline">לרשימת המוצרים</Link></p>;
   const { category: c, sub: s, product: p } = found;
 
+  const remove = () => {
+    if (!confirm(`למחוק את ״${p.name}״ (מק״ט ${p.slug})? המחיקה תתבצע באתר אחרי ״שמירה״.`)) return;
+    update((d) => deleteProduct(d, ref));
+    navigate({ to: "/admin/products" });
+  };
   const edit = (fn: (p: Product) => void) => update((d) => updateProduct(d, ref, fn));
   const moveTo = (cat: string, sub: string) => {
     let next = ref;
@@ -22,9 +27,17 @@ export function ProductEdit() {
 
   return (
     <div className="grid gap-6">
-      <div className="flex flex-wrap items-center justify-between gap-3">
-        <Link to="/admin/products" className="text-sm text-muted hover:text-ink">→ לכל המוצרים</Link>
-        {p.visible && <a href={`${import.meta.env.BASE_URL}collection/${c.slug}/${p.slug}`} target="_blank" rel="noopener noreferrer" className="adm-btn">צפייה באתר ↗</a>}
+      <Link to="/admin/products" className="text-sm text-muted hover:text-ink">→ לכל המוצרים</Link>
+      <div className="adm-card flex flex-wrap items-center justify-between gap-4">
+        <div className="min-w-0">
+          <span className="adm-sku text-base">מק״ט {p.slug}</span>
+          <h2 className="mt-2 truncate text-2xl font-light">{p.name || "מוצר ללא שם"}</h2>
+          <p className="text-sm text-muted">{c.shortName} · {s.name}{p.visible ? "" : " · מוסתר"}</p>
+        </div>
+        <div className="flex flex-wrap gap-2">
+          {p.visible && <a href={`${import.meta.env.BASE_URL}collection/${c.slug}/${p.slug}`} target="_blank" rel="noopener noreferrer" className="adm-btn">צפייה באתר ↗</a>}
+          <button type="button" className="adm-btn text-primary hover:!border-primary" onClick={remove}>מחיקת המוצר</button>
+        </div>
       </div>
 
       <Card title="פרטי המוצר">
@@ -52,11 +65,7 @@ export function ProductEdit() {
         </div>
       </Card>
 
-      <button type="button" className="adm-btn justify-self-start text-primary" onClick={() => {
-        if (!confirm(`למחוק את ״${p.name}״? לא ניתן לבטל.`)) return;
-        update((d) => deleteProduct(d, ref));
-        navigate({ to: "/admin/products" });
-      }}>
+      <button type="button" className="adm-btn justify-self-start text-primary" onClick={remove}>
         מחיקת המוצר
       </button>
     </div>
