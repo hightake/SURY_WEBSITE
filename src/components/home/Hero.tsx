@@ -107,7 +107,7 @@ function BannerHero() {
   const s = slides[cur];
   return (
     <section className="banner-hero relative overflow-hidden bg-ink text-bg" aria-labelledby="hero-title">
-      <div className="relative min-h-[calc(100svh-4rem-5.5rem)] md:h-[calc(100svh-5rem-6rem)] md:min-h-[560px]">
+      <div className="relative min-h-[calc(100svh-4rem-5.5rem)] md:h-[calc(100svh-5rem-6rem)] md:min-h-[480px]">
         {slides.map((b, i) => {
           const state = i === cur ? "is-current" : i === prev ? "is-prev" : "";
           return (

@@ -843,8 +843,17 @@ textarea.letter-input {
   inset: 0;
   z-index: 3;
   background:
-    linear-gradient(to left, rgba(24, 16, 8, 0.78) 0%, rgba(24, 16, 8, 0.45) 38%, rgba(24, 16, 8, 0.05) 70%),
-    linear-gradient(to top, rgba(24, 16, 8, 0.55), transparent 30%);
+    radial-gradient(60% 75% at 88% 50%, rgba(20, 13, 6, 0.72) 0%, rgba(20, 13, 6, 0.35) 60%, transparent 100%),
+    linear-gradient(to left, rgba(20, 13, 6, 0.85) 0%, rgba(20, 13, 6, 0.62) 40%, rgba(20, 13, 6, 0.12) 72%),
+    linear-gradient(to top, rgba(20, 13, 6, 0.6), transparent 30%);
+}
+/* text over the changing photos always reads clearly */
+.banner-hero h1,
+.banner-hero h1 + span + p,
+.banner-hero .eyebrow {
+  text-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.55),
+    0 2px 22px rgba(0, 0, 0, 0.45);
 }
 .banner-progress {
   transform-origin: right;
@@ -1380,4 +1389,17 @@ textarea.letter-input {
   background: radial-gradient(70% 35% at 50% 0%, rgba(255, 236, 200, 0.35), transparent 80%);
   mix-blend-mode: screen;
   pointer-events: none;
+}
+
+/* ---------- Home: each section fills the screen and snaps into place ---------- */
+html.home-snap main > section {
+  min-height: calc(100svh - 4rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+@media (min-width: 768px) {
+  html.home-snap main > section {
+    min-height: calc(100svh - 5rem);
+  }
 }

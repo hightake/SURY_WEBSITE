@@ -1,3 +1,4 @@
+import { useSectionPaging } from "../lib/useSectionPaging";
 import { BrandWorlds } from "../components/home/BrandWorlds";
 import { ContactBlock } from "../components/home/ContactBlock";
 import { Hero } from "../components/home/Hero";
@@ -9,6 +10,7 @@ import { usePageTitle } from "../lib/usePageTitle";
 
 export function Home() {
   usePageTitle();
+  useSectionPaging();
   return (
     <>
       <Hero />
