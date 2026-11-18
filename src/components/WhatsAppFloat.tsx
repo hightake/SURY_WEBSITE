@@ -1,5 +1,5 @@
 import { useRouterState } from "@tanstack/react-router";
-import { whatsappLink } from "../lib/content";
+import { whatsappLink } from "../lib/links";
 import { IconWhatsapp } from "./Icons";
 
 export function WhatsAppFloat() {

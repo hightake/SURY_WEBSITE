@@ -1,5 +1,7 @@
-import { Card, RowTools, Text, Toggle, moveItem } from "../fields";
-import { useAdmin } from "../store";
+import { Card, RowTools, Text, Toggle } from "../ui/fields";
+import { moveItem } from "../../lib/list";
+import { newStore } from "../../services/storesService";
+import { useAdmin } from "../state/AdminStore";
 
 export function StoresAdmin() {
   const { data, update } = useAdmin();
@@ -35,7 +37,7 @@ export function StoresAdmin() {
           </div>
         </Card>
       ))}
-      <button type="button" className="adm-btn justify-self-start" onClick={() => update((d) => void d.stores.push({ city: "חנות חדשה", address: "", phone: d.settings.phone, hours: [["א׳–ה׳", "10:00–20:00"]], navQuery: "" }))}>+ הוספת חנות</button>
+      <button type="button" className="adm-btn justify-self-start" onClick={() => update((d) => void d.stores.push(newStore(d)))}>+ הוספת חנות</button>
     </div>
   );
 }

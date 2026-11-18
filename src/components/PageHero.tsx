@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
-import { imgUrl, srcSet, type Img } from "../lib/content";
+import { imgUrl, srcSet } from "../lib/media";
+import type { Img } from "../models/content";
 
 /** Split hero used by inner pages: text on one side, arch-framed image on the other. */
 export function PageHero({ eyebrow, title, text, image, children }: { eyebrow?: string; title: string; text?: string; image?: Img; children?: ReactNode }) {

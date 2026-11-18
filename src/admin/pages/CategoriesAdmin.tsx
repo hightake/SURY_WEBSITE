@@ -1,5 +1,5 @@
-import { Card, ImageField, Text } from "../fields";
-import { useAdmin } from "../store";
+import { Card, ImageField, Text } from "../ui/fields";
+import { useAdmin } from "../state/AdminStore";
 
 export function CategoriesAdmin() {
   const { data, update } = useAdmin();

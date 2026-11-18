@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
-import { categories, imgUrl, site } from "../../lib/content";
+import { categories, site } from "../../services/contentState";
+import { imgUrl } from "../../lib/media";
 import { useInView } from "../Reveal";
 import { SectionHeading } from "../SectionHeading";
 

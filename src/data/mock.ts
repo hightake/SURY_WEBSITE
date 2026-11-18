@@ -1,4 +1,6 @@
-import { defaultContent, type AdminUser, type Img, type SiteData } from "../content";
+import type { Img, SiteData } from "../models/content";
+import type { AdminUser } from "../models/user";
+import { seedAdmins, seedContent } from "./seed";
 import { NotAllowedError, type Backend } from "./types";
 
 /*
@@ -10,9 +12,6 @@ import { NotAllowedError, type Backend } from "./types";
 const DB = "sury-admin-demo";
 const STORE = "kv";
 const SESSION_KEY = "sury-admin-demo-user";
-
-/** The client's account is the first owner. */
-export const SEED_ADMINS: AdminUser[] = [{ email: "sury025408888@gmail.com", role: "owner" }];
 
 function idb<T>(mode: IDBTransactionMode, run: (s: IDBObjectStore) => IDBRequest<T>): Promise<T> {
   return new Promise((resolve, reject) => {
@@ -36,16 +35,28 @@ const toDataUrl = (b: Blob) =>
     r.readAsDataURL(b);
   });
 
-const withAdmins = (d: SiteData): SiteData => (d.admins?.length ? d : { ...d, admins: SEED_ADMINS });
+/** Fill fields added after a browser saved its copy, so older saves keep working. */
+const upgrade = (d: SiteData): SiteData => ({
+  ...seedContent,
+  ...d,
+  admins: d.admins?.length ? d.admins : seedAdmins,
+  settings: { ...seedContent.settings, ...d.settings },
+  pages: {
+    ...seedContent.pages,
+    ...d.pages,
+    privacy: "blocks" in (d.pages?.privacy ?? {}) ? d.pages.privacy : seedContent.pages.privacy,
+    accessibility: "blocks" in (d.pages?.accessibility ?? {}) ? d.pages.accessibility : seedContent.pages.accessibility,
+  },
+});
 
 export const mockBackend: Backend = {
   kind: "mock",
   async loadContent() {
     try {
       const saved = await idb<SiteData | undefined>("readonly", (s) => s.get("content") as IDBRequest<SiteData | undefined>);
-      return withAdmins(saved ?? structuredClone(defaultContent));
+      return upgrade(saved ?? structuredClone(seedContent));
     } catch {
-      return withAdmins(structuredClone(defaultContent));
+      return upgrade(structuredClone(seedContent));
     }
   },
   async saveContent(data) {
@@ -82,6 +93,11 @@ export const mockBackend: Backend = {
     } catch {
       /* ignore */
     }
+  },
+  async sendContact(msg) {
+    // stand-in: nothing is sent. With Lovable Cloud a server function e-mails it to settings.contactInbox.
+    void msg;
+    await new Promise((r) => setTimeout(r, 400));
   },
   async reset() {
     await idb("readwrite", (s) => s.delete("content"));

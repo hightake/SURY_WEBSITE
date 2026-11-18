@@ -1,7 +1,8 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useId, useRef, useState } from "react";
 import { createPortal } from "react-dom";
-import { categories, site, telLink } from "../lib/content";
+import { categories, site } from "../services/contentState";
+import { telLink } from "../lib/links";
 import { Logo } from "./Logo";
 import { IconChevron, IconClose, IconMenu, IconPhone } from "./Icons";
 

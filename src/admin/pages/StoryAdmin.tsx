@@ -1,5 +1,6 @@
-import { Card, ImageField, RowTools, Text, moveItem } from "../fields";
-import { useAdmin } from "../store";
+import { Card, ImageField, RowTools, Text } from "../ui/fields";
+import { moveItem } from "../../lib/list";
+import { useAdmin } from "../state/AdminStore";
 
 export function StoryAdmin() {
   const { data, update } = useAdmin();

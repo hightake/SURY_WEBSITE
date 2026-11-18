@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
-import { Card, ImageField, RowTools, Select, Text, moveItem } from "../fields";
-import { useAdmin } from "../store";
+import { Card, ImageField, RowTools, Select, Text } from "../ui/fields";
+import { moveItem } from "../../lib/list";
+import { useAdmin } from "../state/AdminStore";
 
 export function HomeAdmin() {
   const { data, update } = useAdmin();
@@ -82,12 +83,8 @@ export function HomeAdmin() {
         </div>
       </Card>
 
-      <Card title="חנויות ויצירת קשר" hint="פרטי החנויות עצמם נערכים בלשונית ״חנויות״ – פעם אחת, לכל האתר.">
-        <div className="grid gap-5 md:grid-cols-2">
-          <Text label="חנויות – משפט" value={h.stores.text} onChange={(v) => update((d) => void (d.home.stores.text = v))} />
-          <Text label="יצירת קשר – כותרת" value={h.contact.title} onChange={(v) => update((d) => void (d.home.contact.title = v))} />
-        </div>
-        <Text label="יצירת קשר – משפט" value={h.contact.text} onChange={(v) => update((d) => void (d.home.contact.text = v))} />
+      <Card title="חנויות" hint="פרטי החנויות עצמם נערכים בלשונית ״חנויות״, וטקסטי יצירת הקשר ב״פרטי קשר וטופס״.">
+        <Text label="משפט מתחת לכותרת" value={h.stores.text} onChange={(v) => update((d) => void (d.home.stores.text = v))} />
       </Card>
     </div>
   );

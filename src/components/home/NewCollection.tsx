@@ -1,5 +1,7 @@
 import { Link } from "@tanstack/react-router";
-import { featured, imgSmUrl, imgUrl, site, srcSet, type FeaturedItem } from "../../lib/content";
+import { featured, site } from "../../services/contentState";
+import { imgSmUrl, imgUrl, srcSet } from "../../lib/media";
+import type { FeaturedItem } from "../../models/content";
 import { Reveal } from "../Reveal";
 
 /*

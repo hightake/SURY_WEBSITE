@@ -1,7 +1,9 @@
+/* Admin form controls – presentation only; data changes go through the services. */
 import { useId, useRef, useState, type ReactNode } from "react";
-import { backend } from "../lib/backend";
-import { imgSmUrl, imgUrl, type Img } from "../lib/content";
-import { prepareImage } from "./image";
+import { imgSmUrl, imgUrl } from "../../lib/media";
+import type { Img } from "../../models/content";
+import { moveItem } from "../../lib/list";
+import { uploadImage } from "../../services/imageService";
 
 export function Card({ title, hint, children, actions }: { title?: string; hint?: string; children: ReactNode; actions?: ReactNode }) {
   return (
@@ -69,7 +71,7 @@ export function useUpload() {
   const upload = async (file: File, alt: string) => {
     setBusy(true);
     try {
-      return await backend.uploadImage(await prepareImage(file), alt);
+      return await uploadImage(file, alt);
     } finally {
       setBusy(false);
     }
@@ -118,8 +120,7 @@ export function ImagesField({ value, onChange }: { value: Img[]; onChange: (imgs
   const { busy, upload } = useUpload();
   const move = (i: number, d: number) => {
     const next = [...value];
-    const [x] = next.splice(i, 1);
-    next.splice(i + d, 0, x);
+    moveItem(next, i, d);
     onChange(next);
   };
   return (
@@ -166,9 +167,3 @@ export function RowTools({ onUp, onDown, onDelete, deleteLabel = "מחיקה" }:
   );
 }
 
-export const moveItem = <T,>(arr: T[], i: number, d: number) => {
-  const j = i + d;
-  if (j < 0 || j >= arr.length) return;
-  const [x] = arr.splice(i, 1);
-  arr.splice(j, 0, x);
-};

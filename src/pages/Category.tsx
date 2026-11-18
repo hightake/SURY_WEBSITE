@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { CategoryHero } from "../components/CategoryHero";
 import { ProductCard } from "../components/ProductCard";
 import { Reveal } from "../components/Reveal";
-import { getCategory } from "../lib/content";
+import { getCategory } from "../services/contentState";
 import { usePageTitle } from "../lib/usePageTitle";
 import { NotFound } from "./NotFound";
 

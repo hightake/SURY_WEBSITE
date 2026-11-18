@@ -1,3 +1,6 @@
+import { backend } from "../data";
+import type { Img } from "../models/content";
+
 /** Resize an uploaded photo in the browser: WebP, up to 1600px plus a 700px version. */
 export async function prepareImage(file: File) {
   const bitmap = await createImageBitmap(file);
@@ -15,4 +18,9 @@ export async function prepareImage(file: File) {
   const full = await encode(1600);
   const small = await encode(700);
   return { full: full.blob, small: small.blob, w: full.w, h: full.h };
+}
+
+/** Resize and store an image; returns it ready to put in the content. */
+export async function uploadImage(file: File, alt = ""): Promise<Img> {
+  return backend.uploadImage(await prepareImage(file), alt);
 }

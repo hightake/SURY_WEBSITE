@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
-import { categories, site, telLink, whatsappLink } from "../lib/content";
+import { categories, site } from "../services/contentState";
+import { telLink, whatsappLink } from "../lib/links";
 import { Logo } from "./Logo";
 
 export function Footer() {

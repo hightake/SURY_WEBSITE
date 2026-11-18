@@ -1,4 +1,5 @@
-import { imgUrl, srcSet, type Category } from "../lib/content";
+import { imgUrl, srcSet } from "../lib/media";
+import type { Category } from "../models/content";
 
 /*
  * Category page opening: the name stands in a lit plaster gate.

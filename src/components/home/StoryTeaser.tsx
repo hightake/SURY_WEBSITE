@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
-import { imgUrl, site, srcSet } from "../../lib/content";
+import { imgUrl, srcSet } from "../../lib/media";
+import { site } from "../../services/contentState";
 import { IconArrow } from "../Icons";
 import { Reveal } from "../Reveal";
 

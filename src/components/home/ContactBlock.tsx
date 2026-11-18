@@ -1,4 +1,5 @@
-import { site, telLink, whatsappLink } from "../../lib/content";
+import { site } from "../../services/contentState";
+import { telLink, whatsappLink } from "../../lib/links";
 import { ContactForm } from "../ContactForm";
 import { Reveal } from "../Reveal";
 

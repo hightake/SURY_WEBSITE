@@ -1,27 +1,41 @@
 import { useState, type FormEvent } from "react";
+import { ContactError, sendContact } from "../services/contactService";
+import { isPreviewBackend } from "../services/environment";
 
 /**
  * Contact form written as a short letter the visitor completes.
- * Stage 1–2: no sending yet (a server function that emails the message
- * without storing it is added in the admin stage).
+ * Sending goes through contactService → backend (e-mailed to the inbox set in the admin, never stored).
  */
 export function ContactForm() {
   const [sent, setSent] = useState(false);
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState("");
 
-  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!e.currentTarget.checkValidity()) {
-      e.currentTarget.reportValidity();
+    const form = e.currentTarget;
+    if (!form.checkValidity()) {
+      form.reportValidity();
       return;
     }
-    setSent(true);
+    const f = new FormData(form);
+    setBusy(true);
+    setError("");
+    try {
+      await sendContact({ name: String(f.get("name")), phone: String(f.get("phone")), message: String(f.get("message")), consent: f.get("consent") === "on" });
+      setSent(true);
+    } catch (err) {
+      setError(err instanceof ContactError ? err.message : "השליחה נכשלה. אפשר לנסות שוב או לכתוב לנו בוואטסאפ.");
+    } finally {
+      setBusy(false);
+    }
   };
 
   if (sent) {
     return (
       <div role="status" className="py-6">
         <p className="text-2xl font-light leading-relaxed md:text-4xl">תודה! קיבלנו את המכתב, ונחזור אלייך בהקדם.</p>
-        <p className="mt-3 text-sm text-muted">(בתצוגה המקדימה הטופס עדיין לא שולח מייל – זה יחובר בשלב הבא.)</p>
+        {isPreviewBackend && <p className="mt-3 text-sm text-muted">(בתצוגה המקדימה הטופס עדיין לא שולח מייל – זה יחובר עם Lovable Cloud.)</p>}
       </div>
     );
   }
@@ -47,8 +61,9 @@ export function ContactForm() {
         <input type="checkbox" name="consent" required className="mt-1 size-4 accent-[var(--color-primary)]" />
         <span>אני מסכימה שהפרטים ישמשו רק כדי לחזור אליי בנוגע לפנייה. הפרטים נשלחים במייל ואינם נשמרים באתר.</span>
       </label>
-      <button type="submit" className="btn btn-primary mt-8 px-12">
-        שליחה
+      {error && <p role="alert" className="mt-6 text-primary">{error}</p>}
+      <button type="submit" disabled={busy} className="btn btn-primary mt-8 px-12 disabled:opacity-60">
+        {busy ? "שולחת…" : "שליחה"}
       </button>
     </form>
   );

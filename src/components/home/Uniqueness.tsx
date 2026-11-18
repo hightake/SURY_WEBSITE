@@ -1,4 +1,4 @@
-import { site } from "../../lib/content";
+import { site } from "../../services/contentState";
 import { Reveal } from "../Reveal";
 
 /** Block 4 – what makes SURY special. A deep-burgundy arch (the gate motif) rising from the cream page. */

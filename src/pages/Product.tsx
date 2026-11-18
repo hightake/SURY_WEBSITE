@@ -1,7 +1,10 @@
 import { Link, useParams } from "@tanstack/react-router";
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { IconWhatsapp } from "../components/Icons";
-import { getProduct, imgSmUrl, imgUrl, site, srcSet, telLink, whatsappLink, type Category, type Product as ProductT, type Subcategory } from "../lib/content";
+import { getProduct, site } from "../services/contentState";
+import { imgSmUrl, imgUrl, srcSet } from "../lib/media";
+import { telLink, whatsappLink } from "../lib/links";
+import type { Category, Product as ProductT, Subcategory } from "../models/content";
 import { usePageTitle } from "../lib/usePageTitle";
 import { NotFound } from "./NotFound";
 

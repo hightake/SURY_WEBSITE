@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
-import { imgSmUrl, type Product } from "../lib/content";
+import { imgSmUrl } from "../lib/media";
+import type { Product } from "../models/content";
 
 export function ProductCard({ product, categorySlug, label }: { product: Product; categorySlug: string; label?: string }) {
   const img = product.images[0];

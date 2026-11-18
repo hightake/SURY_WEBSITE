@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { PageHero } from "../components/PageHero";
 import { Reveal } from "../components/Reveal";
-import { categories, site } from "../lib/content";
+import { categories, site } from "../services/contentState";
 import { usePageTitle } from "../lib/usePageTitle";
 
 export function Story() {

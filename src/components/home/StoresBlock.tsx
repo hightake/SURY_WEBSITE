@@ -1,4 +1,6 @@
-import { navLink, site, telLink, type Store } from "../../lib/content";
+import { navLink, telLink } from "../../lib/links";
+import { site } from "../../services/contentState";
+import type { Store } from "../../models/content";
 import { IconPin } from "../Icons";
 import { Reveal } from "../Reveal";
 import { SectionHeading } from "../SectionHeading";

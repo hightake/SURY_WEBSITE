@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { categories, imgSmUrl, imgUrl, site } from "../../lib/content";
+import { categories, site } from "../../services/contentState";
+import { imgSmUrl, imgUrl } from "../../lib/media";
 import { IconChevron } from "../Icons";
 import { Sketch, worldSketches } from "./Sketches";
 
