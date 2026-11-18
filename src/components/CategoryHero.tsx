@@ -57,25 +57,34 @@ function Monument({ category }: { category: Category }) {
 /* ---------- b – inside the gate ---------- */
 function Gate({ category }: { category: Category }) {
   const { main, sub, latin, num } = useName(category);
+  const photo = (cls: string, sizes: string) => (
+    <div className={cls}>
+      <img src={imgUrl(category.cover.src)} srcSet={srcSet(category.cover)} sizes={sizes} alt={category.cover.alt} />
+    </div>
+  );
   return (
     <section className="niches-wall" aria-labelledby="cat-title">
-      <div className="container-x py-10 md:py-14">
-        {/* one lit gate holding both the photo and the name */}
-        <div className="ch-gate ch-gate-wide is-lit mx-auto max-w-5xl animate-[fadeIn_1.2s_var(--ease-soft)_both]">
+      {/* mobile: the photo stands inside the lit gate; desktop: two separate gates side by side */}
+      <div className="container-x grid items-center gap-10 py-10 md:grid-cols-[1.2fr_0.8fr] md:py-14 lg:gap-14">
+        <div className="ch-gate ch-gate-wide is-lit animate-[fadeIn_1.2s_var(--ease-soft)_both]">
           <span className="ch-gate-beam" aria-hidden />
           <span className="niche-spot" aria-hidden />
-          <div className="relative z-[2] grid items-center gap-8 px-6 pb-10 pt-24 md:grid-cols-[1fr_0.85fr] md:gap-12 md:px-16 md:pb-14 md:pt-32">
-            <div className="text-center">
+          <div className="relative z-[2] flex flex-col items-center gap-8 px-6 pb-10 pt-24 text-center md:min-h-[30rem] md:justify-center md:px-12 md:pb-14 md:pt-28">
+            <div>
               <p className="eyebrow">{num} · SURY</p>
               <h1 id="cat-title" className={`mt-4 text-5xl font-extralight leading-none md:text-7xl ${latin ? "latin tracking-[0.12em]" : ""}`}>{main}</h1>
               {sub && <p className="mt-4 text-xl font-light text-gold-deep md:text-2xl">{sub}</p>}
               <span aria-hidden className="gold-rule mx-auto mt-7" />
               {category.intro && <p className="mx-auto mt-6 max-w-md text-base leading-relaxed text-ink/75 md:text-lg">{category.intro}</p>}
             </div>
-            <div className="ch-gate-photo mx-auto w-[78%] max-w-[330px] md:w-full">
-              <img src={imgUrl(category.cover.src)} srcSet={srcSet(category.cover)} sizes="(min-width: 768px) 330px, 78vw" alt={category.cover.alt} />
-            </div>
+            {photo("ch-gate-photo mx-auto w-[78%] max-w-[330px] md:hidden", "78vw")}
           </div>
+        </div>
+        {/* desktop: its own lit gate */}
+        <div className="ch-gate ch-gate-solo is-lit hidden md:block animate-[fadeIn_1.4s_var(--ease-soft)_0.2s_both]">
+          <span className="ch-gate-beam" aria-hidden />
+          <span className="niche-spot" aria-hidden />
+          {photo("ch-gate-photo relative z-[2] mx-[9%] mb-[9%] mt-[24%]", "340px")}
         </div>
       </div>
     </section>
