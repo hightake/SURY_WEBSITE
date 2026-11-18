@@ -42,66 +42,9 @@ function Niche({ c, delay = 0, className = "" }: { c: Cat; delay?: number; class
   );
 }
 
-/*
- * Mobile: DEMO – three layouts, picked with ?wm=a|b|c (desktop is unchanged)
- *   a – list: a row per world, small lit niche beside its name
- *   b – grid: niches two by two, the fifth centred
- *   c – one stage: a large niche, the five names as tabs underneath
- */
+/* Mobile: a row per world – a small lit niche beside its name. */
 function MobileWorlds({ lit }: { lit: boolean }) {
-  const [v, setV] = useState<"a" | "b" | "c">("a");
-  const [sel, setSel] = useState(0);
-  useEffect(() => {
-    const q = new URLSearchParams(window.location.search).get("wm");
-    if (q === "b" || q === "c") setV(q);
-  }, []);
   const lightCls = lit ? "is-lit" : "";
-
-  if (v === "b")
-    return (
-      <div className={`niches-panel mx-auto px-4 pb-6 pt-8 ${lightCls}`}>
-        <ul className="grid grid-cols-2 gap-x-4 gap-y-6">
-          {categories.map((c, i) => (
-            <li key={c.slug} className={i === categories.length - 1 && categories.length % 2 ? "col-span-2 mx-auto w-1/2" : ""}>
-              <Link to="/collection/$category" params={{ category: c.slug }} className="block">
-                <Niche c={c} delay={i * 250} />
-                <div className="niches-ledge" aria-hidden />
-                <p className="mt-3 text-center text-base font-medium">{c.shortName}</p>
-                <p className="text-center text-xs text-muted">{c.tagline}</p>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </div>
-    );
-
-  if (v === "c") {
-    const c = categories[sel];
-    return (
-      <div className={`niches-panel mx-auto px-6 pb-6 pt-8 ${lightCls}`}>
-        <Link to="/collection/$category" params={{ category: c.slug }} className="mx-auto block w-[64%]" aria-label={c.name}>
-          <Niche key={c.slug} c={c} className="animate-[fadeIn_0.6s_var(--ease-soft)_both]" />
-          <div className="niches-ledge" aria-hidden />
-        </Link>
-        <div className="mt-4 text-center">
-          <p className="latin text-sm text-accent">{String(sel + 1).padStart(2, "0")}</p>
-          <p className="text-xl font-medium">{c.shortName}</p>
-          <p className="text-sm text-muted">{c.tagline}</p>
-          <Link to="/collection/$category" params={{ category: c.slug }} className="link-underline mt-2 inline-block text-sm text-primary">לגלות</Link>
-        </div>
-        <ul className="mt-5 flex flex-wrap justify-center gap-2" aria-label="בחירת עולם">
-          {categories.map((w, i) => (
-            <li key={w.slug}>
-              <button type="button" onClick={() => setSel(i)} aria-pressed={i === sel} className={`rounded-full border px-3.5 py-1.5 text-sm transition-colors ${i === sel ? "border-primary bg-primary text-bg" : "border-accent/60"}`}>
-                {w.shortName}
-              </button>
-            </li>
-          ))}
-        </ul>
-      </div>
-    );
-  }
-
   return (
     <ul className={`niches-panel mx-auto divide-y divide-accent/30 px-4 py-2 ${lightCls}`}>
       {categories.map((c, i) => (
