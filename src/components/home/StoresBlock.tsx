@@ -6,8 +6,8 @@ import { SectionHeading } from "../SectionHeading";
 /*
  * Block 6 – our stores. Each store stands in a lit plaster gate.
  */
-export function StoresBlock() {
-  return <Gates />;
+export function StoresBlock({ asPage = false }: { asPage?: boolean }) {
+  return <Gates asPage={asPage} />;
 }
 
 function Hours({ store, className = "" }: { store: Store; className?: string }) {
@@ -36,11 +36,11 @@ function Actions({ store, className = "" }: { store: Store; className?: string }
   );
 }
 
-function Gates() {
+function Gates({ asPage }: { asPage: boolean }) {
   return (
-    <section className="niches-wall py-20 md:py-28" aria-labelledby="stores-title">
+    <section className={`niches-wall ${asPage ? "min-h-[70svh] pb-24 pt-14 md:pt-20" : "py-20 md:py-28"}`} aria-labelledby="stores-title">
       <div className="container-x">
-        <SectionHeading id="stores-title" eyebrow="Our Stores" title={site.home.stores.title} text={site.home.stores.text} />
+        <SectionHeading id="stores-title" as={asPage ? "h1" : "h2"} eyebrow="Our Stores" title={site.home.stores.title} text={site.home.stores.text} />
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
           {site.stores.map((store, i) => (
             <Reveal key={store.city} delay={i * 120}>
