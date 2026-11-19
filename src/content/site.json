@@ -245,12 +245,7 @@
               "order": 1,
               "visible": true,
               "featured": true,
-              "price": null,
-              "tone": {
-                "soft": "#eae6e0",
-                "mid": "#d1c9bc",
-                "deep": "#4c402d"
-              }
+              "price": null
             }
           ]
         },
@@ -275,12 +270,7 @@
               "order": 1,
               "visible": true,
               "featured": false,
-              "price": null,
-              "tone": {
-                "soft": "#f0e4da",
-                "mid": "#ddc4b0",
-                "deep": "#573a23"
-              }
+              "price": null
             },
             {
               "slug": "1003",
@@ -298,12 +288,7 @@
               "order": 2,
               "visible": true,
               "featured": false,
-              "price": null,
-              "tone": {
-                "soft": "#ece5de",
-                "mid": "#d7c7b6",
-                "deep": "#4f3d2b"
-              }
+              "price": null
             },
             {
               "slug": "1004",
@@ -321,12 +306,7 @@
               "order": 3,
               "visible": true,
               "featured": false,
-              "price": null,
-              "tone": {
-                "soft": "#efe4db",
-                "mid": "#ddc5b0",
-                "deep": "#553b24"
-              }
+              "price": null
             },
             {
               "slug": "1005",
@@ -344,12 +324,7 @@
               "order": 4,
               "visible": true,
               "featured": false,
-              "price": null,
-              "tone": {
-                "soft": "#eedcde",
-                "mid": "#dbb2b6",
-                "deep": "#53262b"
-              }
+              "price": null
             },
             {
               "slug": "1006",
@@ -367,12 +342,7 @@
               "order": 5,
               "visible": true,
               "featured": false,
-              "price": null,
-              "tone": {
-                "soft": "#f0e7da",
-                "mid": "#ddc9b0",
-                "deep": "#594120"
-              }
+              "price": null
             },
             {
               "slug": "1007",
@@ -390,12 +360,7 @@
               "order": 6,
               "visible": true,
               "featured": false,
-              "price": null,
-              "tone": {
-                "soft": "#f0e5da",
-                "mid": "#ddc7b0",
-                "deep": "#573d22"
-              }
+              "price": null
             },
             {
               "slug": "1008",
@@ -413,12 +378,7 @@
               "order": 7,
               "visible": true,
               "featured": false,
-              "price": null,
-              "tone": {
-                "soft": "#f0e4da",
-                "mid": "#ddc3b0",
-                "deep": "#563923"
-              }
+              "price": null
             }
           ]
         },
@@ -443,12 +403,7 @@
               "order": 1,
               "visible": true,
               "featured": false,
-              "price": null,
-              "tone": {
-                "soft": "#eee7dc",
-                "mid": "#daccb2",
-                "deep": "#524327"
-              }
+              "price": null
             },
             {
               "slug": "1010",
@@ -466,12 +421,7 @@
               "order": 2,
               "visible": true,
               "featured": false,
-              "price": null,
-              "tone": {
-                "soft": "#ece0de",
-                "mid": "#d6bbb7",
-                "deep": "#4d302c"
-              }
+              "price": null
             },
             {
               "slug": "1011",
@@ -489,12 +439,7 @@
               "order": 3,
               "visible": true,
               "featured": false,
-              "price": null,
-              "tone": {
-                "soft": "#efe4db",
-                "mid": "#dcc5b1",
-                "deep": "#543b25"
-              }
+              "price": null
             },
             {
               "slug": "1012",
@@ -512,12 +457,7 @@
               "order": 4,
               "visible": true,
               "featured": false,
-              "price": null,
-              "tone": {
-                "soft": "#ece5de",
-                "mid": "#d5c6b8",
-                "deep": "#4c3d2d"
-              }
+              "price": null
             },
             {
               "slug": "1013",
@@ -535,12 +475,7 @@
               "order": 5,
               "visible": true,
               "featured": false,
-              "price": null,
-              "tone": {
-                "soft": "#dde1ee",
-                "mid": "#b4bfd9",
-                "deep": "#283451"
-              }
+              "price": null
             },
             {
               "slug": "1014",
@@ -558,12 +493,7 @@
               "order": 6,
               "visible": true,
               "featured": false,
-              "price": null,
-              "tone": {
-                "soft": "#e0e1ea",
-                "mid": "#bbbed2",
-                "deep": "#2d314c"
-              }
+              "price": null
             },
             {
               "slug": "1015",
@@ -581,12 +511,7 @@
               "order": 7,
               "visible": true,
               "featured": false,
-              "price": null,
-              "tone": {
-                "soft": "#ece6de",
-                "mid": "#d6c8b6",
-                "deep": "#4e3e2b"
-              }
+              "price": null
             },
             {
               "slug": "1016",
@@ -604,12 +529,7 @@
               "order": 8,
               "visible": true,
               "featured": false,
-              "price": null,
-              "tone": {
-                "soft": "#efe5db",
-                "mid": "#ddc7b0",
-                "deep": "#563d24"
-              }
+              "price": null
             }
           ]
         },
@@ -634,12 +554,7 @@
               "order": 1,
               "visible": true,
               "featured": true,
-              "price": null,
-              "tone": {
-                "soft": "#e9e8e1",
-                "mid": "#d0ccbd",
-                "deep": "#4c462d"
-              }
+              "price": null
             },
             {
               "slug": "1018",
@@ -657,12 +572,7 @@
               "order": 2,
               "visible": true,
               "featured": false,
-              "price": null,
-              "tone": {
-                "soft": "#ebe8df",
-                "mid": "#d3cdba",
-                "deep": "#4c452d"
-              }
+              "price": null
             },
             {
               "slug": "1019",
@@ -680,12 +590,7 @@
               "order": 3,
               "visible": true,
               "featured": true,
-              "price": null,
-              "tone": {
-                "soft": "#e9e8e1",
-                "mid": "#d0ccbd",
-                "deep": "#4c462d"
-              }
+              "price": null
             },
             {
               "slug": "1020",
@@ -703,12 +608,7 @@
               "order": 4,
               "visible": true,
               "featured": false,
-              "price": null,
-              "tone": {
-                "soft": "#e9e7e1",
-                "mid": "#d0ccbd",
-                "deep": "#4c452d"
-              }
+              "price": null
             },
             {
               "slug": "1021",
@@ -726,12 +626,7 @@
               "order": 5,
               "visible": true,
               "featured": false,
-              "price": null,
-              "tone": {
-                "soft": "#eee4dc",
-                "mid": "#dac5b3",
-                "deep": "#523b28"
-              }
+              "price": null
             }
           ]
         },
@@ -762,12 +657,7 @@
               "order": 1,
               "visible": true,
               "featured": false,
-              "price": null,
-              "tone": {
-                "soft": "#e6e5e4",
-                "mid": "#c8c6c5",
-                "deep": "#4c352d"
-              }
+              "price": null
             }
           ]
         },
@@ -792,12 +682,7 @@
               "order": 1,
               "visible": true,
               "featured": false,
-              "price": null,
-              "tone": {
-                "soft": "#f0e6da",
-                "mid": "#ddc8b0",
-                "deep": "#5a3f1f"
-              }
+              "price": null
             },
             {
               "slug": "1024",
@@ -815,12 +700,7 @@
               "order": 2,
               "visible": true,
               "featured": false,
-              "price": null,
-              "tone": {
-                "soft": "#eae5e0",
-                "mid": "#d1c6bc",
-                "deep": "#4c3c2d"
-              }
+              "price": null
             },
             {
               "slug": "1025",
@@ -838,12 +718,7 @@
               "order": 3,
               "visible": true,
               "featured": false,
-              "price": null,
-              "tone": {
-                "soft": "#e6e5e4",
-                "mid": "#c8c6c5",
-                "deep": "#4c3a2d"
-              }
+              "price": null
             },
             {
               "slug": "1026",
@@ -861,12 +736,7 @@
               "order": 4,
               "visible": true,
               "featured": false,
-              "price": null,
-              "tone": {
-                "soft": "#f0e7da",
-                "mid": "#ddcab0",
-                "deep": "#614218"
-              }
+              "price": null
             },
             {
               "slug": "1027",
@@ -884,12 +754,7 @@
               "order": 5,
               "visible": true,
               "featured": false,
-              "price": null,
-              "tone": {
-                "soft": "#eee5dc",
-                "mid": "#dbc7b2",
-                "deep": "#533e26"
-              }
+              "price": null
             },
             {
               "slug": "1028",
@@ -907,12 +772,7 @@
               "order": 6,
               "visible": true,
               "featured": false,
-              "price": null,
-              "tone": {
-                "soft": "#e9e5e1",
-                "mid": "#cfc6be",
-                "deep": "#4c3c2d"
-              }
+              "price": null
             },
             {
               "slug": "1029",
@@ -930,12 +790,7 @@
               "order": 7,
               "visible": true,
               "featured": false,
-              "price": null,
-              "tone": {
-                "soft": "#f0e3da",
-                "mid": "#ddc3b0",
-                "deep": "#5c381d"
-              }
+              "price": null
             },
             {
               "slug": "1030",
@@ -953,12 +808,7 @@
               "order": 8,
               "visible": true,
               "featured": false,
-              "price": null,
-              "tone": {
-                "soft": "#f0e4da",
-                "mid": "#ddc4b0",
-                "deep": "#583a22"
-              }
+              "price": null
             },
             {
               "slug": "1031",
@@ -976,12 +826,7 @@
               "order": 9,
               "visible": true,
               "featured": false,
-              "price": null,
-              "tone": {
-                "soft": "#f0e2da",
-                "mid": "#ddc1b0",
-                "deep": "#5d341c"
-              }
+              "price": null
             },
             {
               "slug": "1032",
@@ -999,12 +844,7 @@
               "order": 10,
               "visible": true,
               "featured": false,
-              "price": null,
-              "tone": {
-                "soft": "#f0e5da",
-                "mid": "#ddc6b0",
-                "deep": "#5e3d1b"
-              }
+              "price": null
             },
             {
               "slug": "1033",
@@ -1022,12 +862,7 @@
               "order": 11,
               "visible": true,
               "featured": false,
-              "price": null,
-              "tone": {
-                "soft": "#ebe1df",
-                "mid": "#d4bdb9",
-                "deep": "#4c322d"
-              }
+              "price": null
             },
             {
               "slug": "1034",
@@ -1045,12 +880,7 @@
               "order": 12,
               "visible": true,
               "featured": false,
-              "price": null,
-              "tone": {
-                "soft": "#f0e3da",
-                "mid": "#ddc2b0",
-                "deep": "#583722"
-              }
+              "price": null
             }
           ]
         },
@@ -1081,12 +911,7 @@
               "order": 1,
               "visible": true,
               "featured": false,
-              "price": null,
-              "tone": {
-                "soft": "#e2e4e8",
-                "mid": "#c1c5cc",
-                "deep": "#2d384c"
-              }
+              "price": null
             },
             {
               "slug": "1036",
@@ -1104,12 +929,7 @@
               "order": 2,
               "visible": true,
               "featured": false,
-              "price": null,
-              "tone": {
-                "soft": "#e4e4e6",
-                "mid": "#c4c4c8",
-                "deep": "#2d2d4c"
-              }
+              "price": null
             }
           ]
         },
@@ -1134,12 +954,7 @@
               "order": 1,
               "visible": true,
               "featured": true,
-              "price": null,
-              "tone": {
-                "soft": "#ebe2df",
-                "mid": "#d4bfb9",
-                "deep": "#4c342d"
-              }
+              "price": null
             }
           ]
         }
@@ -1186,12 +1001,7 @@
               "order": 1,
               "visible": true,
               "featured": true,
-              "price": null,
-              "tone": {
-                "soft": "#eee3dc",
-                "mid": "#dac3b3",
-                "deep": "#523928"
-              }
+              "price": null
             },
             {
               "slug": "1039",
@@ -1209,12 +1019,7 @@
               "order": 2,
               "visible": true,
               "featured": false,
-              "price": null,
-              "tone": {
-                "soft": "#ede7dd",
-                "mid": "#d8cab4",
-                "deep": "#504129"
-              }
+              "price": null
             },
             {
               "slug": "1040",
@@ -1232,12 +1037,7 @@
               "order": 3,
               "visible": true,
               "featured": false,
-              "price": null,
-              "tone": {
-                "soft": "#ece5de",
-                "mid": "#d5c6b8",
-                "deep": "#4c3c2d"
-              }
+              "price": null
             },
             {
               "slug": "1041",
@@ -1255,12 +1055,7 @@
               "order": 4,
               "visible": true,
               "featured": false,
-              "price": null,
-              "tone": {
-                "soft": "#ece0de",
-                "mid": "#d6bcb6",
-                "deep": "#4e312b"
-              }
+              "price": null
             },
             {
               "slug": "1042",
@@ -1278,12 +1073,7 @@
               "order": 5,
               "visible": true,
               "featured": false,
-              "price": null,
-              "tone": {
-                "soft": "#ece4de",
-                "mid": "#d6c5b6",
-                "deep": "#4e3b2b"
-              }
+              "price": null
             },
             {
               "slug": "1043",
@@ -1301,12 +1091,7 @@
               "order": 6,
               "visible": true,
               "featured": true,
-              "price": null,
-              "tone": {
-                "soft": "#f0e6da",
-                "mid": "#ddc8b0",
-                "deep": "#5b3e1f"
-              }
+              "price": null
             },
             {
               "slug": "1044",
@@ -1324,12 +1109,7 @@
               "order": 7,
               "visible": true,
               "featured": false,
-              "price": null,
-              "tone": {
-                "soft": "#f0e5da",
-                "mid": "#ddc6b0",
-                "deep": "#563c23"
-              }
+              "price": null
             },
             {
               "slug": "1045",
@@ -1347,12 +1127,7 @@
               "order": 8,
               "visible": true,
               "featured": false,
-              "price": null,
-              "tone": {
-                "soft": "#f0e5da",
-                "mid": "#ddc7b0",
-                "deep": "#573d22"
-              }
+              "price": null
             },
             {
               "slug": "1046",
@@ -1370,12 +1145,7 @@
               "order": 9,
               "visible": true,
               "featured": false,
-              "price": null,
-              "tone": {
-                "soft": "#eee5dc",
-                "mid": "#d9c6b4",
-                "deep": "#513c28"
-              }
+              "price": null
             },
             {
               "slug": "1047",
@@ -1393,12 +1163,7 @@
               "order": 10,
               "visible": true,
               "featured": false,
-              "price": null,
-              "tone": {
-                "soft": "#ece4de",
-                "mid": "#d5c5b8",
-                "deep": "#4d3b2d"
-              }
+              "price": null
             }
           ]
         },
@@ -1423,12 +1188,7 @@
               "order": 1,
               "visible": true,
               "featured": false,
-              "price": null,
-              "tone": {
-                "soft": "#ebe0df",
-                "mid": "#d4bcb9",
-                "deep": "#4c312d"
-              }
+              "price": null
             },
             {
               "slug": "1049",
@@ -1446,12 +1206,7 @@
               "order": 2,
               "visible": true,
               "featured": false,
-              "price": null,
-              "tone": {
-                "soft": "#ece3de",
-                "mid": "#d7c2b6",
-                "deep": "#4e382b"
-              }
+              "price": null
             },
             {
               "slug": "1050",
@@ -1469,12 +1224,7 @@
               "order": 3,
               "visible": true,
               "featured": false,
-              "price": null,
-              "tone": {
-                "soft": "#eee4dc",
-                "mid": "#dbc5b2",
-                "deep": "#533b26"
-              }
+              "price": null
             },
             {
               "slug": "1051",
@@ -1492,12 +1242,7 @@
               "order": 4,
               "visible": true,
               "featured": false,
-              "price": null,
-              "tone": {
-                "soft": "#ece3de",
-                "mid": "#d6c3b7",
-                "deep": "#4d392c"
-              }
+              "price": null
             },
             {
               "slug": "1052",
@@ -1515,12 +1260,7 @@
               "order": 5,
               "visible": true,
               "featured": false,
-              "price": null,
-              "tone": {
-                "soft": "#ece3de",
-                "mid": "#d6c3b7",
-                "deep": "#4e392b"
-              }
+              "price": null
             },
             {
               "slug": "1053",
@@ -1538,12 +1278,7 @@
               "order": 6,
               "visible": true,
               "featured": false,
-              "price": null,
-              "tone": {
-                "soft": "#eee3dc",
-                "mid": "#dbc3b2",
-                "deep": "#533926"
-              }
+              "price": null
             },
             {
               "slug": "1054",
@@ -1561,12 +1296,7 @@
               "order": 7,
               "visible": true,
               "featured": false,
-              "price": null,
-              "tone": {
-                "soft": "#ede3dd",
-                "mid": "#d8c2b5",
-                "deep": "#503829"
-              }
+              "price": null
             },
             {
               "slug": "1055",
@@ -1584,12 +1314,7 @@
               "order": 8,
               "visible": true,
               "featured": false,
-              "price": null,
-              "tone": {
-                "soft": "#ede3dd",
-                "mid": "#d9c2b4",
-                "deep": "#513829"
-              }
+              "price": null
             },
             {
               "slug": "1056",
@@ -1607,12 +1332,7 @@
               "order": 9,
               "visible": true,
               "featured": false,
-              "price": null,
-              "tone": {
-                "soft": "#ece3de",
-                "mid": "#d7c3b6",
-                "deep": "#4f392b"
-              }
+              "price": null
             },
             {
               "slug": "1057",
@@ -1630,12 +1350,7 @@
               "order": 10,
               "visible": true,
               "featured": false,
-              "price": null,
-              "tone": {
-                "soft": "#eee4dc",
-                "mid": "#dac4b3",
-                "deep": "#523a27"
-              }
+              "price": null
             }
           ]
         },
@@ -1660,12 +1375,7 @@
               "order": 1,
               "visible": true,
               "featured": false,
-              "price": null,
-              "tone": {
-                "soft": "#e9e4e1",
-                "mid": "#d0c4bd",
-                "deep": "#4c392d"
-              }
+              "price": null
             },
             {
               "slug": "1059",
@@ -1695,12 +1405,7 @@
               "order": 2,
               "visible": true,
               "featured": false,
-              "price": null,
-              "tone": {
-                "soft": "#e8e5e2",
-                "mid": "#cdc6c0",
-                "deep": "#4c3b2d"
-              }
+              "price": null
             },
             {
               "slug": "1060",
@@ -1730,12 +1435,7 @@
               "order": 3,
               "visible": true,
               "featured": false,
-              "price": null,
-              "tone": {
-                "soft": "#e7e5e3",
-                "mid": "#ccc6c1",
-                "deep": "#4c3b2d"
-              }
+              "price": null
             }
           ]
         }
@@ -1782,12 +1482,7 @@
               "order": 1,
               "visible": true,
               "featured": false,
-              "price": null,
-              "tone": {
-                "soft": "#e9e5e1",
-                "mid": "#d0c6bd",
-                "deep": "#4c3c2d"
-              }
+              "price": null
             }
           ]
         },
@@ -1812,12 +1507,7 @@
               "order": 1,
               "visible": true,
               "featured": false,
-              "price": null,
-              "tone": {
-                "soft": "#f0e4da",
-                "mid": "#ddc4b0",
-                "deep": "#593a20"
-              }
+              "price": null
             }
           ]
         },
@@ -1842,12 +1532,7 @@
               "order": 1,
               "visible": true,
               "featured": false,
-              "price": null,
-              "tone": {
-                "soft": "#ede7dd",
-                "mid": "#d9cbb4",
-                "deep": "#514129"
-              }
+              "price": null
             },
             {
               "slug": "1064",
@@ -1871,12 +1556,7 @@
               "order": 2,
               "visible": true,
               "featured": false,
-              "price": null,
-              "tone": {
-                "soft": "#ede6dd",
-                "mid": "#d8c9b4",
-                "deep": "#503f29"
-              }
+              "price": null
             },
             {
               "slug": "1065",
@@ -1894,12 +1574,7 @@
               "order": 3,
               "visible": true,
               "featured": false,
-              "price": null,
-              "tone": {
-                "soft": "#eee6dc",
-                "mid": "#dacab3",
-                "deep": "#524027"
-              }
+              "price": null
             },
             {
               "slug": "1066",
@@ -1917,12 +1592,7 @@
               "order": 4,
               "visible": true,
               "featured": false,
-              "price": null,
-              "tone": {
-                "soft": "#ede6dd",
-                "mid": "#d7c8b6",
-                "deep": "#4f3f2a"
-              }
+              "price": null
             }
           ]
         },
@@ -1947,12 +1617,7 @@
               "order": 1,
               "visible": true,
               "featured": false,
-              "price": null,
-              "tone": {
-                "soft": "#ece4de",
-                "mid": "#d6c4b6",
-                "deep": "#4e3a2b"
-              }
+              "price": null
             }
           ]
         }
@@ -1999,12 +1664,7 @@
               "order": 1,
               "visible": true,
               "featured": true,
-              "price": null,
-              "tone": {
-                "soft": "#e9e3e1",
-                "mid": "#d0c3bd",
-                "deep": "#4c372d"
-              }
+              "price": null
             }
           ]
         },
@@ -2041,12 +1701,7 @@
               "order": 1,
               "visible": true,
               "featured": false,
-              "price": null,
-              "tone": {
-                "soft": "#f0dadf",
-                "mid": "#ddb0bb",
-                "deep": "#57222f"
-              }
+              "price": null
             }
           ]
         }
@@ -2093,12 +1748,7 @@
               "order": 1,
               "visible": true,
               "featured": true,
-              "price": null,
-              "tone": {
-                "soft": "#e9e3e1",
-                "mid": "#d0c1bd",
-                "deep": "#4c352d"
-              }
+              "price": null
             }
           ]
         },
@@ -2123,12 +1773,7 @@
               "order": 1,
               "visible": true,
               "featured": false,
-              "price": null,
-              "tone": {
-                "soft": "#e8e6e2",
-                "mid": "#ccc8c0",
-                "deep": "#4c412d"
-              }
+              "price": null
             }
           ]
         },
@@ -2153,12 +1798,7 @@
               "order": 1,
               "visible": true,
               "featured": false,
-              "price": null,
-              "tone": {
-                "soft": "#e9e3e1",
-                "mid": "#d0c1bd",
-                "deep": "#4c352d"
-              }
+              "price": null
             }
           ]
         }

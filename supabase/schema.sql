@@ -72,7 +72,8 @@ create table public.media (
 -- ---------------------------------------------------------------------
 -- the five worlds – fixed set, edited but never added/removed from the admin
 create table public.categories (
-  slug        text primary key,          -- hats, bandanas, cloa, scarves, blanche
+  id          smallint primary key,      -- category code: 1 hats … 5 blanche
+  slug        text not null unique,      -- the word in links: hats, bandanas, cloa, scarves, blanche
   name        text not null,
   short_name  text not null,
   tagline     text not null default '',
@@ -84,13 +85,15 @@ create table public.categories (
 
 create table public.subcategories (
   id            uuid primary key default gen_random_uuid(),
-  category_slug text not null references public.categories (slug) on update cascade,
+  category_id   smallint not null references public.categories (id),
   slug          text not null,           -- used in links (#anchor)
   name          text not null,
   sort_order    int  not null default 0,
-  unique (category_slug, slug)
+  unique (category_id, slug)
 );
 
+-- A product belongs to a sub-category only; its category is the sub-category's
+-- category. Storing the category on the product too could let the two disagree.
 -- product numbers: 1001, 1002 … – the SKU and the link, never reused
 create sequence public.product_sku_seq start 1001;
 
@@ -105,7 +108,6 @@ create table public.products (
   visible         boolean not null default false,   -- new products start hidden
   featured        boolean not null default false,   -- "new collection" on the home page
   price           numeric(10,2) check (price >= 0), -- optional, never shown
-  tone            jsonb,                            -- colours taken from the main photo
   created_at      timestamptz not null default now(),
   updated_at      timestamptz not null default now()
 );
@@ -160,7 +162,7 @@ create table public.hero_banners (
   id            uuid primary key default gen_random_uuid(),
   media_id      uuid not null references public.media (id) on delete restrict,
   caption       text not null default '',
-  category_slug text references public.categories (slug) on delete set null,  -- null = stores page
+  category_id   smallint references public.categories (id),  -- null = stores page
   sort_order    int  not null default 0
 );
 
