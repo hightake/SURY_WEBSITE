@@ -1251,7 +1251,7 @@ html.home-snap main > section {
 @media (min-width: 768px) {
   .worlds-fit {
     /* niche height = screen − header − heading − labels − paddings */
-    --nh: clamp(220px, calc(100svh - 5rem - 27rem), 520px);
+    --nh: clamp(220px, min(calc(100svh - 5rem - 27rem), calc(((min(100vw, 1320px) - 10rem) / 5 - 30px) * 17 / 9)), 520px);
   }
   .worlds-fit > .container-x:first-child > div {
     margin-bottom: 1.5rem;
