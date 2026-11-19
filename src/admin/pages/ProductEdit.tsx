@@ -35,7 +35,7 @@ export function ProductEdit() {
           <p className="text-sm text-muted">{c.shortName} · {s.name}{p.visible ? "" : " · מוסתר"}</p>
         </div>
         <div className="flex flex-wrap gap-2">
-          {p.visible && <a href={`${import.meta.env.BASE_URL}collection/${c.slug}/${p.slug}`} target="_blank" rel="noopener noreferrer" className="adm-btn">צפייה באתר ↗</a>}
+          {p.visible && <a href={`${import.meta.env.BASE_URL}product/${p.slug}`} target="_blank" rel="noopener noreferrer" className="adm-btn">צפייה באתר ↗</a>}
           <button type="button" className="adm-btn text-primary hover:!border-primary" onClick={remove}>מחיקת המוצר</button>
         </div>
       </div>
@@ -60,7 +60,7 @@ export function ProductEdit() {
         <div className="grid gap-5 md:grid-cols-2">
           <Text label="מחיר (לא מוצג באתר)" value={p.price == null ? "" : String(p.price)} dir="ltr" onChange={(v) => edit((x) => setPrice(x, v))} hint="שמור להמשך, אם האתר יהפוך לחנות" />
           <div className="md:col-span-2">
-            <ProductLink catSlug={c.slug} slug={p.slug} />
+            <ProductLink slug={p.slug} />
           </div>
         </div>
       </Card>
@@ -73,9 +73,9 @@ export function ProductEdit() {
 }
 
 /** The product's public link: a fixed number, so it keeps working when the name changes. */
-function ProductLink({ catSlug, slug }: { catSlug: string; slug: string }) {
+function ProductLink({ slug }: { slug: string }) {
   const [copied, setCopied] = useState(false);
-  const url = `${location.origin}${import.meta.env.BASE_URL}collection/${catSlug}/${slug}`;
+  const url = `${location.origin}${import.meta.env.BASE_URL}product/${slug}`;
   return (
     <div className="grid gap-1.5">
       <p className="text-sm font-medium">קישור לעמוד המוצר · מק״ט {slug}</p>
@@ -91,7 +91,7 @@ function ProductLink({ catSlug, slug }: { catSlug: string; slug: string }) {
           }
         }}>{copied ? "הועתק ✓" : "העתקת קישור"}</button>
       </div>
-      <p className="text-xs text-muted">מספר קבוע שנקבע אוטומטית – לא משתנה גם אם משנים את שם המוצר, כך שקישורים שנשלחו ממשיכים לעבוד.</p>
+      <p className="text-xs text-muted">הקישור קבוע: לא משתנה כשמשנים שם, תת־קטגוריה או עולם, כך שקישורים שנשלחו ממשיכים לעבוד.</p>
     </div>
   );
 }

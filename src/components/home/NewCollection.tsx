@@ -15,7 +15,7 @@ export function NewCollection() {
 
 function ItemLink({ item, children, className = "" }: { item: FeaturedItem; children: React.ReactNode; className?: string }) {
   return (
-    <Link to="/collection/$category/$product" params={{ category: item.category.slug, product: item.product.slug }} className={`group block ${className}`}>
+    <Link to="/product/$sku" params={{ sku: item.product.slug }} className={`group block ${className}`}>
       {children}
     </Link>
   );

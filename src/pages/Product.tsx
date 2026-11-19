@@ -1,5 +1,5 @@
-import { Link, useNavigate, useParams } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { Link, useParams } from "@tanstack/react-router";
+import { useState } from "react";
 import { IconWhatsapp } from "../components/Icons";
 import { getProduct, site } from "../services/contentState";
 import { imgSmUrl, imgUrl, srcSet } from "../lib/media";
@@ -15,15 +15,9 @@ import { NotFound } from "./NotFound";
 type Data = { category: Category; sub: Subcategory; product: ProductT };
 
 export function Product() {
-  const { category: catSlug, product: productSlug } = useParams({ from: "/collection/$category/$product" });
-  const found = getProduct(catSlug, productSlug);
+  const { sku } = useParams({ from: "/product/$sku" });
+  const found = getProduct(sku);
   usePageTitle(found?.product.name);
-  const navigate = useNavigate();
-  // moved to another category: an old link still works and switches to the current address
-  const current = found?.category.slug;
-  useEffect(() => {
-    if (current && current !== catSlug) navigate({ to: "/collection/$category/$product", params: { category: current, product: productSlug }, replace: true });
-  }, [current, catSlug, productSlug, navigate]);
   if (!found) return <NotFound />;
   return <Label {...found} />;
 }

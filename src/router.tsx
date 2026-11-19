@@ -1,4 +1,4 @@
-import { createRootRoute, createRoute, createRouter, Outlet, ScrollRestoration, useRouterState } from "@tanstack/react-router";
+import { createRootRoute, createRoute, createRouter, Outlet, redirect, ScrollRestoration, useRouterState } from "@tanstack/react-router";
 import { lazy, Suspense, type ComponentType } from "react";
 import { redirectIfSignedIn, requireAdmin, requireOwner } from "./middleware/adminGuards";
 import { Footer } from "./components/Footer";
@@ -37,7 +37,15 @@ const rootRoute = createRootRoute({
 
 const homeRoute = createRoute({ getParentRoute: () => rootRoute, path: "/", component: Home });
 const categoryRoute = createRoute({ getParentRoute: () => rootRoute, path: "/collection/$category", component: Category });
-const productRoute = createRoute({ getParentRoute: () => rootRoute, path: "/collection/$category/$product", component: Product });
+const productRoute = createRoute({ getParentRoute: () => rootRoute, path: "/product/$sku", component: Product });
+// links sent during the preview (/collection/<world>/<sku>) open the product page
+const legacyProductRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/collection/$category/$product",
+  beforeLoad: ({ params }) => {
+    throw redirect({ to: "/product/$sku", params: { sku: params.product }, replace: true });
+  },
+});
 const storyRoute = createRoute({ getParentRoute: () => rootRoute, path: "/our-story", component: Story });
 const storesRoute = createRoute({ getParentRoute: () => rootRoute, path: "/stores", component: Stores });
 const contactRoute = createRoute({ getParentRoute: () => rootRoute, path: "/contact", component: Contact });
@@ -78,7 +86,7 @@ const adminTree = adminRoute.addChildren([
   createRoute({ getParentRoute: () => adminRoute, path: "/admin/users", beforeLoad: requireOwner, component: lazyPage("UsersAdmin") }),
 ]);
 
-const routeTree = rootRoute.addChildren([adminLoginRoute, adminTree, homeRoute, categoryRoute, productRoute, storyRoute, storesRoute, contactRoute, privacyRoute, accessibilityRoute]);
+const routeTree = rootRoute.addChildren([adminLoginRoute, adminTree, homeRoute, categoryRoute, productRoute, legacyProductRoute, storyRoute, storesRoute, contactRoute, privacyRoute, accessibilityRoute]);
 
 export const router = createRouter({
   routeTree,

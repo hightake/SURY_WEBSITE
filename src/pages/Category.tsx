@@ -49,7 +49,7 @@ export function Category() {
               <div className="grid grid-cols-2 gap-x-4 gap-y-10 md:grid-cols-3 md:gap-x-6 lg:grid-cols-4">
                 {s.products.map((p, i) => (
                   <Reveal key={p.slug} delay={(i % 4) * 80}>
-                    <ProductCard product={p} categorySlug={category.slug} />
+                    <ProductCard product={p} />
                   </Reveal>
                 ))}
               </div>

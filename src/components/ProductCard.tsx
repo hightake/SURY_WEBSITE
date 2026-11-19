@@ -2,10 +2,10 @@ import { Link } from "@tanstack/react-router";
 import { imgSmUrl } from "../lib/media";
 import type { Product } from "../models/content";
 
-export function ProductCard({ product, categorySlug, label }: { product: Product; categorySlug: string; label?: string }) {
+export function ProductCard({ product, label }: { product: Product; label?: string }) {
   const img = product.images[0];
   return (
-    <Link to="/collection/$category/$product" params={{ category: categorySlug, product: product.slug }} className="group block">
+    <Link to="/product/$sku" params={{ sku: product.slug }} className="group block">
       <div className="relative aspect-[4/5] overflow-hidden bg-surface">
         {img && (
           <img
