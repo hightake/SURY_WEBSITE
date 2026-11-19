@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { categories, site } from "../../services/contentState";
-import { imgSmUrl, imgUrl } from "../../lib/media";
+import { imgSmUrl, imgUrl, srcSet } from "../../lib/media";
 import { IconChevron } from "../Icons";
 import { Sketch, worldSketches } from "./Sketches";
 
@@ -112,8 +112,8 @@ function BannerHero() {
         {slides.map((b, i) => {
           const state = i === cur ? "is-current" : i === prev ? "is-prev" : "";
           return (
-            <div key={b.image.src + (i === cur ? cur : "")} className={`banner-slide ${state}`} aria-hidden={i !== cur}>
-              <img src={imgUrl(b.image.src)} alt={i === cur ? b.image.alt : ""} fetchPriority={i === 0 ? "high" : "low"} loading={i === 0 ? "eager" : "lazy"} />
+            <div key={b.image.src + (i === cur ? cur : "")} className={`banner-slide ${state} ${prev === null ? "is-first" : ""}`} aria-hidden={i !== cur}>
+              <img src={imgUrl(b.image.src)} srcSet={srcSet(b.image)} sizes="100vw" alt={i === cur ? b.image.alt : ""} fetchPriority={i === 0 ? "high" : "low"} loading={i === 0 ? "eager" : "lazy"} />
             </div>
           );
         })}

@@ -796,6 +796,14 @@ textarea.letter-input {
 .banner-slide.is-current img {
   animation: bannerZoom 7.5s ease-out both;
 }
+/* the very first photo is there at once (it is the page's main image) */
+.banner-slide.is-current.is-first,
+.banner-slide.is-current.is-first::after {
+  animation: none;
+}
+.banner-slide.is-current.is-first::after {
+  display: none;
+}
 /* RTL: the new photo slides in from the right edge, over the previous one */
 @keyframes bannerWipe {
   from {
