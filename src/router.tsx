@@ -38,8 +38,6 @@ const rootRoute = createRootRoute({
 const homeRoute = createRoute({ getParentRoute: () => rootRoute, path: "/", component: Home });
 const categoryRoute = createRoute({ getParentRoute: () => rootRoute, path: "/collection/$category", component: Category });
 const productRoute = createRoute({ getParentRoute: () => rootRoute, path: "/product/$sku", component: Product });
-  },
-});
 const storyRoute = createRoute({ getParentRoute: () => rootRoute, path: "/our-story", component: Story });
 const storesRoute = createRoute({ getParentRoute: () => rootRoute, path: "/stores", component: Stores });
 const contactRoute = createRoute({ getParentRoute: () => rootRoute, path: "/contact", component: Contact });
