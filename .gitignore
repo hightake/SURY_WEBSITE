@@ -1,6 +1,8 @@
 node_modules
 dist
-.env
-.env.*
+# Lovable keeps only public VITE_ values in .env and needs it in the repo.
+# Real secrets go in Lovable Secrets, never in files.
+.env.local
+.env.*.local
 *.tsbuildinfo
 deliverables/
