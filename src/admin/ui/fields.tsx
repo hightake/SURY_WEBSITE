@@ -3,7 +3,7 @@ import { useId, useRef, useState, type ReactNode } from "react";
 import { imgSmUrl, imgUrl } from "../../lib/media";
 import type { Img } from "../../models/content";
 import { moveItem } from "../../lib/list";
-import { uploadImage } from "../../services/imageService";
+import { ACCEPT_ATTR, UploadError, uploadImage } from "../../services/imageService";
 
 export function Card({ title, hint, children, actions }: { title?: string; hint?: string; children: ReactNode; actions?: ReactNode }) {
   return (
@@ -66,9 +66,6 @@ export function Select({ label, value, onChange, options }: { label: string; val
 }
 
 /** Pick a file, resize it and store it through the backend. */
-/** A photo the browser cannot read (e.g. HEIC from an iPhone, a damaged file) gets a clear message instead of silence. */
-const UPLOAD_ERROR = "לא הצלחנו לקרוא את הקובץ. אפשר להעלות תמונה בפורמט JPG, PNG או WebP (תמונה מאייפון: לשמור אותה קודם כ-JPG).";
-
 export function useUpload() {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
@@ -77,8 +74,10 @@ export function useUpload() {
     setError("");
     try {
       return await uploadImage(file, alt);
-    } catch {
-      setError(file.name ? `${file.name}: ${UPLOAD_ERROR}` : UPLOAD_ERROR);
+    } catch (e) {
+      // the reason in plain words: wrong format, too heavy, damaged file, server
+      const why = e instanceof UploadError ? e.message : "ההעלאה נכשלה. כדאי לנסות שוב.";
+      setError(`${file.name ? `${file.name}: ` : ""}${why}`);
       return null;
     } finally {
       setBusy(false);
@@ -87,7 +86,7 @@ export function useUpload() {
   return { busy, error, upload };
 }
 
-function UploadError({ error }: { error: string }) {
+function UploadErrorNote({ error }: { error: string }) {
   return error ? <p role="alert" className="text-xs font-medium text-primary">{error}</p> : null;
 }
 
@@ -98,7 +97,7 @@ function UploadButton({ label, onFiles, multiple, busy }: { label: string; onFil
       <button type="button" className="adm-btn" onClick={() => ref.current?.click()} disabled={busy}>
         {busy ? "מעלה…" : label}
       </button>
-      <input ref={ref} type="file" accept="image/*" multiple={multiple} className="hidden" onChange={(e) => {
+      <input ref={ref} type="file" accept={ACCEPT_ATTR} multiple={multiple} className="hidden" onChange={(e) => {
         const files = [...(e.target.files ?? [])];
         e.target.value = "";
         if (files.length) onFiles(files);
@@ -122,7 +121,7 @@ export function ImageField({ label, value, onChange, hint, aspect = "4 / 5" }: {
             const img = await upload(f, value?.alt ?? "");
             if (img) onChange(img);
           }} />
-          <UploadError error={error} />
+          <UploadErrorNote error={error} />
           {value && <Text label="תיאור התמונה (לנגישות)" value={value.alt} onChange={(alt) => onChange({ ...value, alt })} hint="מה רואים בתמונה – מוקרא לעיוורים ולמנועי חיפוש" />}
         </div>
       </div>
@@ -152,7 +151,7 @@ export function ImagesField({ value, onChange }: { value: Img[]; onChange: (imgs
           if (added.length) onChange([...value, ...added]);
         }} />
       </div>
-      <UploadError error={error} />
+      <UploadErrorNote error={error} />
       <p className="text-xs text-muted">התמונה הראשונה היא הראשית – היא מופיעה בכרטיס המוצר ובקולקציה. מומלץ לצלם אנכי (4:5).</p>
       {value.length === 0 && <p className="rounded-lg border border-dashed border-shade p-6 text-center text-sm text-muted">עוד אין תמונות</p>}
       <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">

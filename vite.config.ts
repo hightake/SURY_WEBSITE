@@ -1,7 +1,8 @@
 import { defineConfig, type Plugin } from "vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
-import { readFileSync } from "node:fs";
+import { readFileSync, writeFileSync } from "node:fs";
+import { join } from "node:path";
 
 // BASE_PATH is set only for the GitHub Pages preview (served under /SURY_WEBSITE/).
 const base = process.env.BASE_PATH || "/";
@@ -55,7 +56,30 @@ function sharingCard(): Plugin {
   };
 }
 
+/*
+ * Site map for search engines: the stable pages – home, the five worlds (the
+ * same tree as the header menu; sub-categories are sections of their world's
+ * page) and the information pages. Products are left out on purpose: they
+ * change in the admin, and Google reaches them through the world pages.
+ */
+function siteMap(): Plugin {
+  let outDir = "dist";
+  return {
+    name: "site-map",
+    apply: "build",
+    configResolved(c) {
+      outDir = c.build.outDir;
+    },
+    closeBundle() {
+      const site = JSON.parse(readFileSync(new URL("./src/content/site.json", import.meta.url), "utf8"));
+      const paths = ["/", ...site.categories.map((c: { slug: string }) => `/collection/${c.slug}`), "/our-story", "/stores", "/contact", "/accessibility", "/privacy"];
+      const urls = paths.map((p) => `  <url><loc>https://sury.co.il${p}</loc></url>`).join("\n");
+      writeFileSync(join(outDir, "sitemap.xml"), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`);
+    },
+  };
+}
+
 export default defineConfig({
   base,
-  plugins: [react(), tailwindcss(), preloadHeroImage(), sharingCard()],
+  plugins: [react(), tailwindcss(), preloadHeroImage(), sharingCard(), siteMap()],
 });
