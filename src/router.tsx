@@ -13,9 +13,12 @@ import { Privacy } from "./pages/Privacy";
 import { Product } from "./pages/Product";
 import { Stores } from "./pages/Stores";
 import { Story } from "./pages/Story";
+import { useCanonical } from "./lib/useCanonical";
 
 function Root() {
-  const isAdmin = useRouterState({ select: (s) => /\/admin(\/|$)/.test(s.location.pathname) });
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const isAdmin = /\/admin(\/|$)/.test(pathname);
+  useCanonical(pathname, isAdmin);
   if (isAdmin) return <Outlet />;
   return (
     <>
