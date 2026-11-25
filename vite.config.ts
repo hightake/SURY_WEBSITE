@@ -48,7 +48,7 @@ function sharingCard(): Plugin {
         meta("og:image", siteUrl + "/og-image.jpg"),
         meta("og:image:width", "1200"),
         meta("og:image:height", "630"),
-        meta("og:image:alt", "SURY – כובעים, בנדנות, מטפחות ואופנת בית"),
+        meta("og:image:alt", "SURY - כובעים, בנדנות, מטפחות ואופנת בית"),
         { tag: "meta", injectTo: "head", attrs: { name: "twitter:card", content: "summary_large_image" } },
       ];
     },

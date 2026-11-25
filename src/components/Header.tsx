@@ -66,7 +66,7 @@ export function Header() {
           <IconMenu />
         </button>
 
-        <Link to="/" aria-label="SURY – דף הבית" className="absolute left-1/2 -translate-x-1/2 lg:static lg:translate-x-0">
+        <Link to="/" aria-label="SURY - דף הבית" className="absolute left-1/2 -translate-x-1/2 lg:static lg:translate-x-0">
           <Logo className="h-9 md:h-11" />
         </Link>
 

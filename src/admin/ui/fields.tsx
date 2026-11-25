@@ -66,17 +66,29 @@ export function Select({ label, value, onChange, options }: { label: string; val
 }
 
 /** Pick a file, resize it and store it through the backend. */
+/** A photo the browser cannot read (e.g. HEIC from an iPhone, a damaged file) gets a clear message instead of silence. */
+const UPLOAD_ERROR = "לא הצלחנו לקרוא את הקובץ. אפשר להעלות תמונה בפורמט JPG, PNG או WebP (תמונה מאייפון: לשמור אותה קודם כ-JPG).";
+
 export function useUpload() {
   const [busy, setBusy] = useState(false);
-  const upload = async (file: File, alt: string) => {
+  const [error, setError] = useState("");
+  const upload = async (file: File, alt: string): Promise<Img | null> => {
     setBusy(true);
+    setError("");
     try {
       return await uploadImage(file, alt);
+    } catch {
+      setError(file.name ? `${file.name}: ${UPLOAD_ERROR}` : UPLOAD_ERROR);
+      return null;
     } finally {
       setBusy(false);
     }
   };
-  return { busy, upload };
+  return { busy, error, upload };
+}
+
+function UploadError({ error }: { error: string }) {
+  return error ? <p role="alert" className="text-xs font-medium text-primary">{error}</p> : null;
 }
 
 function UploadButton({ label, onFiles, multiple, busy }: { label: string; onFiles: (f: File[]) => void; multiple?: boolean; busy?: boolean }) {
@@ -97,7 +109,7 @@ function UploadButton({ label, onFiles, multiple, busy }: { label: string; onFil
 
 /** One image with its alt text. */
 export function ImageField({ label, value, onChange, hint, aspect = "4 / 5" }: { label: string; value: Img | undefined; onChange: (img: Img) => void; hint?: string; aspect?: string }) {
-  const { busy, upload } = useUpload();
+  const { busy, error, upload } = useUpload();
   return (
     <div className="grid gap-2">
       <p className="text-sm font-medium">{label}</p>
@@ -106,7 +118,11 @@ export function ImageField({ label, value, onChange, hint, aspect = "4 / 5" }: {
           {value ? <img src={imgUrl(value.src)} alt="" className={aspect === "1 / 1" ? "!object-contain p-2" : ""} /> : <span className="text-xs text-muted">אין תמונה</span>}
         </div>
         <div className="grid min-w-52 flex-1 gap-2">
-          <UploadButton label={value ? "החלפת תמונה" : "העלאת תמונה"} busy={busy} onFiles={async ([f]) => onChange(await upload(f, value?.alt ?? ""))} />
+          <UploadButton label={value ? "החלפת תמונה" : "העלאת תמונה"} busy={busy} onFiles={async ([f]) => {
+            const img = await upload(f, value?.alt ?? "");
+            if (img) onChange(img);
+          }} />
+          <UploadError error={error} />
           {value && <Text label="תיאור התמונה (לנגישות)" value={value.alt} onChange={(alt) => onChange({ ...value, alt })} hint="מה רואים בתמונה – מוקרא לעיוורים ולמנועי חיפוש" />}
         </div>
       </div>
@@ -117,7 +133,7 @@ export function ImageField({ label, value, onChange, hint, aspect = "4 / 5" }: {
 
 /** Several images: the first is the main one; reorder, set main, remove, alt text. */
 export function ImagesField({ value, onChange }: { value: Img[]; onChange: (imgs: Img[]) => void }) {
-  const { busy, upload } = useUpload();
+  const { busy, error, upload } = useUpload();
   const move = (i: number, d: number) => {
     const next = [...value];
     moveItem(next, i, d);
@@ -129,10 +145,14 @@ export function ImagesField({ value, onChange }: { value: Img[]; onChange: (imgs
         <p className="text-sm font-medium">תמונות המוצר</p>
         <UploadButton label="הוספת תמונות" multiple busy={busy} onFiles={async (files) => {
           const added = [];
-          for (const f of files) added.push(await upload(f, ""));
-          onChange([...value, ...added]);
+          for (const f of files) {
+            const img = await upload(f, "");
+            if (img) added.push(img);
+          }
+          if (added.length) onChange([...value, ...added]);
         }} />
       </div>
+      <UploadError error={error} />
       <p className="text-xs text-muted">התמונה הראשונה היא הראשית – היא מופיעה בכרטיס המוצר ובקולקציה. מומלץ לצלם אנכי (4:5).</p>
       {value.length === 0 && <p className="rounded-lg border border-dashed border-shade p-6 text-center text-sm text-muted">עוד אין תמונות</p>}
       <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">

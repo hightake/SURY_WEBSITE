@@ -9,7 +9,7 @@ export function Uniqueness() {
       <div className="unique-arch text-bg">
         <div className="container-x relative pb-20 pt-24 md:pb-28 md:pt-36">
           <Reveal className="mx-auto mb-14 max-w-2xl text-center md:mb-20">
-            <p className="eyebrow mb-4 text-accent">The SURY Standard</p>
+            <p className="eyebrow mb-4 text-accent" lang="en">The SURY Standard</p>
             <h2 id="unique-title" className="text-3xl font-light md:text-5xl">
               {u.title}
             </h2>

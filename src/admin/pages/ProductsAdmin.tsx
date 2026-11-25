@@ -1,5 +1,5 @@
 import { Link, useNavigate, useSearch } from "@tanstack/react-router";
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { imgSmUrl } from "../../lib/media";
 import { addProduct, listProducts, updateProduct } from "../../services/catalogService";
 import { useAdmin } from "../state/AdminStore";
@@ -13,27 +13,30 @@ export function ProductsAdmin() {
   const [featuredOnly, setFeaturedOnly] = useState(!!search.featured);
   const rows = useMemo(() => listProducts(data, { cat, q, featuredOnly }), [data, cat, q, featuredOnly]);
 
+  const creating = useRef(false); // a quick double-click must create one product, not two
   const create = () => {
+    if (creating.current) return;
+    creating.current = true;
     let ref = { cat: "", slug: "" };
     update((d) => void (ref = addProduct(d, cat || d.categories[0].slug)));
     navigate({ to: "/admin/products/$cat/$slug", params: ref });
   };
 
   return (
-    <div className="grid gap-5">
-      <div className="adm-card grid items-end gap-3 md:grid-cols-[14rem_1fr_auto_auto]">
-        <label className="grid gap-1 text-sm">
+    <div className="grid grid-cols-1 gap-5">
+      <div className="adm-card grid min-w-0 items-end gap-3 md:grid-cols-[14rem_1fr_auto_auto]">
+        <label className="grid min-w-0 gap-1 text-sm">
           עולם
-          <select value={cat} onChange={(e) => setCat(e.target.value)} className="adm-input">
+          <select value={cat} onChange={(e) => setCat(e.target.value)} className="adm-input w-full min-w-0">
             <option value="">כל העולמות</option>
             {data.categories.map((c) => <option key={c.slug} value={c.slug}>{c.name}</option>)}
           </select>
         </label>
-        <label className="grid gap-1 text-sm">
+        <label className="grid min-w-0 gap-1 text-sm">
           חיפוש
-          <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="שם המוצר או מק״ט" className="adm-input" />
+          <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="שם המוצר או מק״ט" className="adm-input w-full min-w-0" />
         </label>
-        <label className="flex items-center gap-2 whitespace-nowrap pb-2.5 text-sm">
+        <label className="flex items-center gap-2 pb-2.5 text-sm md:whitespace-nowrap">
           <input type="checkbox" checked={featuredOnly} onChange={(e) => setFeaturedOnly(e.target.checked)} className="size-4 accent-[var(--color-primary)]" />
           הצג כאן רק את הקולקציה החדשה
         </label>
@@ -41,7 +44,7 @@ export function ProductsAdmin() {
       </div>
 
       <p className="text-sm text-muted">{rows.length} מוצרים</p>
-      <ul className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+      <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-3">
         {rows.map(({ c, s, p }) => {
           const ref = { cat: c.slug, slug: p.slug };
           return (

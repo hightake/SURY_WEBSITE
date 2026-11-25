@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { imgUrl, srcSet } from "../lib/media";
 import type { Img } from "../models/content";
+import { langOf } from "../lib/html";
 
 /** Split hero used by inner pages: text on one side, arch-framed image on the other. */
 export function PageHero({ eyebrow, title, text, image, children }: { eyebrow?: string; title: string; text?: string; image?: Img; children?: ReactNode }) {
@@ -8,7 +9,7 @@ export function PageHero({ eyebrow, title, text, image, children }: { eyebrow?: 
     <section className="bg-hero">
       <div className={`container-x grid items-center gap-10 py-12 md:py-16 ${image ? "md:grid-cols-[1fr_0.8fr] lg:gap-20" : ""}`}>
         <div className="max-w-xl">
-          {eyebrow && <p className="eyebrow mb-4">{eyebrow}</p>}
+          {eyebrow && <p className="eyebrow mb-4" lang={langOf(eyebrow)}>{eyebrow}</p>}
           <h1 className="text-4xl font-light tracking-tight md:text-6xl">{title}</h1>
           <span aria-hidden className="mt-6 block h-px w-12 bg-accent" />
           {text && <p className="mt-6 text-lg leading-relaxed text-muted">{text}</p>}

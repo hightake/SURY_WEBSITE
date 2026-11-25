@@ -11,7 +11,7 @@ export function ContactBlock({ headingLevel = "h2" }: { headingLevel?: "h1" | "h
     <section className="py-20 md:py-28" aria-labelledby="contact-title">
       <div className="container-x max-w-4xl">
         <Reveal>
-          <p className="eyebrow mb-3">Contact</p>
+          <p className="eyebrow mb-3" lang="en">Contact</p>
           <H id="contact-title" className="text-lg text-muted">
             {c.title} · {c.text}
           </H>

@@ -33,7 +33,7 @@ function Editorial({ items }: { items: FeaturedItem[] }) {
       <div className="container-x relative">
         <Reveal className="mb-12 grid gap-6 md:mb-20 md:grid-cols-[1fr_auto] md:items-end">
           <div>
-            <p className="eyebrow mb-3">New Collection · {new Date().getFullYear()}</p>
+            <p className="eyebrow mb-3" lang="en">New Collection · {new Date().getFullYear()}</p>
             <h2 id="new-title" className="text-4xl font-light md:text-6xl">{t.title}</h2>
           </div>
           <div className="flex items-center gap-4 md:border-s md:border-accent/60 md:ps-8 md:pb-2">

@@ -5,12 +5,12 @@ import { ProductCard } from "../components/ProductCard";
 import { Reveal } from "../components/Reveal";
 import { getCategory } from "../services/contentState";
 import { usePageTitle } from "../lib/usePageTitle";
-import { NotFound } from "./NotFound";
+import { NOT_FOUND_TITLE, NotFound } from "./NotFound";
 
 export function Category() {
   const { category: slug } = useParams({ from: "/collection/$category" });
   const category = getCategory(slug);
-  usePageTitle(category?.name);
+  usePageTitle(category ? category.name : NOT_FOUND_TITLE);
 
   // Jump to a sub-category when arriving from the menu (#slug).
   const hash = useRouterState({ select: (s) => s.location.hash });

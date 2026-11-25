@@ -6,7 +6,7 @@ import { imgSmUrl, imgUrl, srcSet } from "../lib/media";
 import { telLink, whatsappLink } from "../lib/links";
 import type { Category, Product as ProductT, Subcategory } from "../models/content";
 import { usePageTitle } from "../lib/usePageTitle";
-import { NotFound } from "./NotFound";
+import { NOT_FOUND_TITLE, NotFound } from "./NotFound";
 
 /*
  * Product page: the photo stands in a lit plaster gate, the details hang beside it
@@ -17,7 +17,7 @@ type Data = { category: Category; sub: Subcategory; product: ProductT };
 export function Product() {
   const { sku } = useParams({ from: "/product/$sku" });
   const found = getProduct(sku);
-  usePageTitle(found?.product.name);
+  usePageTitle(found ? found.product.name : NOT_FOUND_TITLE);
   if (!found) return <NotFound />;
   return <Label {...found} />;
 }

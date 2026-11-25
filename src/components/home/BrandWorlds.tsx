@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { categories, site } from "../../services/contentState";
-import { imgUrl } from "../../lib/media";
+import { imgSmUrl } from "../../lib/media";
 import { useInView } from "../Reveal";
 import { SectionHeading } from "../SectionHeading";
 
@@ -36,7 +36,7 @@ function Niche({ c, delay = 0, className = "" }: { c: Cat; delay?: number; class
         </>
       )}
       <span className="niche-item" style={{ ["--ib" as string]: `${pl.bottom}%`, ["--ih" as string]: `${pl.height}%`, ["--iw" as string]: `${pl.width}%` }}>
-        <img src={imgUrl(c.niche.src)} alt="" loading="lazy" decoding="async" />
+        <img src={imgSmUrl(c.niche.src)} alt="" loading="lazy" decoding="async" />
       </span>
       <span className="niche-dim" aria-hidden />
     </div>
@@ -106,7 +106,7 @@ export function BrandWorlds() {
                       className="niche-item"
                       style={{ ["--ib" as string]: `${pl.bottom}%`, ["--ih" as string]: `${pl.height}%`, ["--iw" as string]: `${pl.width}%` }}
                     >
-                      <img src={imgUrl(c.niche.src)} alt="" loading="lazy" decoding="async" />
+                      <img src={imgSmUrl(c.niche.src)} alt="" loading="lazy" decoding="async" />
                     </span>
                     <span className="niche-dim" aria-hidden />
                   </div>

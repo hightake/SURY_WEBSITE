@@ -44,7 +44,7 @@ export function Footer() {
           {/* site credit */}
           <a href="mailto:hightake10@gmail.com" dir="ltr" className="inline-flex items-center gap-2.5 text-bg/60 transition-colors hover:text-bg">
             <span>developed by</span>
-            <img src={`${import.meta.env.BASE_URL}images/site/hightake-logo.webp`} alt="HIGHTAKE – hightake10@gmail.com" width={298} height={41} className="h-[18px] w-auto" />
+            <img src={`${import.meta.env.BASE_URL}images/site/hightake-logo.webp`} alt="HIGHTAKE - hightake10@gmail.com" width={298} height={41} className="h-[18px] w-auto" />
           </a>
         </div>
       </div>

@@ -15,7 +15,7 @@ export function StoryTeaser() {
           </div>
         </Reveal>
         <Reveal delay={150}>
-          <p className="eyebrow mb-4">Our Story</p>
+          <p className="eyebrow mb-4" lang="en">Our Story</p>
           <h2 id="story-title" className="text-3xl font-light md:text-5xl">{s.title}</h2>
           <span aria-hidden className="mt-6 block h-px w-12 bg-accent" />
           <p className="mt-6 max-w-lg text-lg leading-relaxed text-muted">{s.text}</p>

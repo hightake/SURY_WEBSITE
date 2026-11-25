@@ -45,3 +45,6 @@ export function plainTextToHtml(text: string) {
     })
     .join("");
 }
+
+/** English-only labels (e.g. "Our Story") get lang="en", so screen readers pronounce them in English. */
+export const langOf = (text?: string) => (text && /[A-Za-z]/.test(text) && !/[֐-׿]/.test(text) ? "en" : undefined);
