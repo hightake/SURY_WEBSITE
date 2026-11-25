@@ -92,9 +92,12 @@ function BannerHero() {
   const slides = h.banners;
   const [cur, setCur] = useState(0);
   const [prev, setPrev] = useState<number | null>(null);
+  const [paused, setPaused] = useState(false);
+  const [run, setRun] = useState(0); // restarts the progress bar after a pause
+  const [canRotate] = useState(() => slides.length > 1 && !window.matchMedia("(prefers-reduced-motion: reduce)").matches);
 
   useEffect(() => {
-    if (slides.length < 2 || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (!canRotate || paused) return;
     const t = window.setInterval(() => {
       if (document.hidden) return;
       setCur((c) => {
@@ -103,7 +106,12 @@ function BannerHero() {
       });
     }, SLIDE_MS);
     return () => window.clearInterval(t);
-  }, [slides.length]);
+  }, [slides.length, canRotate, paused]);
+
+  const togglePause = () => {
+    if (paused) setRun((r) => r + 1);
+    setPaused((p) => !p);
+  };
 
   const s = slides[cur];
   return (
@@ -151,11 +159,26 @@ function BannerHero() {
             <span aria-hidden className="flex gap-1.5">
               {slides.map((b, i) => (
                 <span key={b.image.src} className="relative h-[2px] w-8 overflow-hidden bg-bg/25">
-                  {i === cur && <span key={cur} className="banner-progress absolute inset-0 bg-accent" />}
+                  {i === cur && <span key={`${cur}-${run}`} className="banner-progress absolute inset-0 bg-accent" style={paused ? { animationPlayState: "paused" } : undefined} />}
                   {i < cur && <span className="absolute inset-0 bg-accent/70" />}
                 </span>
               ))}
             </span>
+            {canRotate && (
+              <button
+                type="button"
+                onClick={togglePause}
+                aria-pressed={paused}
+                aria-label={paused ? "הפעלת החלפת התמונות" : "עצירת החלפת התמונות"}
+                className="grid h-8 w-8 shrink-0 place-items-center rounded-full border border-bg/50 bg-ink/30 text-bg backdrop-blur-sm transition-colors hover:border-accent hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+              >
+                {paused ? (
+                  <svg aria-hidden viewBox="0 0 12 12" className="h-3 w-3 translate-x-[1px]"><path d="M3 1.5v9l7-4.5z" fill="currentColor" /></svg>
+                ) : (
+                  <svg aria-hidden viewBox="0 0 12 12" className="h-3 w-3"><path d="M3 2h2v8H3zM7 2h2v8H7z" fill="currentColor" /></svg>
+                )}
+              </button>
+            )}
           </div>
         </div>
       </div>
