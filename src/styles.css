@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
+/* accessibility widget colours (computed with its pick-color script: disc 10.1:1 on the page, mark 11.9:1, accent 4.8:1 on the panel) */
+:root {
+  --a11y-accent: #6e1218;
+  --a11y-ink: #ffffff;
+  --a11y-accent-panel: #ca6864;
+}
+
 /* Brand tokens – from docs/מיתוג/מיתוג.md */
 @theme {
   --color-bg: #f4ebe0;

@@ -87,7 +87,23 @@ function siteMap(): Plugin {
   };
 }
 
+/*
+ * The shared accessibility widget (public/a11y-widget.js + .css, copied unchanged).
+ * It sits on the right (data-side="start" in RTL) because WhatsApp holds the left corner.
+ */
+function accessibilityWidget(): Plugin {
+  return {
+    name: "a11y-widget",
+    transformIndexHtml() {
+      return [
+        { tag: "link", injectTo: "head", attrs: { rel: "stylesheet", href: `${base}a11y-widget.css` } },
+        { tag: "script", injectTo: "body", attrs: { src: `${base}a11y-widget.js`, defer: true, "data-statement": `${base}accessibility`, "data-key": "sury:a11y", "data-side": "start" } },
+      ];
+    },
+  };
+}
+
 export default defineConfig({
   base,
-  plugins: [react(), tailwindcss(), preloadHeroImage(), sharingCard(), siteMap()],
+  plugins: [react(), tailwindcss(), preloadHeroImage(), sharingCard(), siteMap(), accessibilityWidget()],
 });

@@ -18,7 +18,7 @@ function SketchHero() {
   const [i, setI] = useState(0);
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const t = window.setInterval(() => !document.hidden && setI((n) => (n + 1) % worldSketches.length), CYCLE_MS);
+    const t = window.setInterval(() => !document.hidden && !document.documentElement.classList.contains("a11y-motion") && setI((n) => (n + 1) % worldSketches.length), CYCLE_MS);
     return () => window.clearInterval(t);
   }, []);
   const s = worldSketches[i];
@@ -100,7 +100,8 @@ function BannerHero() {
   useEffect(() => {
     if (!canRotate || paused) return;
     const t = window.setInterval(() => {
-      if (document.hidden) return;
+      // also stops for "stop motion" in the accessibility widget
+      if (document.hidden || document.documentElement.classList.contains("a11y-motion")) return;
       setCur((c) => {
         setPrev(c);
         return (c + 1) % slides.length;
