@@ -28,16 +28,25 @@ create table public.admins (
 );
 
 -- the signed-in user's e-mail, from the Google sign-in token
-create or replace function public.auth_email() returns citext
-  language sql stable as $$ select nullif(auth.jwt() ->> 'email', '')::citext $$;
+create or replace function public.auth_email() returns public.citext
+  language sql stable set search_path = '' as
+  $$ select nullif(auth.jwt() ->> 'email', '')::public.citext $$;
 
+-- The two checks run with the table owner's rights (security definer), so they
+-- are locked down: an empty search_path with full names, so nothing can be
+-- slipped in under the same name, and only the roles that need them may run them.
 create or replace function public.is_admin() returns boolean
-  language sql stable security definer set search_path = public as
-  $$ select exists (select 1 from admins where email = auth_email()) $$;
+  language sql stable security definer set search_path = '' as
+  $$ select exists (select 1 from public.admins where email OPERATOR(public.=) public.auth_email()) $$;
 
 create or replace function public.is_owner() returns boolean
-  language sql stable security definer set search_path = public as
-  $$ select exists (select 1 from admins where email = auth_email() and role = 'owner') $$;
+  language sql stable security definer set search_path = '' as
+  $$ select exists (select 1 from public.admins where email OPERATOR(public.=) public.auth_email() and role = 'owner') $$;
+
+revoke execute on function public.auth_email(), public.is_admin(), public.is_owner() from public;
+grant  execute on function public.auth_email(), public.is_owner() to authenticated;
+-- is_admin stays callable by visitors: the read rules ("visible or is_admin()") use it, and for a visitor it simply returns false
+grant  execute on function public.is_admin() to anon, authenticated;
 
 -- there is always at least one owner
 create or replace function public.keep_one_owner() returns trigger
@@ -250,8 +259,12 @@ create policy "admins: owner delete" on public.admins for delete to authenticate
 
 -- =====================================================================
 -- 7. Storage – bucket "media": public read, admins upload / replace / delete
+--    Images only, up to 5 MB each – a safety net: the admin already shrinks
+--    every image in the browser (1600px WebP, usually 200–400 KB).
 -- =====================================================================
-insert into storage.buckets (id, name, public) values ('media', 'media', true) on conflict (id) do nothing;
+insert into storage.buckets (id, name, public, file_size_limit, allowed_mime_types)
+values ('media', 'media', true, 5242880, array['image/webp', 'image/jpeg', 'image/png'])
+on conflict (id) do update set file_size_limit = excluded.file_size_limit, allowed_mime_types = excluded.allowed_mime_types;
 
 create policy "media files: public read"  on storage.objects for select using (bucket_id = 'media');
 create policy "media files: admin insert" on storage.objects for insert to authenticated with check (bucket_id = 'media' and public.is_admin());
