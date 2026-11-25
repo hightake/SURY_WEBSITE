@@ -8,11 +8,15 @@ import { redirect } from "@tanstack/react-router";
 import { can } from "../models/user";
 import { getSessionUser } from "../services/authService";
 
-export async function requireAdmin() {
+export async function requireAdmin({ location }: { location: { pathname: string } }) {
   const user = await getSessionUser();
-  if (!can.editContent(user)) throw redirect({ to: "/admin/login" });
+  // remember where she was heading, so the sign-in brings her back there
+  if (!can.editContent(user)) throw redirect({ to: "/admin/login", search: { redirect: location.pathname } });
   return { user: user! };
 }
+
+/** Only a path inside the admin is accepted as the place to return to – never another site. */
+export const safeAdminPath = (p: unknown) => (typeof p === "string" && /^\/admin(\/[\w\-/]*)?$/.test(p) && !p.startsWith("/admin/login") ? p : "/admin");
 
 export async function requireOwner() {
   const user = await getSessionUser();

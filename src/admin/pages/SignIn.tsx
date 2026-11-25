@@ -1,13 +1,15 @@
-import { useNavigate } from "@tanstack/react-router";
+import { useNavigate, useSearch } from "@tanstack/react-router";
 import { useState } from "react";
 import { Logo } from "../../components/Logo";
 import { isPreviewBackend } from "../../services/environment";
 import { NotAllowedError, signIn } from "../../services/authService";
 import { useNoIndex } from "../layout/AdminLayout";
+import { safeAdminPath } from "../../middleware/adminGuards";
 
 export function SignIn() {
   useNoIndex("כניסה לניהול | SURY");
   const navigate = useNavigate();
+  const { redirect } = useSearch({ strict: false }) as { redirect?: string };
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
   const isMock = isPreviewBackend;
@@ -15,7 +17,7 @@ export function SignIn() {
     setError("");
     try {
       await signIn(email);
-      navigate({ to: "/admin" });
+      navigate({ to: safeAdminPath(redirect) });
     } catch (e) {
       setError(e instanceof NotAllowedError ? e.message : "הכניסה נכשלה, נסי שוב");
     }

@@ -9,7 +9,8 @@ const base = process.env.BASE_PATH || "/";
 
 /*
  * The opening photo is the page's largest element. The browser would only find
- * it after the app's script runs, so the first banner is preloaded from the HTML.
+ * it after the app's script runs, so on the home page the first banner is
+ * preloaded straight from the HTML.
  */
 function preloadHeroImage(): Plugin {
   return {
@@ -20,7 +21,14 @@ function preloadHeroImage(): Plugin {
       if (!img?.src || /^(data:|blob:|https?:)/.test(img.src)) return [];
       const full = base + img.src;
       const small = full.replace(/\.webp$/, "-sm.webp");
-      return [{ tag: "link", injectTo: "head", attrs: { rel: "preload", as: "image", href: full, imagesrcset: `${small} 700w, ${full} ${img.w}w`, imagesizes: "100vw", fetchpriority: "high" } }];
+      // only on the home page – other pages don't show this photo, so they shouldn't download it
+      const attrs = { rel: "preload", as: "image", href: full, imageSrcset: `${small} 700w, ${full} ${img.w}w`, imageSizes: "100vw", fetchPriority: "high" };
+      const home = JSON.stringify(base);
+      return [{
+        tag: "script",
+        injectTo: "head",
+        children: `if(location.pathname===${home}||location.pathname===${home}+"index.html"){var l=document.createElement("link");Object.assign(l,${JSON.stringify(attrs)});document.head.appendChild(l)}`,
+      }];
     },
   };
 }

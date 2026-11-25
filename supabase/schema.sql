@@ -220,13 +220,25 @@ alter table public.private_settings enable row level security;
 do $$
 declare t text;
 begin
-  foreach t in array array['media','subcategories','stores','store_hours','page_sections','hero_banners'] loop
+  foreach t in array array['subcategories','stores','store_hours','page_sections','hero_banners'] loop
     execute format('create policy "%1$s: public read"  on public.%1$I for select using (true)', t);
     execute format('create policy "%1$s: admin insert" on public.%1$I for insert to authenticated with check (public.is_admin())', t);
     execute format('create policy "%1$s: admin update" on public.%1$I for update to authenticated using (public.is_admin()) with check (public.is_admin())', t);
     execute format('create policy "%1$s: admin delete" on public.%1$I for delete to authenticated using (public.is_admin())', t);
   end loop;
 end $$;
+
+-- media: everyone reads, except images that belong to a hidden product (a collection not launched yet)
+create or replace function public.media_of_hidden_product(m uuid) returns boolean
+  language sql stable security definer set search_path = '' as
+  $$ select exists (select 1 from public.product_images i join public.products p on p.id = i.product_id where i.media_id = m and not p.visible) $$;
+revoke execute on function public.media_of_hidden_product(uuid) from public;
+grant  execute on function public.media_of_hidden_product(uuid) to anon, authenticated;
+
+create policy "media: public read"  on public.media for select using (not public.media_of_hidden_product(id) or public.is_admin());
+create policy "media: admin insert" on public.media for insert to authenticated with check (public.is_admin());
+create policy "media: admin update" on public.media for update to authenticated using (public.is_admin()) with check (public.is_admin());
+create policy "media: admin delete" on public.media for delete to authenticated using (public.is_admin());
 
 -- categories: fixed set – admins may edit, nobody adds or removes
 create policy "categories: public read"  on public.categories for select using (true);
@@ -258,7 +270,7 @@ create policy "admins: owner update" on public.admins for update to authenticate
 create policy "admins: owner delete" on public.admins for delete to authenticated using (public.is_owner());
 
 -- =====================================================================
--- 7. Storage – bucket "media": public read, admins upload / replace / delete
+-- 7. Storage – bucket "media": files open by address, admins list / upload / replace / delete
 --    Images only, up to 5 MB each – a safety net: the admin already shrinks
 --    every image in the browser (1600px WebP, usually 200–400 KB).
 -- =====================================================================
@@ -266,7 +278,9 @@ insert into storage.buckets (id, name, public, file_size_limit, allowed_mime_typ
 values ('media', 'media', true, 5242880, array['image/webp', 'image/jpeg', 'image/png'])
 on conflict (id) do update set file_size_limit = excluded.file_size_limit, allowed_mime_types = excluded.allowed_mime_types;
 
-create policy "media files: public read"  on storage.objects for select using (bucket_id = 'media');
+-- No public "select" on the files: a public bucket serves every file by its address anyway,
+-- and a select rule would only let anyone list all the files, including hidden products' photos.
+create policy "media files: admin read"   on storage.objects for select to authenticated using (bucket_id = 'media' and public.is_admin());
 create policy "media files: admin insert" on storage.objects for insert to authenticated with check (bucket_id = 'media' and public.is_admin());
 create policy "media files: admin update" on storage.objects for update to authenticated using (bucket_id = 'media' and public.is_admin());
 create policy "media files: admin delete" on storage.objects for delete to authenticated using (bucket_id = 'media' and public.is_admin());

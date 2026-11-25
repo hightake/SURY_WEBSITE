@@ -19,6 +19,9 @@ export function Header() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const megaId = useId();
   const closeTimer = useRef<number | undefined>(undefined);
+  const hoverOpenedAt = useRef(0);
+  const megaBtn = useRef<HTMLButtonElement>(null);
+  const megaPanel = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setMegaOpen(false);
@@ -35,6 +38,8 @@ export function Header() {
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
+        // back to the button that opened the menu, so keyboard users don't lose their place
+        if (megaPanel.current?.contains(document.activeElement)) megaBtn.current?.focus();
         setMegaOpen(false);
         setDrawerOpen(false);
       }
@@ -49,7 +54,23 @@ export function Header() {
 
   const openMega = () => {
     window.clearTimeout(closeTimer.current);
-    setMegaOpen(true);
+    setMegaOpen((was) => {
+      if (!was) hoverOpenedAt.current = Date.now();
+      return true;
+    });
+  };
+  const onMegaClick = (e: React.MouseEvent) => {
+    // the pointer opened it on the way to the button – a click right after must not close it again
+    if (megaOpen && Date.now() - hoverOpenedAt.current < 600) return;
+    const opening = !megaOpen;
+    setMegaOpen(opening);
+    // opened from the keyboard (Enter / Space): move into the menu, to its first link
+    if (opening && e.detail === 0) window.setTimeout(() => megaPanel.current?.querySelector<HTMLElement>("a")?.focus(), 60);
+  };
+  // tabbing out of the button and the menu closes it
+  const onMegaBlur = (e: React.FocusEvent) => {
+    const to = e.relatedTarget as Node | null;
+    if (to && !megaBtn.current?.contains(to) && !megaPanel.current?.contains(to)) setMegaOpen(false);
   };
   const closeMegaSoon = () => {
     closeTimer.current = window.setTimeout(() => setMegaOpen(false), 120);
@@ -74,11 +95,13 @@ export function Header() {
         <nav aria-label="ניווט ראשי" className="hidden h-full items-center gap-9 lg:flex">
           <div className="h-full" onMouseEnter={openMega} onMouseLeave={closeMegaSoon}>
             <button
+              ref={megaBtn}
               type="button"
               className="flex h-full items-center gap-1.5 text-[15px] font-normal"
               aria-expanded={megaOpen}
               aria-controls={megaId}
-              onClick={() => setMegaOpen((v) => !v)}
+              onClick={onMegaClick}
+              onBlur={onMegaBlur}
             >
               הקולקציות
               <IconChevron className={`size-3.5 transition-transform duration-300 ${megaOpen ? "rotate-180" : ""}`} />
@@ -102,8 +125,10 @@ export function Header() {
       {/* Desktop mega menu */}
       <div
         id={megaId}
+        ref={megaPanel}
         onMouseEnter={openMega}
         onMouseLeave={closeMegaSoon}
+        onBlur={onMegaBlur}
         className={`absolute inset-x-0 top-full hidden border-b-2 border-accent bg-bg shadow-[0_30px_40px_-30px_rgba(26,22,20,0.25)] transition-[opacity,visibility,transform] duration-300 lg:block ${megaOpen ? "visible opacity-100" : "invisible -translate-y-1 opacity-0"}`}
       >
         <div className="container-x grid grid-cols-5 gap-6 py-10">
@@ -139,10 +164,42 @@ export function Header() {
 
 function MobileDrawer({ open, onClose }: { open: boolean; onClose: () => void }) {
   const [openCat, setOpenCat] = useState<string | null>(null);
+  const dialog = useRef<HTMLDivElement>(null);
+  const closeBtn = useRef<HTMLButtonElement>(null);
+
+  // Keyboard & screen readers: focus moves into the menu, stays there while it is open,
+  // and returns to the menu button when it closes.
+  useEffect(() => {
+    if (!open) return;
+    const opener = document.activeElement as HTMLElement | null;
+    const t = window.setTimeout(() => closeBtn.current?.focus(), 50);
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== "Tab" || !dialog.current) return;
+      const items = [...dialog.current.querySelectorAll<HTMLElement>('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])')].filter((el) => el.tabIndex >= 0 && el.offsetParent !== null);
+      if (!items.length) return;
+      const first = items[0];
+      const last = items[items.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+    document.addEventListener("keydown", onKey);
+    return () => {
+      window.clearTimeout(t);
+      document.removeEventListener("keydown", onKey);
+      opener?.focus?.();
+    };
+  }, [open]);
+
   return (
     <div className={`fixed inset-0 z-50 lg:hidden ${open ? "visible" : "invisible"}`} aria-hidden={!open}>
       <div className={`absolute inset-0 bg-ink/40 transition-opacity duration-300 ${open ? "opacity-100" : "opacity-0"}`} onClick={onClose} />
       <div
+        ref={dialog}
         role="dialog"
         aria-modal="true"
         aria-label="תפריט"
@@ -150,7 +207,7 @@ function MobileDrawer({ open, onClose }: { open: boolean; onClose: () => void })
       >
         <div className="flex h-16 items-center justify-between border-b border-shade/60 px-5">
           <Logo className="h-8" />
-          <button type="button" onClick={onClose} aria-label="סגירת תפריט" className="-me-2 p-2">
+          <button ref={closeBtn} type="button" onClick={onClose} aria-label="סגירת תפריט" className="-me-2 p-2">
             <IconClose />
           </button>
         </div>
