@@ -40,6 +40,11 @@ export function migrate(input: SiteData): SiteData {
   let next = nextNumber(d as SiteData);
   for (const c of d.categories) for (const s of c.subcategories) for (const p of s.products) if (!/^\d+$/.test(p.slug)) p.slug = String(next++);
 
+  // the old placeholder "details" text: the field is shown only when it holds real information
+  for (const c of d.categories ?? [])
+    for (const sub of c.subcategories ?? [])
+      for (const p of sub.products ?? []) if (/^חומר והוראות טיפול – יעודכנו מהאדמין\.?$/.test(p.details ?? "")) p.details = "";
+
   return d as SiteData;
 }
 
