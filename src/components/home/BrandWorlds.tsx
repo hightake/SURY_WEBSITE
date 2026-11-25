@@ -113,7 +113,7 @@ export function BrandWorlds() {
                   </div>
                   <div className="niches-ledge" aria-hidden />
                   <div className="px-2 pb-8 pt-5 text-center md:pb-5 md:pt-3">
-                    <p className="latin text-sm text-accent">{String(i + 1).padStart(2, "0")}</p>
+                    <p className="latin text-sm text-gold-deep">{String(i + 1).padStart(2, "0")}</p>
                     <h3 className="mt-1 text-lg font-medium md:text-xl">{c.shortName}</h3>
                     <p className="mt-1 text-sm text-muted">{c.tagline}</p>
                     <span className="link-underline mt-3 inline-block text-sm text-primary">לגלות</span>

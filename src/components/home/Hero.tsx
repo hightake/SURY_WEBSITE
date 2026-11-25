@@ -129,7 +129,7 @@ function BannerHero() {
 
         <div className="container-x relative z-[5] flex min-h-[inherit] flex-col justify-end pb-20 pt-16 md:h-full md:justify-center md:pb-0 md:pt-0">
           <div className="max-w-xl">
-            <p className="eyebrow !text-accent animate-[fadeUp_1s_var(--ease-soft)_both]">{h.eyebrow}</p>
+            <p className="eyebrow !text-[#f3dca8] animate-[fadeUp_1s_var(--ease-soft)_both]">{h.eyebrow}</p>
             <h1 id="hero-title" className="mt-4 text-[2.7rem] leading-[1.05] tracking-tight drop-shadow-[0_2px_18px_rgba(0,0,0,0.35)] sm:text-6xl lg:text-[5.5rem] animate-[fadeUp_1s_var(--ease-soft)_0.15s_both]">
               <span className="block font-extrabold">{h.titleBold}</span>
               <span className="block font-extralight text-[#f3dca8]">{h.titleLight}</span>
