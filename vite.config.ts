@@ -24,7 +24,38 @@ function preloadHeroImage(): Plugin {
   };
 }
 
+/*
+ * One sharing card for the whole site (WhatsApp, Facebook…). Pages are built in
+ * the browser from content managed in the admin, so the card is deliberately
+ * general – it never shows a product that was renamed or removed.
+ * SITE_URL is the address the site is served from; link previews need an absolute image URL.
+ */
+function sharingCard(): Plugin {
+  const siteUrl = (process.env.SITE_URL || "https://sury.co.il").replace(/\/$/, "");
+  return {
+    name: "sharing-card",
+    transformIndexHtml(html) {
+      const title = html.match(/<title>([^<]*)<\/title>/)?.[1] ?? "SURY";
+      const description = html.match(/<meta name="description" content="([^"]*)"/)?.[1] ?? "";
+      const meta = (property: string, content: string) => ({ tag: "meta", injectTo: "head" as const, attrs: { property, content } });
+      return [
+        meta("og:type", "website"),
+        meta("og:site_name", "SURY"),
+        meta("og:locale", "he_IL"),
+        meta("og:url", siteUrl + "/"),
+        meta("og:title", title),
+        meta("og:description", description),
+        meta("og:image", siteUrl + "/og-image.jpg"),
+        meta("og:image:width", "1200"),
+        meta("og:image:height", "630"),
+        meta("og:image:alt", "SURY – כובעים, בנדנות, מטפחות ואופנת בית"),
+        { tag: "meta", injectTo: "head", attrs: { name: "twitter:card", content: "summary_large_image" } },
+      ];
+    },
+  };
+}
+
 export default defineConfig({
   base,
-  plugins: [react(), tailwindcss(), preloadHeroImage()],
+  plugins: [react(), tailwindcss(), preloadHeroImage(), sharingCard()],
 });
