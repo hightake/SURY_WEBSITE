@@ -2,6 +2,7 @@ import { defineConfig, type Plugin } from "vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import { readFileSync } from "node:fs";
+import { prerenderPages } from "./build/prerender.ts";
 
 // BASE_PATH is set only for the GitHub Pages preview (served under /SURY_WEBSITE/).
 const base = process.env.BASE_PATH || "/";
@@ -26,5 +27,5 @@ function preloadHeroImage(): Plugin {
 
 export default defineConfig({
   base,
-  plugins: [react(), tailwindcss(), preloadHeroImage()],
+  plugins: [react(), tailwindcss(), preloadHeroImage(), prerenderPages(base)],
 });
